@@ -9,14 +9,15 @@
 <meta property="og:title" content="100seSupport France | Solidarité Pakistan">
 <meta property="og:description" content="Une aide directe aux familles au Pakistan : 15 € = un colis alimentaire pour un mois, 45 € = un puits avec pompe manuelle.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/100seSupport.jpg">
+<!-- L'image de partage mise à jour avec le bon nom et la bonne extension -->
+<meta property="og:image" content="100seSupport.jpeg">
 <!-- À compléter : <link rel="canonical" href="URL officielle du site"> et og:url -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap">
 <!-- La police ourdoue (Noto Nastaliq Urdu) est chargée uniquement lorsque l'ourdou est choisi (voir le script). -->
-<link rel="preload" as="image" href="images/100seSupport-petit.jpg" imagesrcset="images/100seSupport-petit.jpg 640w, images/100seSupport.jpg 1200w" imagesizes="(min-width: 960px) 55vw, 100vw">
+<link rel="preload" as="image" href="100seSupport.jpeg">
 <script>document.documentElement.classList.add('js');</script>
 
 <style>
@@ -83,14 +84,8 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .muted{color:var(--muted)}
 .prose p+p{margin-block-start:1rem}
 .prose{max-width:62ch}
-
-/* Étiquette rectangulaire (« L'ASSO », « POURQUOI C'EST URGENT ») */
 .tag{display:inline-block;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1rem,3.2vw,1.2rem);line-height:1.2;padding:.35em .6em .3em;background:var(--tag-bg);color:var(--tag-fg);margin-block-end:1rem}
-/* Mot surligné dans un bloc (« ENSEMBLE », « COMPTE ») */
-/* inline-block : le bloc surligné occupe sa propre place dans la ligne
-   et ne recouvre plus les mots de la ligne précédente (Anton a des métriques très hautes) */
 .hl{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.08;padding:.06em .16em .02em;margin-block:.08em;background:var(--hl-bg);color:var(--hl-fg)}
-/* Gros chiffre encadré (15 €, 70 %) */
 .num-box{display:inline-block;font-family:var(--font-display);line-height:1;background:var(--hl-bg);color:var(--hl-fg);padding:.12em .22em .06em;font-size:clamp(3.4rem,15vw,6rem)}
 .source{font-size:.9rem;color:var(--muted);margin-block-start:.75rem}
 
@@ -132,7 +127,6 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .menu-btn svg{width:20px;height:20px}
 .header-cta{display:none}
 
-/* Mobile : le menu est un panneau déroulant (seulement si JS actif) */
 .site-nav{order:10;flex-basis:100%}
 .js .site-nav{display:none}
 .js .site-nav.is-open{display:block;padding-block:.5rem 1rem;border-top:1px solid rgba(42,30,27,.12)}
@@ -171,7 +165,6 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
   .hero-media{grid-column:2;grid-row:1;aspect-ratio:auto;height:100%;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
   [dir="rtl"] .hero-media{clip-path:polygon(0 0,86% 0,100% 100%,0 100%)}
 }
-/* Unique moment d'animation de la page : l'entrée du hero */
 @media (prefers-reduced-motion:no-preference){
   .hero-content>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
   .hero-content>:nth-child(2){animation-delay:.08s}
@@ -242,7 +235,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .contents .note{color:var(--muted);font-size:1.05rem}
 
 /* =========================================================
-   11. Cagnotte mensuelle et paliers (élément signature)
+   11. Cagnotte mensuelle et paliers
    ========================================================= */
 .cagnotte-grid{display:grid;gap:3rem}
 @media (min-width:960px){.cagnotte-grid{grid-template-columns:.95fr 1.05fr;gap:4.5rem;align-items:start}}
@@ -361,8 +354,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 @media (max-width:1279px){.site-footer{padding-block-end:6rem}}
 
 /* =========================================================
-   18. Ourdou (RTL) : police Nastaliq, pas de capitales,
-       interlignage plus généreux
+   18. Ourdou (RTL) : police Nastaliq, pas de capitales
    ========================================================= */
 html[lang="ur"]{--font-display:"Noto Nastaliq Urdu","Noto Naskh Arabic","Jameel Noori Nastaleeq",serif;--font-body:"Noto Nastaliq Urdu","Noto Naskh Arabic",Tahoma,serif}
 html[lang="ur"] body{font-size:1.05rem;line-height:2.1}
@@ -389,8 +381,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 <body>
 <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
 
-<!-- Logo : pictogramme recréé en SVG à partir des visuels (cercle, cœur, sourire).
-     À remplacer par le fichier officiel du logo si une version vectorielle existe. -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <symbol id="logo" viewBox="0 0 64 64">
     <circle cx="32" cy="32" r="32" fill="var(--logo-bg,#6B1D2D)"/>
@@ -428,7 +418,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         <button type="button" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
         <button type="button" data-lang="ur" lang="ur" aria-pressed="false" aria-label="اردو">اردو</button>
       </div>
-      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
       <a class="btn btn-sm header-cta" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
         <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
@@ -443,9 +432,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 <!-- ===================== HERO ===================== -->
 <section class="hero t-bordeaux" aria-labelledby="hero-title">
   <div class="hero-media">
-    <img src="images/100seSupport-petit.jpg"
-         srcset="images/100seSupport-petit.jpg 640w, images/100seSupport.jpg 1200w"
-         sizes="(min-width: 960px) 55vw, 100vw" width="1080" height="580"
+    <!-- Image : 100seSupport.jpeg -->
+    <img src="100seSupport.jpeg"
+         width="1080" height="580"
          alt="Un membre de l'équipe de 100seSupport entouré d'enfants et d'une mère souriants, devant un mur de briques au Pakistan"
          data-i18n-alt="alt_hero" fetchpriority="high" decoding="async">
   </div>
@@ -487,9 +476,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     </div>
     <div>
       <figure class="framed">
-        <img src="images/equipe-enfants-abri-petit.jpg"
-             srcset="images/equipe-enfants-abri-petit.jpg 640w, images/equipe-enfants-abri.jpg 1200w"
-             sizes="(min-width: 900px) 45vw, 100vw" width="1080" height="580"
+        <!-- Image : Photos tt le monde 2.png -->
+        <img src="Photos tt le monde 2.png"
+             width="1080" height="580"
              alt="Un membre de l'équipe entouré d'enfants souriants sous un abri en bois"
              data-i18n-alt="alt_histoire" loading="lazy" decoding="async">
       </figure>
@@ -514,9 +503,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 <!-- ===================== URGENCE ===================== -->
 <section class="urgence t-brun" id="urgence" aria-labelledby="urgence-title">
   <div class="band-media">
-    <img src="images/enfants-colis-mur-petit.jpg"
-         srcset="images/enfants-colis-mur-petit.jpg 640w, images/enfants-colis-mur.jpg 1200w"
-         sizes="100vw" width="1080" height="580"
+    <!-- Image : Photo colis.png -->
+    <img src="Photo colis.png"
+         width="1080" height="580"
          alt="Cinq enfants assis devant une maison en terre, à côté d'un colis alimentaire de 100seSupport"
          data-i18n-alt="alt_urgence" loading="lazy" decoding="async">
   </div>
@@ -528,7 +517,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         <p class="fact-intro" data-i18n="constat_1">Selon les estimations les plus récentes,</p>
         <p class="num-box" data-i18n="constat_chiffre">plus de 55 millions</p>
         <p class="lead" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
-        <!-- À compléter : source et date du chiffre « plus de 55 millions » (non précisées dans le site actuel) -->
       </article>
       <article class="fact">
         <p class="num-box" data-i18n="ipc_chiffre">7,5 millions</p>
@@ -556,9 +544,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <div class="offers">
       <article class="offer">
         <div class="offer-media">
-          <img src="images/colis-prets-petit.jpg"
-               srcset="images/colis-prets-petit.jpg 640w, images/colis-prets.jpg 1200w"
-               sizes="(min-width: 860px) 50vw, 100vw" width="1080" height="580"
+          <!-- Image : Colis.png -->
+          <img src="Colis.png"
+               width="1080" height="580"
                alt="Des dizaines de colis alimentaires jaunes et blancs portant le logo de 100seSupport, prêts à être distribués"
                data-i18n-alt="alt_colis" loading="lazy" decoding="async">
         </div>
@@ -570,9 +558,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       </article>
       <article class="offer">
         <div class="offer-media">
-          <img src="images/puits-garcon-eau-petit.jpg"
-               srcset="images/puits-garcon-eau-petit.jpg 640w, images/puits-garcon-eau.jpg 1200w"
-               sizes="(min-width: 860px) 50vw, 100vw" width="960" height="580"
+          <!-- Image : Eau.png -->
+          <img src="Eau.png"
+               width="960" height="580"
                alt="Un garçon rit à côté d'une pompe manuelle pendant qu'un autre enfant boit l'eau qui en coule"
                data-i18n-alt="alt_puits" loading="lazy" decoding="async">
         </div>
@@ -623,9 +611,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         </div>
 
         <figure class="framed cagnotte-photo">
-          <img src="images/enfants-charpai-colis-petit.jpg"
-               srcset="images/enfants-charpai-colis-petit.jpg 640w, images/enfants-charpai-colis.jpg 1200w"
-               sizes="(min-width: 960px) 45vw, 100vw" width="960" height="580"
+          <!-- Image : Colis + lit.png -->
+          <img src="Colis + lit.png"
+               width="960" height="580"
                alt="Cinq enfants assis sur un lit tressé à côté d'un colis alimentaire"
                data-i18n-alt="alt_cagnotte" loading="lazy" decoding="async">
         </figure>
@@ -633,7 +621,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 
       <div class="ladder-card">
         <h3 data-i18n="paliers_titre">Les paliers du mois</h3>
-        <!-- Les paliers sont listés du 1 au 4 (ordre de lecture) et affichés en escalier du bas vers le haut. -->
         <ol class="ladder" role="list">
           <li class="tier" data-tier="1" data-amount="75 €">
             <div><p class="tier-title"><span data-i18n="palier">Palier</span> 1 · <span class="ltr">75 €</span></p><p class="tier-desc" data-i18n="palier1_desc">5 colis alimentaires</p></div>
@@ -702,15 +689,18 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <h3 class="gallery-title" data-i18n="galerie_titre">Des preuves du terrain</h3>
     <ul class="gallery">
       <li><figure>
-        <img src="images/enfants-colis-jaune-petit.jpg" srcset="images/enfants-colis-jaune-petit.jpg 640w, images/enfants-colis-jaune.jpg 1200w" sizes="(min-width: 640px) 33vw, 100vw" width="940" height="580" alt="Trois garçons assis tiennent un grand colis alimentaire jaune" data-i18n-alt="alt_g1" loading="lazy" decoding="async">
+        <!-- Image : Colis.png -->
+        <img src="Colis.png" width="940" height="580" alt="Trois garçons assis tiennent un grand colis alimentaire jaune" data-i18n-alt="alt_g1" loading="lazy" decoding="async">
         <figcaption data-i18n="galerie_cap1">Distribution de colis alimentaires</figcaption>
       </figure></li>
       <li><figure>
-        <img src="images/puits-fillettes-petit.jpg" srcset="images/puits-fillettes-petit.jpg 640w, images/puits-fillettes.jpg 1200w" sizes="(min-width: 640px) 33vw, 100vw" width="960" height="580" alt="Trois fillettes en robes colorées se lavent les mains à une pompe manuelle" data-i18n-alt="alt_g2" loading="lazy" decoding="async">
+        <!-- Image : Puit 2.png -->
+        <img src="Puit 2.png" width="960" height="580" alt="Trois fillettes en robes colorées se lavent les mains à une pompe manuelle" data-i18n-alt="alt_g2" loading="lazy" decoding="async">
         <figcaption data-i18n="galerie_cap2">Un puits avec pompe manuelle</figcaption>
       </figure></li>
       <li><figure>
-        <img src="images/Photos_tt_le_monde-petit.jpg" srcset="images/Photos_tt_le_monde-petit.jpg 640w, images/Photos_tt_le_monde.jpg 1200w" sizes="(min-width: 640px) 33vw, 100vw" width="1080" height="580" alt="Cinq garçons souriants assis sur un lit tressé autour d'un colis alimentaire vert" data-i18n-alt="alt_g3" loading="lazy" decoding="async">
+        <!-- Image : Photos tt le monde.png -->
+        <img src="Photos tt le monde.png" width="1080" height="580" alt="Cinq garçons souriants assis sur un lit tressé autour d'un colis alimentaire vert" data-i18n-alt="alt_g3" loading="lazy" decoding="async">
         <figcaption data-i18n="galerie_cap3">Des familles soutenues chaque mois</figcaption>
       </figure></li>
     </ul>
@@ -765,7 +755,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <p class="lead" data-i18n="footer_desc">100 % de votre participation est directement investie sur le terrain au Pakistan.</p>
     <p class="don-rappel" data-i18n="don_rappel">15 € = un mois de nourriture pour une famille.</p>
     <div class="actions">
-      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
       <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="btn btn-ghost" id="share-btn"><svg aria-hidden="true" focusable="false"><use href="#icon-share"/></svg><span data-i18n="btn_partager">Partager le site</span></button>
     </div>
@@ -802,7 +791,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         <ul class="footer-links">
           <li><a href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg><span data-i18n="footer_link1">Nous suivre sur Instagram</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
           <li><a href="https://ig.me/m/100sesupport.fr" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-message"/></svg><span data-i18n="footer_link2">Nous contacter</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
-          <!-- À compléter : lien vers les mentions légales et la politique de confidentialité -->
         </ul>
       </div>
       </div>
@@ -820,14 +808,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 (function () {
   'use strict';
 
-  /* ============================================================
-     CONFIGURATION : les seules valeurs à modifier chaque mois
-     ============================================================ */
   var CONFIG = {
-    // À remplacer par le lien officiel de don (cagnotte). Tant qu'il est vide,
-    // les boutons de don renvoient vers le profil Instagram (lien en bio).
     donateUrl: '',
-    // Nombre de paliers débloqués pour la cagnotte en cours (0 à 4).
     paliersAtteints: 0,
     defaultLang: 'fr',
     urduFontHref: 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap'
@@ -835,9 +817,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 
   var LANGS = ['fr', 'en', 'ur'];
 
-  /* ============================================================
-     TRADUCTIONS (le français est lu directement dans la page)
-     ============================================================ */
   var I18N = {
     en: {
       meta_title: '100seSupport France | Solidarity with Pakistan',
@@ -1159,7 +1138,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     }
   };
 
-  // Textes générés par le script (le français n'est pas présent dans la page)
   var FR_EXTRA = {
     palier_atteint: 'Atteint',
     status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
@@ -1174,7 +1152,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
   var FR = Object.assign({}, FR_EXTRA);
   var currentLang = 'fr';
 
-  /* Le français est lu une seule fois dans le HTML : il n'est écrit qu'à un endroit */
   function captureFrench() {
     FR.meta_title = document.title;
     FR.meta_desc = metaDesc ? metaDesc.getAttribute('content') : '';
@@ -1222,7 +1199,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var v = t(el.getAttribute('data-i18n'));
-      if (v) el.innerHTML = v; // chaînes internes et contrôlées uniquement
+      if (v) el.innerHTML = v;
     });
     document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
       var v = t(el.getAttribute('data-i18n-alt'));
@@ -1237,10 +1214,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     });
 
     renderTiers();
-    try { localStorage.setItem('lang', lang); } catch (e) { /* stockage indisponible */ }
+    try { localStorage.setItem('lang', lang); } catch (e) { }
   }
 
-  /* ---------------- Paliers de la cagnotte ---------------- */
   function renderTiers() {
     var done = Math.max(0, Math.min(4, parseInt(CONFIG.paliersAtteints, 10) || 0));
     var tiers = document.querySelectorAll('.tier');
@@ -1266,7 +1242,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     }
   }
 
-  /* ---------------- Liens de don ---------------- */
   function setupDonateLinks() {
     var url = (CONFIG.donateUrl || '').trim();
     if (!url) return;
@@ -1274,7 +1249,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     document.querySelectorAll('[data-donate-note]').forEach(function (n) { n.hidden = true; });
   }
 
-  /* ---------------- Menu mobile ---------------- */
   function setupMenu() {
     var btn = document.querySelector('.menu-btn');
     var nav = document.getElementById('site-nav');
@@ -1299,7 +1273,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
   }
 
-  /* ---------------- En-tête au défilement ---------------- */
   function setupHeader() {
     var header = document.querySelector('.site-header');
     if (!header) return;
@@ -1311,7 +1284,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     update();
   }
 
-  /* ---------------- Bandeau de don mobile ---------------- */
   function setupStickyBar() {
     var bar = document.getElementById('sticky-don');
     var hero = document.querySelector('.hero');
@@ -1335,7 +1307,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     io.observe(don);
   }
 
-  /* ---------------- Animation des paliers ---------------- */
   function setupLadderAnimation() {
     var ladder = document.querySelector('.ladder');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1347,7 +1318,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     io.observe(ladder);
   }
 
-  /* ---------------- Partage ---------------- */
   function setupShare() {
     var btn = document.getElementById('share-btn');
     var status = document.getElementById('share-status');
@@ -1365,7 +1335,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     });
   }
 
-  /* ---------------- Initialisation ---------------- */
   function init() {
     captureFrench();
     var year = document.getElementById('year');
@@ -1376,7 +1345,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       var fromUrl = new URLSearchParams(window.location.search).get('lang');
       var stored = localStorage.getItem('lang');
       initial = LANGS.indexOf(fromUrl) > -1 ? fromUrl : (LANGS.indexOf(stored) > -1 ? stored : initial);
-    } catch (e) { /* valeurs par défaut */ }
+    } catch (e) { }
 
     document.querySelectorAll('[data-lang]').forEach(function (btn) {
       btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
