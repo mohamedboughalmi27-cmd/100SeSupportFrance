@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>100seSupport France | Solidarité Pakistan</title>
+<meta name="description" content="100seSupport France soutient les familles vulnérables au Pakistan : colis alimentaires, puits avec pompe manuelle, frais médicaux et vêtements. Une cagnotte chaque mois et des distributions documentées.">
+<meta name="theme-color" content="#6B1D2D">
+<meta property="og:title" content="100seSupport France | Solidarité Pakistan">
+<meta property="og:description" content="Une aide directe aux familles au Pakistan : 15 € = un colis alimentaire pour un mois, 45 € = un puits avec pompe manuelle.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/equipe-enfants-village.jpg">
+<!-- À compléter : <link rel="canonical" href="URL officielle du site"> et og:url -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap">
+<!-- La police ourdoue (Noto Nastaliq Urdu) est chargée uniquement lorsque l'ourdou est choisi (voir le script). -->
+<link rel="preload" as="image" href="images/equipe-enfants-village-petit.jpg" imagesrcset="images/equipe-enfants-village-petit.jpg 640w, images/equipe-enfants-village.jpg 1200w" imagesizes="(min-width: 960px) 55vw, 100vw">
+<script>document.documentElement.classList.add('js');</script>
+
+<style>
+/* =========================================================
+   1. Jetons de design
+   ========================================================= */
+:root{
+  --bordeaux:#6B1D2D;
+  --bordeaux-fonce:#521522;
+  --ocre:#D9A441;
+  --brun:#2A1E1B;
+  --creme:#F1E9DF;
+  --creme-clair:#F8F3EC;
+
+  --font-display:"Anton","Impact","Arial Narrow Bold",sans-serif;
+  --font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+
+  --wrap:1180px;
+  --gutter:clamp(1.25rem,5vw,2.5rem);
+  --section-y:clamp(4rem,10vw,7.5rem);
+  --header-h:64px;
+  --radius-card:18px;
+  --radius-btn:6px;
+}
+
+/* Thèmes de section : chaque bloc reprend une des 4 ambiances des stories */
+.t-creme{--bg:var(--creme);--fg:var(--brun);--muted:#5B4A44;--tag-bg:var(--bordeaux);--tag-fg:var(--creme);--hl-bg:var(--bordeaux);--hl-fg:var(--creme);--btn-bg:var(--bordeaux);--btn-fg:var(--creme);--btn-hover:var(--bordeaux-fonce);--focus:var(--bordeaux);--line:rgba(42,30,27,.22)}
+.t-bordeaux{--bg:var(--bordeaux);--fg:var(--creme);--muted:#EADBD3;--tag-bg:var(--ocre);--tag-fg:var(--brun);--hl-bg:var(--creme);--hl-fg:var(--bordeaux);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.35)}
+.t-brun{--bg:var(--brun);--fg:var(--creme);--muted:#D9CDC3;--tag-bg:var(--creme);--tag-fg:var(--brun);--hl-bg:var(--ocre);--hl-fg:var(--brun);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.25)}
+.t-ocre{--bg:var(--ocre);--fg:var(--brun);--muted:#4A3530;--tag-bg:var(--brun);--tag-fg:var(--ocre);--hl-bg:var(--bordeaux);--hl-fg:var(--creme);--btn-bg:var(--brun);--btn-fg:var(--creme);--btn-hover:#000;--focus:var(--brun);--line:rgba(42,30,27,.35)}
+[class*="t-"]{background:var(--bg);color:var(--fg)}
+
+/* =========================================================
+   2. Base
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--header-h) + 1rem)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;background:var(--creme);color:var(--brun);overflow-x:clip}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,p,ul,ol,figure,blockquote,dl,dd{margin:0}
+ul[role="list"],ol[role="list"]{list-style:none;padding:0}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:.08em}
+button{font:inherit;color:inherit}
+strong{font-weight:700}
+:focus-visible{outline:3px solid var(--focus,var(--bordeaux));outline-offset:3px;border-radius:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;inset-inline-start:1rem;top:-100px;z-index:200;background:var(--brun);color:var(--creme);padding:.75rem 1rem;font-weight:700;border-radius:var(--radius-btn)}
+.skip-link:focus{top:1rem}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--section-y)}
+.section-flush{padding-block-start:0}
+main:focus{outline:none}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+
+/* =========================================================
+   3. Typographie et marqueurs graphiques des visuels
+   ========================================================= */
+.display,h1,h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.005em;overflow-wrap:break-word;hyphens:auto}
+h1{font-size:clamp(3.2rem,13vw,6.8rem)}
+h2{font-size:clamp(2.4rem,9vw,4.4rem);margin-block-end:1.5rem;max-width:18ch}
+h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(1.55rem,5vw,2.1rem);line-height:1.08}
+.lead{font-size:clamp(1.12rem,2.6vw,1.3rem);line-height:1.55;max-width:60ch}
+.muted{color:var(--muted)}
+.prose p+p{margin-block-start:1rem}
+.prose{max-width:62ch}
+
+/* Étiquette rectangulaire (« L'ASSO », « POURQUOI C'EST URGENT ») */
+.tag{display:inline-block;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1rem,3.2vw,1.2rem);line-height:1.2;padding:.35em .6em .3em;background:var(--tag-bg);color:var(--tag-fg);margin-block-end:1rem}
+/* Mot surligné dans un bloc (« ENSEMBLE », « COMPTE ») */
+/* inline-block : le bloc surligné occupe sa propre place dans la ligne
+   et ne recouvre plus les mots de la ligne précédente (Anton a des métriques très hautes) */
+.hl{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.08;padding:.06em .16em .02em;margin-block:.08em;background:var(--hl-bg);color:var(--hl-fg)}
+/* Gros chiffre encadré (15 €, 70 %) */
+.num-box{display:inline-block;font-family:var(--font-display);line-height:1;background:var(--hl-bg);color:var(--hl-fg);padding:.12em .22em .06em;font-size:clamp(3.4rem,15vw,6rem)}
+.source{font-size:.9rem;color:var(--muted);margin-block-start:.75rem}
+
+/* =========================================================
+   4. Boutons
+   ========================================================= */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:.7rem 1.4rem;border-radius:var(--radius-btn);border:2px solid transparent;background:var(--btn-bg);color:var(--btn-fg);font-family:var(--font-display);text-transform:uppercase;font-size:1.15rem;letter-spacing:.02em;line-height:1.1;text-decoration:none;cursor:pointer;transition:background-color .2s ease,color .2s ease,transform .2s ease}
+.btn:hover{background:var(--btn-hover)}
+.btn:active{transform:translateY(1px)}
+.btn-ghost{background:transparent;color:var(--fg);border-color:currentColor}
+.btn-ghost:hover{background:var(--fg);color:var(--bg)}
+.btn-sm{min-height:44px;font-size:1rem;padding:.5rem 1rem}
+.btn svg{width:1.2em;height:1.2em;flex:none}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-block-start:2rem}
+.note{font-size:.95rem;color:var(--muted);margin-block-start:.9rem;max-width:52ch}
+
+/* =========================================================
+   5. En-tête et navigation
+   ========================================================= */
+.site-header{position:sticky;top:0;z-index:100;background:var(--creme);color:var(--brun);--focus:var(--bordeaux);border-bottom:1px solid transparent;transition:border-color .2s ease,box-shadow .2s ease}
+.site-header.is-scrolled{border-bottom-color:rgba(42,30,27,.12);box-shadow:0 6px 20px -12px rgba(42,30,27,.35)}
+.header-inner{display:flex;align-items:center;gap:.75rem;min-height:var(--header-h)}
+.brand{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;min-height:44px;margin-inline-end:auto}
+.brand svg{width:44px;height:44px;flex:none}
+.brand-name{font-family:var(--font-display);font-size:1.25rem;text-transform:none;letter-spacing:.01em;line-height:1}
+.brand-name small{display:block;font-family:var(--font-body);font-size:.72rem;font-weight:700;letter-spacing:.08em;color:var(--bordeaux);margin-block-start:.2rem}
+.site-nav ul{display:flex;flex-direction:column;gap:.25rem;padding:0;margin:0;list-style:none}
+.site-nav a{display:flex;align-items:center;min-height:48px;padding-inline:.5rem;font-weight:700;text-decoration:none}
+.site-nav a:hover{text-decoration:underline}
+.header-tools{display:flex;align-items:center;gap:.5rem}
+.lang{display:flex;border:2px solid var(--brun);border-radius:var(--radius-btn);overflow:hidden}
+.lang button{min-width:44px;min-height:40px;padding:0 .5rem;border:0;background:transparent;font-weight:700;font-size:.9rem;cursor:pointer}
+.lang button+button{border-inline-start:2px solid var(--brun)}
+.lang button[aria-pressed="true"]{background:var(--brun);color:var(--creme)}
+.lang button:hover:not([aria-pressed="true"]){background:rgba(42,30,27,.08)}
+.lang button:focus-visible{outline-offset:-5px;outline-color:var(--ocre)}
+.lang [lang="ur"]{font-family:"Noto Nastaliq Urdu",var(--font-body);font-size:.95rem;line-height:1}
+.menu-btn{display:inline-flex;align-items:center;gap:.4rem;min-height:44px;min-width:44px;padding:0 .7rem;border:2px solid var(--brun);border-radius:var(--radius-btn);background:transparent;font-weight:700;cursor:pointer}
+.menu-btn svg{width:20px;height:20px}
+.header-cta{display:none}
+
+/* Mobile : le menu est un panneau déroulant (seulement si JS actif) */
+.site-nav{order:10;flex-basis:100%}
+.js .site-nav{display:none}
+.js .site-nav.is-open{display:block;padding-block:.5rem 1rem;border-top:1px solid rgba(42,30,27,.12)}
+.header-inner{flex-wrap:wrap}
+.no-js .menu-btn,html:not(.js) .menu-btn{display:none}
+@media (max-width:420px){.brand-name{display:none}}
+
+@media (min-width:1280px){
+  .header-inner{flex-wrap:nowrap}
+  .js .site-nav,.site-nav{display:block;order:0;flex-basis:auto}
+  .site-nav ul{flex-direction:row;gap:.1rem}
+  .site-nav a{min-height:44px;padding-inline:.55rem;font-size:.93rem;white-space:nowrap}
+  .header-cta{white-space:nowrap}
+  .brand{margin-inline-end:1rem}
+  .site-nav{margin-inline-start:auto}
+  .menu-btn{display:none}
+  .header-cta{display:inline-flex;--btn-bg:var(--bordeaux);--btn-fg:var(--creme);--btn-hover:var(--bordeaux-fonce)}
+}
+
+/* =========================================================
+   6. Hero
+   ========================================================= */
+.hero{display:grid;overflow:hidden}
+.hero-media{position:relative;aspect-ratio:1080/620;clip-path:polygon(0 0,100% 0,100% 84%,0 100%);background:var(--bordeaux-fonce)}
+[dir="rtl"] .hero-media{clip-path:polygon(0 0,100% 0,100% 100%,0 84%)}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero-content{padding-block:1.5rem 3.5rem}
+.hero .lead{margin-block-start:1.25rem;color:var(--muted)}
+.hero-facts{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-block-start:2rem;padding:0;list-style:none;font-weight:700;font-size:.98rem}
+.hero-facts li{display:flex;align-items:center;gap:.5rem}
+.hero-facts li::before{content:"";width:.6rem;height:.6rem;background:var(--ocre);flex:none}
+.hero .note{color:var(--muted)}
+@media (min-width:960px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);min-height:min(calc(100svh - var(--header-h)),820px)}
+  .hero-content{grid-column:1;grid-row:1;align-self:center;padding-block:4rem;padding-inline:max(var(--gutter),calc((100vw - var(--wrap))/2 + var(--gutter))) 2.5rem;width:auto;max-width:none}
+  .hero-media{grid-column:2;grid-row:1;aspect-ratio:auto;height:100%;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
+  [dir="rtl"] .hero-media{clip-path:polygon(0 0,86% 0,100% 100%,0 100%)}
+}
+/* Unique moment d'animation de la page : l'entrée du hero */
+@media (prefers-reduced-motion:no-preference){
+  .hero-content>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero-content>:nth-child(2){animation-delay:.08s}
+  .hero-content>:nth-child(3){animation-delay:.16s}
+  .hero-content>:nth-child(n+4){animation-delay:.24s}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
+
+/* =========================================================
+   7. Histoire
+   ========================================================= */
+.split{display:grid;gap:2.5rem;align-items:start}
+@media (min-width:900px){.split{grid-template-columns:1.1fr .9fr;gap:4rem}}
+.framed{border:6px solid var(--bordeaux);background:var(--bordeaux)}
+.framed img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.mission{margin-block-start:2.5rem}
+.mission h3{margin-block-end:.9rem}
+.mission ul{display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;padding:0;list-style:none}
+.mission li{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.4rem,5vw,1.9rem);line-height:1.15;background:var(--bordeaux);color:var(--creme);padding:.12em .45em .08em}
+.france{margin-block-start:2rem;padding:1.75rem;border-inline-start:8px solid var(--ocre);background:var(--creme-clair)}
+.france .tag{--tag-bg:var(--ocre);--tag-fg:var(--brun)}
+.france h3{font-size:clamp(1.9rem,6vw,2.6rem);margin-block-end:.75rem}
+.france .hl{--hl-bg:var(--bordeaux);--hl-fg:var(--creme)}
+
+/* =========================================================
+   8. Citation
+   ========================================================= */
+.quote{padding-block:clamp(3.5rem,9vw,6rem)}
+.quote blockquote{position:relative;max-width:42ch;margin-inline:auto;text-align:center}
+.quote blockquote::before{content:"\201C";display:block;font-family:var(--font-display);font-size:5rem;line-height:.8;color:var(--ocre)}
+.quote p{font-size:clamp(1.35rem,4vw,2rem);line-height:1.4;font-weight:500}
+
+/* =========================================================
+   9. Urgence
+   ========================================================= */
+.band-media{aspect-ratio:1080/560;clip-path:polygon(0 0,100% 0,100% 82%,0 100%);max-height:540px;width:100%;overflow:hidden}
+[dir="rtl"] .band-media{clip-path:polygon(0 0,100% 0,100% 100%,0 82%)}
+.band-media img{width:100%;height:100%;object-fit:cover}
+.urgence .wrap{padding-block:1rem var(--section-y)}
+.facts{display:grid;gap:3rem;margin-block-start:1rem}
+@media (min-width:900px){.facts{grid-template-columns:repeat(3,1fr);gap:2.5rem}}
+.fact h3{margin-block:.9rem .6rem;font-size:clamp(1.5rem,4.5vw,1.9rem)}
+.fact .num-box{font-size:clamp(3rem,12vw,4.6rem)}
+.fact p:not(.num-box):not(.fact-intro){color:var(--muted)}
+.fact-intro{font-weight:700;color:var(--fg);margin-block-end:.6rem}
+
+/* =========================================================
+   10. Comment votre don aide
+   ========================================================= */
+.offers{display:grid;gap:2rem;margin-block-start:2.5rem}
+@media (min-width:860px){.offers{grid-template-columns:1fr 1fr}}
+.offer{background:var(--creme);color:var(--brun);display:flex;flex-direction:column}
+.offer-media{aspect-ratio:16/10;clip-path:polygon(0 0,100% 0,100% 86%,0 100%);overflow:hidden}
+[dir="rtl"] .offer-media{clip-path:polygon(0 0,100% 0,100% 100%,0 86%)}
+.offer-media img{width:100%;height:100%;object-fit:cover}
+.offer-body{padding:0 1.5rem 1.75rem;--hl-bg:var(--bordeaux);--hl-fg:var(--creme)}
+.offer .num-box{margin-block-start:-.2em;font-size:clamp(3.2rem,12vw,4.8rem)}
+.offer h3{margin-block:.9rem .5rem}
+.offer p:not(.num-box){color:#5B4A44}
+.contents{margin-block-start:4rem}
+.contents h3{font-size:clamp(2.2rem,8vw,3.4rem);margin-block-end:1.25rem}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;padding:0;list-style:none}
+@media (min-width:760px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}}
+.tile{background:var(--bordeaux);color:var(--creme);border-radius:var(--radius-card);padding:1rem 1.1rem 1.1rem;display:flex;flex-direction:column;justify-content:flex-end;min-height:120px}
+.tile-num{font-family:var(--font-display);font-size:clamp(2.4rem,9vw,3.4rem);line-height:1}
+.tile-label{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.05rem,3.6vw,1.35rem);line-height:1.15;margin-block-start:.25rem}
+.tile-total{background:transparent;color:var(--brun);border:3px solid var(--brun)}
+.contents .note{color:var(--muted);font-size:1.05rem}
+
+/* =========================================================
+   11. Cagnotte mensuelle et paliers (élément signature)
+   ========================================================= */
+.cagnotte-grid{display:grid;gap:3rem}
+@media (min-width:960px){.cagnotte-grid{grid-template-columns:.95fr 1.05fr;gap:4.5rem;align-items:start}}
+.pause h3{margin-block-end:1rem}
+.steps-block{margin-block-start:2.5rem}
+.steps-block h3{font-size:clamp(2rem,7vw,2.8rem);margin-block-end:1rem}
+.steps{display:grid;gap:1.25rem;padding:0;margin:0;list-style:none}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.step-n{font-family:var(--font-display);font-size:2.6rem;line-height:1;background:var(--ocre);color:var(--brun);min-width:3.2rem;text-align:center;padding:.12em .2em .05em}
+.step-title{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.3rem,4.5vw,1.6rem);line-height:1.1}
+.step p:not(.step-title){color:var(--muted);margin-block-start:.2rem}
+.ladder-card{background:var(--creme-clair);padding:clamp(1.25rem,4vw,2rem);border-radius:var(--radius-card)}
+.ladder-card h3{font-size:clamp(1.9rem,6vw,2.6rem);margin-block-end:1.25rem}
+.ladder{display:flex;flex-direction:column-reverse;gap:.7rem;padding:0;margin:0;list-style:none}
+.tier{--w:100%;width:var(--w);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1.1rem;border:2px solid #7A5F58;border-radius:14px;background:transparent;color:var(--brun);transform-origin:left center;transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+[dir="rtl"] .tier{transform-origin:right center}
+.tier[data-tier="1"]{--w:72%}.tier[data-tier="2"]{--w:80%}.tier[data-tier="3"]{--w:89%}
+@media (max-width:420px){.tier[data-tier="1"]{--w:84%}.tier[data-tier="2"]{--w:89%}.tier[data-tier="3"]{--w:94%}}
+.tier-title{font-family:var(--font-display);font-size:clamp(1.45rem,5vw,1.9rem);line-height:1.05;text-transform:uppercase}
+.tier-desc{font-weight:700;font-size:.98rem}
+.tier-check{width:28px;height:28px;flex:none;opacity:0}
+.tier.is-reached{background:var(--bordeaux);border-color:var(--bordeaux);color:var(--creme)}
+.tier.is-reached .tier-check{opacity:1}
+.tier-status{margin-block-start:1.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.35rem,4.5vw,1.75rem);line-height:1.15}
+.tier-status strong{font-weight:400;color:var(--bordeaux)}
+.ladder-card .actions{margin-block-start:1.5rem}
+.ladder-card .note{color:#5B4A44}
+@media (prefers-reduced-motion:no-preference){
+  .anim-ready .ladder .tier{transform:scaleX(.35);opacity:0;transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .4s ease}
+  .anim-ready .ladder.is-visible .tier{transform:none;opacity:1}
+  .anim-ready .ladder.is-visible .tier[data-tier="2"]{transition-delay:.08s}
+  .anim-ready .ladder.is-visible .tier[data-tier="3"]{transition-delay:.16s}
+  .anim-ready .ladder.is-visible .tier[data-tier="4"]{transition-delay:.24s}
+}
+.cagnotte-photo{margin-block-start:3rem}
+
+/* =========================================================
+   12. Réalisations
+   ========================================================= */
+.stat-groups{display:grid;gap:2.5rem;margin-block-start:2rem}
+@media (min-width:900px){.stat-groups{grid-template-columns:.8fr 1.2fr;gap:3rem}}
+.stat-group h3{font-size:1.3rem;color:var(--ocre);margin-block-end:1rem;padding-block-end:.6rem;border-bottom:2px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.5rem;margin:0}
+.stat{display:flex;flex-direction:column-reverse;justify-content:flex-end}
+.stat dt{font-family:var(--font-display);text-transform:uppercase;font-size:1.15rem;line-height:1.15;color:var(--muted)}
+.stat dd{font-family:var(--font-display);font-size:clamp(3rem,11vw,4.4rem);line-height:1}
+.cards{display:grid;gap:1.5rem;margin-block-start:3.5rem}
+@media (min-width:860px){.cards{grid-template-columns:1fr 1fr}}
+.card{background:var(--creme);color:var(--brun);border-radius:var(--radius-card);padding:1.75rem;--tag-bg:var(--bordeaux);--tag-fg:var(--creme)}
+.card h3{margin-block-end:.6rem}
+.card p:not(.tag){color:#5B4A44}
+.gallery-title{margin-block:4rem 1.25rem;font-size:clamp(1.9rem,6vw,2.6rem)}
+.gallery{display:grid;gap:1rem;grid-template-columns:1fr;padding:0;list-style:none}
+@media (min-width:640px){.gallery{grid-template-columns:repeat(3,1fr)}}
+.gallery figure{border:6px solid var(--creme);background:var(--creme)}
+.gallery img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.gallery figcaption{color:var(--brun);font-weight:700;font-size:.95rem;padding:.6rem .4rem .35rem}
+.continue{margin-block-start:2.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.5rem,5vw,2.1rem);line-height:1.15;max-width:32ch}
+
+/* =========================================================
+   13. Transparence
+   ========================================================= */
+.proofs{display:grid;gap:1rem;margin-block-start:2.5rem;padding:0;list-style:none}
+@media (min-width:860px){.proofs{grid-template-columns:repeat(3,1fr)}}
+.proof{border-top:6px solid var(--bordeaux);background:var(--creme-clair);padding:1.4rem 1.4rem 1.6rem}
+.proof h3{font-size:clamp(1.4rem,4.5vw,1.7rem);margin-block-end:.5rem}
+.proof p{color:var(--muted)}
+
+/* =========================================================
+   14. FAQ
+   ========================================================= */
+.faq-list{margin-block-start:2rem;max-width:820px;border-top:2px solid var(--line)}
+.faq-list details{border-bottom:2px solid var(--line)}
+.faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:64px;padding-block:1rem;cursor:pointer;list-style:none;font-weight:700;font-size:1.12rem}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"";flex:none;width:14px;height:14px;border-right:3px solid var(--bordeaux);border-bottom:3px solid var(--bordeaux);transform:rotate(45deg);margin-block-start:-6px;transition:transform .2s ease}
+.faq-list details[open] summary::after{transform:rotate(-135deg);margin-block-start:6px}
+.faq-list summary:hover{color:var(--bordeaux)}
+.faq-answer{padding-block-end:1.25rem;max-width:65ch;color:var(--muted)}
+
+/* =========================================================
+   15. Appel au don final
+   ========================================================= */
+.don{text-align:start}
+.don h2{max-width:14ch}
+.don-actions{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.5rem,5.5vw,2.2rem);line-height:1.1;margin-block-end:1.25rem}
+.don .lead{color:var(--brun)}
+.don-rappel{margin-block-start:1rem;font-weight:700}
+.share-status{min-height:1.6em;margin-block-start:.75rem;font-weight:700}
+
+/* =========================================================
+   16. Pied de page
+   ========================================================= */
+.site-footer{padding-block:4rem 2rem}
+.footer-grid{display:grid;gap:2.5rem}
+@media (min-width:860px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr}}
+.footer-brand{display:flex;align-items:center;gap:.75rem;--logo-bg:#F1E9DF;--logo-fg:#6B1D2D}
+.footer-brand svg{width:52px;height:52px}
+.footer-brand p{font-family:var(--font-display);font-size:1.5rem;line-height:1}
+.footer-tagline{margin-block-start:1rem;color:var(--muted)}
+.site-footer h2{font-size:1.25rem;margin-block-end:.75rem;color:var(--ocre);max-width:none}
+.footer-links{display:flex;flex-direction:column;gap:.1rem;padding:0;list-style:none}
+.footer-links a{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;text-decoration:none;color:var(--fg)}
+.footer-links a:hover{text-decoration:underline;color:var(--ocre)}
+.footer-links svg{width:20px;height:20px}
+.footer-bottom{margin-block-start:3rem;padding-block-start:1.5rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--muted)}
+
+/* =========================================================
+   17. Bandeau de don fixe (mobile uniquement)
+   ========================================================= */
+.sticky-don{position:fixed;inset-inline:0;bottom:0;z-index:90;display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.6rem var(--gutter) calc(.6rem + env(safe-area-inset-bottom,0px));background:var(--brun);color:var(--creme);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);box-shadow:0 -8px 24px -12px rgba(0,0,0,.5);transform:translateY(110%);visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s}
+.sticky-don.is-visible{transform:none;visibility:visible;transition:transform .25s ease,visibility 0s}
+.sticky-don p{font-size:.9rem;font-weight:700;line-height:1.3}
+.sticky-don .btn{flex:none}
+@media (min-width:1280px){.sticky-don{display:none}}
+@media (max-width:1279px){.site-footer{padding-block-end:6rem}}
+
+/* =========================================================
+   18. Ourdou (RTL) : police Nastaliq, pas de capitales,
+       interlignage plus généreux
+   ========================================================= */
+html[lang="ur"]{--font-display:"Noto Nastaliq Urdu","Noto Naskh Arabic","Jameel Noori Nastaleeq",serif;--font-body:"Noto Nastaliq Urdu","Noto Naskh Arabic",Tahoma,serif}
+html[lang="ur"] body{font-size:1.05rem;line-height:2.1}
+html[lang="ur"] :is(h1,h2,h3,.display,.tag,.btn,.mission li,.tile-label,.step-title,.tier-title,.tier-status,.continue,.don-actions,.stat dt,.brand-name){text-transform:none;letter-spacing:0}
+html[lang="ur"] :is(h1,h2,h3,.display){font-weight:700;line-height:1.85}
+html[lang="ur"] h1{font-size:clamp(2.2rem,9vw,4.4rem)}
+html[lang="ur"] h2{font-size:clamp(1.8rem,6.5vw,3rem)}
+html[lang="ur"] h3,html[lang="ur"] .step-title,html[lang="ur"] .tier-title{font-size:clamp(1.2rem,4vw,1.55rem);line-height:1.9}
+html[lang="ur"] .tag,html[lang="ur"] .btn{font-size:1rem;line-height:1.9;font-weight:700}
+html[lang="ur"] .mission li,html[lang="ur"] .tile-label,html[lang="ur"] .continue,html[lang="ur"] .don-actions,html[lang="ur"] .tier-status,html[lang="ur"] .stat dt{font-size:1.15rem;line-height:1.9;font-weight:700}
+html[lang="ur"] .hl{padding:0 .3em;line-height:1.75}
+html[lang="ur"] .brand-name,html[lang="ur"] .footer-brand p,html[lang="ur"] .num-box,html[lang="ur"] .tile-num,html[lang="ur"] .stat dd{font-family:"Anton","Impact",sans-serif}
+html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2.2rem,8vw,3.2rem);line-height:1.7;font-weight:700}
+.ltr{direction:ltr;unicode-bidi:isolate}
+
+/* =========================================================
+   19. Impression et contraste forcé
+   ========================================================= */
+@media (forced-colors:active){.tier.is-reached{border:4px solid CanvasText}.tag,.hl,.num-box{border:1px solid CanvasText}}
+@media print{.site-header,.sticky-don,.hero-media,.band-media{display:none}}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
+
+<!-- Logo : pictogramme recréé en SVG à partir des visuels (cercle, cœur, sourire).
+     À remplacer par le fichier officiel du logo si une version vectorielle existe. -->
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="logo" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="32" fill="var(--logo-bg,#6B1D2D)"/>
+    <path d="M32 33.5c-.6 0-9-5.3-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.7-8.4 11-9 11z" fill="var(--logo-fg,#F1E9DF)"/>
+    <path d="M16.5 34.5c2.8 7.4 8.8 11.5 15.5 11.5s12.7-4.1 15.5-11.5" fill="none" stroke="var(--logo-fg,#F1E9DF)" stroke-width="3.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ===================== EN-TÊTE ===================== -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="100seSupport France, retour en haut de page" data-i18n-aria="logo_label">
+      <svg aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+      <span class="brand-name" translate="no">100seSupport<small>FRANCE</small></span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale" data-i18n-aria="nav_label">
+      <ul>
+        <li><a href="#histoire" data-i18n="nav_histoire">Notre histoire</a></li>
+        <li><a href="#urgence" data-i18n="nav_urgence">L'urgence</a></li>
+        <li><a href="#votre-don" data-i18n="nav_don_aide">Votre don</a></li>
+        <li><a href="#cagnotte" data-i18n="nav_cagnotte">La cagnotte</a></li>
+        <li><a href="#transparence" data-i18n="nav_transparence">Transparence</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <div class="lang" role="group" aria-label="Choisir la langue" data-i18n-aria="lang_label">
+        <button type="button" data-lang="fr" lang="fr" aria-pressed="true" aria-label="Français">FR</button>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
+        <button type="button" data-lang="ur" lang="ur" aria-pressed="false" aria-label="اردو">اردو</button>
+      </div>
+      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
+      <a class="btn btn-sm header-cta" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+      <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span data-i18n="menu">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero t-bordeaux" aria-labelledby="hero-title">
+  <div class="hero-media">
+    <img src="images/equipe-enfants-village-petit.jpg"
+         srcset="images/equipe-enfants-village-petit.jpg 640w, images/equipe-enfants-village.jpg 1200w"
+         sizes="(min-width: 960px) 55vw, 100vw" width="1080" height="580"
+         alt="Un membre de l'équipe de 100seSupport entouré d'enfants et d'une mère souriants, devant un mur de briques au Pakistan"
+         data-i18n-alt="alt_hero" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-content wrap">
+    <p class="tag" translate="no" data-i18n="hero_subtitle">Achai Asaan Hai</p>
+    <h1 id="hero-title" data-i18n="hero_title">Le bien <span class="hl">est facile</span></h1>
+    <p class="lead" data-i18n="hero_desc">Apporter une aide vitale aux femmes, aux orphelins et aux familles démunies. Chaque geste compte, chaque don sauve des vies.</p>
+    <div class="actions">
+      <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+      <a class="btn btn-ghost" href="#histoire" data-i18n="btn_histoire">Notre histoire</a>
+    </div>
+    <p class="note" data-donate-note data-i18n="donate_note">La cagnotte du mois est accessible via le lien en bio de notre Instagram.</p>
+    <ul class="hero-facts">
+      <li data-i18n="hero_fact1">Née en 2021 au Pakistan</li>
+      <li data-i18n="hero_fact2">Antenne France depuis mars 2026</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== HISTOIRE ===================== -->
+<section class="section t-creme" id="histoire" aria-labelledby="histoire-title">
+  <div class="wrap split">
+    <div>
+      <p class="tag" data-i18n="badge_origine">Notre origine</p>
+      <h2 id="histoire-title" data-i18n="histoire_titre">Un pont de solidarité entre la France <span class="hl">et le Pakistan</span></h2>
+      <div class="prose">
+        <p data-i18n="histoire_p1">Initiative caritative créée en 2021 au cœur du <strong>Pakistan</strong>, 100seSupport est née d'une urgence : agir au plus près des populations vulnérables. Sur le terrain, notre équipe locale se mobilise pour soutenir les femmes isolées, protéger les orphelins et nourrir les familles oubliées. Une aide vitale, transmise directement de la main à la main, sans intermédiaire.</p>
+        <p data-i18n="histoire_p2">Face à l'urgence de la situation, l'association accélère son développement avec la création de <strong>100seSupport France</strong>. Notre ambition : bâtir une puissante chaîne de solidarité internationale pour décupler notre force d'action, et redonner un avenir aux enfants et aux mères qui ont tout perdu.</p>
+      </div>
+      <div class="mission">
+        <h3 data-i18n="mission_titre">Une aide directe</h3>
+        <ul>
+          <li data-i18n="mission_1">Colis alimentaires</li>
+          <li data-i18n="mission_2">Eau potable</li>
+          <li data-i18n="mission_3">Frais médicaux</li>
+          <li data-i18n="mission_4">Vêtements</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <figure class="framed">
+        <img src="images/equipe-enfants-abri-petit.jpg"
+             srcset="images/equipe-enfants-abri-petit.jpg 640w, images/equipe-enfants-abri.jpg 1200w"
+             sizes="(min-width: 900px) 45vw, 100vw" width="1080" height="580"
+             alt="Un membre de l'équipe entouré d'enfants souriants sous un abri en bois"
+             data-i18n-alt="alt_histoire" loading="lazy" decoding="async">
+      </figure>
+      <div class="france">
+        <p class="tag" data-i18n="france_tag">Et maintenant</p>
+        <h3 data-i18n="france_titre">La France <span class="hl">s'engage</span></h3>
+        <p data-i18n="france_desc">Depuis mars 2026, une antenne en France pour mobiliser plus de soutien, chaque mois.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CITATION ===================== -->
+<section class="quote t-bordeaux" aria-label="Citation" data-i18n-aria="citation_label">
+  <div class="wrap">
+    <blockquote>
+      <p data-i18n="citation">« L'œuvre la plus aimée est d'apporter de la joie à une personne, de la soulager d'une détresse ou de chasser sa faim. »</p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===================== URGENCE ===================== -->
+<section class="urgence t-brun" id="urgence" aria-labelledby="urgence-title">
+  <div class="band-media">
+    <img src="images/enfants-colis-mur-petit.jpg"
+         srcset="images/enfants-colis-mur-petit.jpg 640w, images/enfants-colis-mur.jpg 1200w"
+         sizes="100vw" width="1080" height="580"
+         alt="Cinq enfants assis devant une maison en terre, à côté d'un colis alimentaire de 100seSupport"
+         data-i18n-alt="alt_urgence" loading="lazy" decoding="async">
+  </div>
+  <div class="wrap">
+    <p class="tag" data-i18n="badge_urgence">L'urgence</p>
+    <h2 id="urgence-title" data-i18n="urgence_titre">Pourquoi <span class="hl">c'est urgent</span></h2>
+    <div class="facts">
+      <article class="fact">
+        <p class="fact-intro" data-i18n="constat_1">Selon les estimations les plus récentes,</p>
+        <p class="num-box" data-i18n="constat_chiffre">plus de 55 millions</p>
+        <p class="lead" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
+        <!-- À compléter : source et date du chiffre « plus de 55 millions » (non précisées dans le site actuel) -->
+      </article>
+      <article class="fact">
+        <p class="num-box" data-i18n="ipc_chiffre">7,5 millions</p>
+        <h3 data-i18n="ipc_titre">de Pakistanais souffrent de faim aiguë</h3>
+        <p data-i18n="ipc_desc">Plus d'1 personne sur 5 dans les régions étudiées. Inondations, sécheresse et prix élevés : même la farine devient difficile à acheter.</p>
+        <p class="source" data-i18n="ipc_source">Source : IPC, déc. 2025 – mars 2026</p>
+      </article>
+      <article class="fact">
+        <p class="num-box" data-i18n="eau_chiffre">70 %</p>
+        <h3 data-i18n="eau_titre">des foyers boivent une eau contaminée</h3>
+        <p data-i18n="eau_desc">L'eau insalubre provoque diarrhées et maladies, qui empêchent les enfants de bien grandir.</p>
+        <p class="source" data-i18n="eau_source">Source : UNICEF Pakistan</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMMENT VOTRE DON AIDE ===================== -->
+<section class="section t-ocre" id="votre-don" aria-labelledby="don-aide-title">
+  <div class="wrap">
+    <p class="tag" data-i18n="aide_tag">Comment votre don aide</p>
+    <h2 id="don-aide-title" data-i18n="aide_titre">Ce que permet <span class="hl">votre don</span></h2>
+    <p class="lead" data-i18n="aide_intro">Chaque palier de la cagnotte est une combinaison de colis et de puits. Voici d'où viennent les chiffres.</p>
+
+    <div class="offers">
+      <article class="offer">
+        <div class="offer-media">
+          <img src="images/colis-prets-petit.jpg"
+               srcset="images/colis-prets-petit.jpg 640w, images/colis-prets.jpg 1200w"
+               sizes="(min-width: 860px) 50vw, 100vw" width="1080" height="580"
+               alt="Des dizaines de colis alimentaires jaunes et blancs portant le logo de 100seSupport, prêts à être distribués"
+               data-i18n-alt="alt_colis" loading="lazy" decoding="async">
+        </div>
+        <div class="offer-body">
+          <p class="num-box ltr">15 €</p>
+          <h3 data-i18n="colis_titre">1 colis alimentaire</h3>
+          <p data-i18n="colis_desc">29 kg de nourriture, 1 mois pour une famille. Il est préparé et distribué directement par notre équipe au Pakistan.</p>
+        </div>
+      </article>
+      <article class="offer">
+        <div class="offer-media">
+          <img src="images/puits-garcon-eau-petit.jpg"
+               srcset="images/puits-garcon-eau-petit.jpg 640w, images/puits-garcon-eau.jpg 1200w"
+               sizes="(min-width: 860px) 50vw, 100vw" width="960" height="580"
+               alt="Un garçon rit à côté d'une pompe manuelle pendant qu'un autre enfant boit l'eau qui en coule"
+               data-i18n-alt="alt_puits" loading="lazy" decoding="async">
+        </div>
+        <div class="offer-body">
+          <p class="num-box ltr">45 €</p>
+          <h3 data-i18n="puits_titre">1 puits avec pompe manuelle</h3>
+          <p data-i18n="puits_desc">De l'eau potable pour toute la famille, tous les jours, pour les familles qui n'ont pas de point d'eau à proximité.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="contents">
+      <h3 data-i18n="contenu_titre">Dans un colis</h3>
+      <ul class="tiles">
+        <li class="tile"><span class="tile-num ltr">15 <span data-i18n="unit_kg">kg</span></span><span class="tile-label" data-i18n="aliment_farine">de farine</span></li>
+        <li class="tile"><span class="tile-num ltr">5 <span data-i18n="unit_kg">kg</span></span><span class="tile-label" data-i18n="aliment_riz">de riz</span></li>
+        <li class="tile"><span class="tile-num ltr">3 <span data-i18n="unit_kg">kg</span></span><span class="tile-label" data-i18n="aliment_sucre">de sucre</span></li>
+        <li class="tile"><span class="tile-num ltr">3 <span data-i18n="unit_kg">kg</span></span><span class="tile-label" data-i18n="aliment_lentilles">de lentilles</span></li>
+        <li class="tile"><span class="tile-num ltr">3 <span data-i18n="unit_kg">kg</span></span><span class="tile-label" data-i18n="aliment_pois">de pois chiches</span></li>
+        <li class="tile tile-total"><span class="tile-num ltr">29 <span data-i18n="unit_kg">kg</span></span><span class="tile-label" data-i18n="aliment_total">au total</span></li>
+      </ul>
+      <p class="note" data-i18n="contenu_note">Des aliments de base, qui se conservent et permettent de cuisiner tous les jours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAGNOTTE MENSUELLE ===================== -->
+<section class="section t-creme" id="cagnotte" aria-labelledby="cagnotte-title">
+  <div class="wrap">
+    <p class="tag" data-i18n="cagnotte_tag">Nouveau cette année</p>
+    <h2 id="cagnotte-title" data-i18n="cagnotte_titre">Notre mot d'ordre : <span class="hl">la régularité</span></h2>
+
+    <div class="cagnotte-grid">
+      <div>
+        <div class="pause prose">
+          <h3 data-i18n="pause_titre">La faim ne prend pas de pause</h3>
+          <p class="lead" data-i18n="pause_p1">Un colis alimentaire nourrit une famille pendant <strong>environ un mois</strong>. Le mois suivant, le besoin est toujours là.</p>
+          <p class="lead" data-i18n="pause_p2">Alors plutôt que des collectes de temps en temps, on s'engage à aider <strong>chaque mois</strong>.</p>
+        </div>
+
+        <div class="steps-block">
+          <h3 data-i18n="etapes_titre">Une cagnotte par mois</h3>
+          <ol class="steps" role="list">
+            <li class="step"><span class="step-n" aria-hidden="true">1</span><div><p class="step-title" data-i18n="etape1_titre">Elle s'ouvre en début de mois</p><p data-i18n="etape1_desc">Toujours le même lien, en bio Instagram.</p></div></li>
+            <li class="step"><span class="step-n" aria-hidden="true">2</span><div><p class="step-title" data-i18n="etape2_titre">Elle a 4 paliers</p><p data-i18n="etape2_desc">Chaque palier débloque plus d'aide.</p></div></li>
+            <li class="step"><span class="step-n" aria-hidden="true">3</span><div><p class="step-title" data-i18n="etape3_titre">On vise le palier 4</p><p data-i18n="etape3_desc">Et on vous montre où va chaque euro.</p></div></li>
+          </ol>
+        </div>
+
+        <figure class="framed cagnotte-photo">
+          <img src="images/enfants-charpai-colis-petit.jpg"
+               srcset="images/enfants-charpai-colis-petit.jpg 640w, images/enfants-charpai-colis.jpg 1200w"
+               sizes="(min-width: 960px) 45vw, 100vw" width="960" height="580"
+               alt="Cinq enfants assis sur un lit tressé à côté d'un colis alimentaire"
+               data-i18n-alt="alt_cagnotte" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="ladder-card">
+        <h3 data-i18n="paliers_titre">Les paliers du mois</h3>
+        <!-- Les paliers sont listés du 1 au 4 (ordre de lecture) et affichés en escalier du bas vers le haut. -->
+        <ol class="ladder" role="list">
+          <li class="tier" data-tier="1" data-amount="75 €">
+            <div><p class="tier-title"><span data-i18n="palier">Palier</span> 1 · <span class="ltr">75 €</span></p><p class="tier-desc" data-i18n="palier1_desc">5 colis alimentaires</p></div>
+            <svg class="tier-check" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg><span class="visually-hidden tier-sr"></span>
+          </li>
+          <li class="tier" data-tier="2" data-amount="120 €">
+            <div><p class="tier-title"><span data-i18n="palier">Palier</span> 2 · <span class="ltr">120 €</span></p><p class="tier-desc" data-i18n="palier2_desc">5 colis + 1 puits</p></div>
+            <svg class="tier-check" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg><span class="visually-hidden tier-sr"></span>
+          </li>
+          <li class="tier" data-tier="3" data-amount="200 €">
+            <div><p class="tier-title"><span data-i18n="palier">Palier</span> 3 · <span class="ltr">200 €</span></p><p class="tier-desc" data-i18n="palier3_desc">10 colis + 1 puits</p></div>
+            <svg class="tier-check" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg><span class="visually-hidden tier-sr"></span>
+          </li>
+          <li class="tier" data-tier="4" data-amount="400 €">
+            <div><p class="tier-title"><span data-i18n="palier">Palier</span> 4 · <span class="ltr">400 €</span></p><p class="tier-desc" data-i18n="palier4_desc">20 colis + 2 puits</p></div>
+            <svg class="tier-check" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg><span class="visually-hidden tier-sr"></span>
+          </li>
+        </ol>
+        <p class="tier-status" id="tier-status" aria-live="polite" data-i18n="status_objectif">Objectif : le <strong>palier 4</strong>, soit 20 familles nourries et 2 puits.</p>
+        <div class="actions">
+          <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_cagnotte">Participer à la cagnotte du mois</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+        </div>
+        <p class="note" data-donate-note data-i18n="donate_note">La cagnotte du mois est accessible via le lien en bio de notre Instagram.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RÉALISATIONS ===================== -->
+<section class="section t-bordeaux" id="realisations" aria-labelledby="realisations-title">
+  <div class="wrap">
+    <p class="tag" data-i18n="badge_resultats">Résultats</p>
+    <h2 id="realisations-title" data-i18n="actions_titre">Nos réalisations grâce <span class="hl">à l'extension France</span></h2>
+
+    <div class="stat-groups">
+      <div class="stat-group">
+        <h3 data-i18n="stats_france_titre">Depuis mars 2026</h3>
+        <dl class="stats">
+          <div class="stat"><dt data-i18n="stat_cagnottes">Cagnottes menées</dt><dd>6</dd></div>
+          <div class="stat"><dt data-i18n="stat_recoltes">Récoltés</dt><dd class="ltr">900 €+</dd></div>
+        </dl>
+      </div>
+      <div class="stat-group">
+        <h3 data-i18n="stats_terrain_titre">Sur le terrain</h3>
+        <dl class="stats">
+          <div class="stat"><dt data-i18n="impact_1">Familles aidées</dt><dd class="ltr">60+</dd></div>
+          <div class="stat"><dt data-i18n="impact_2">Puits construits</dt><dd>3</dd></div>
+          <div class="stat"><dt data-i18n="impact_3">Action terrain</dt><dd class="ltr">100 %</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <p class="tag" data-i18n="tag_alim">Urgence alimentaire</p>
+        <h3 data-i18n="carte1_titre">Colis de première nécessité</h3>
+        <p data-i18n="carte1_desc">Grâce à la générosité de nos donateurs en France, plus de 60 familles ont reçu des denrées vitales (farine, riz, sucre, lentilles) pour lutter contre la malnutrition.</p>
+      </article>
+      <article class="card">
+        <p class="tag" data-i18n="tag_eau">Accès à l'eau</p>
+        <h3 data-i18n="carte2_titre">Construction de pompes</h3>
+        <p data-i18n="carte2_desc">L'installation et le financement de 3 pompes manuelles dans les zones isolées permettent aujourd'hui à des centaines d'enfants et d'adultes de boire sainement.</p>
+      </article>
+    </div>
+
+    <h3 class="gallery-title" data-i18n="galerie_titre">Des preuves du terrain</h3>
+    <ul class="gallery">
+      <li><figure>
+        <img src="images/enfants-colis-jaune-petit.jpg" srcset="images/enfants-colis-jaune-petit.jpg 640w, images/enfants-colis-jaune.jpg 1200w" sizes="(min-width: 640px) 33vw, 100vw" width="940" height="580" alt="Trois garçons assis tiennent un grand colis alimentaire jaune" data-i18n-alt="alt_g1" loading="lazy" decoding="async">
+        <figcaption data-i18n="galerie_cap1">Distribution de colis alimentaires</figcaption>
+      </figure></li>
+      <li><figure>
+        <img src="images/puits-fillettes-petit.jpg" srcset="images/puits-fillettes-petit.jpg 640w, images/puits-fillettes.jpg 1200w" sizes="(min-width: 640px) 33vw, 100vw" width="960" height="580" alt="Trois fillettes en robes colorées se lavent les mains à une pompe manuelle" data-i18n-alt="alt_g2" loading="lazy" decoding="async">
+        <figcaption data-i18n="galerie_cap2">Un puits avec pompe manuelle</figcaption>
+      </figure></li>
+      <li><figure>
+        <img src="images/garcons-colis-vert-petit.jpg" srcset="images/garcons-colis-vert-petit.jpg 640w, images/garcons-colis-vert.jpg 1200w" sizes="(min-width: 640px) 33vw, 100vw" width="1080" height="580" alt="Cinq garçons souriants assis sur un lit tressé autour d'un colis alimentaire vert" data-i18n-alt="alt_g3" loading="lazy" decoding="async">
+        <figcaption data-i18n="galerie_cap3">Des familles soutenues chaque mois</figcaption>
+      </figure></li>
+    </ul>
+    <p class="continue" data-i18n="continuer">On continue ? Les paliers 2, 3 et 4 financent chacun de nouveaux puits.</p>
+  </div>
+</section>
+
+<!-- ===================== TRANSPARENCE ===================== -->
+<section class="section t-creme" id="transparence" aria-labelledby="transparence-title">
+  <div class="wrap">
+    <p class="tag" data-i18n="transp_tag">Transparence</p>
+    <h2 id="transparence-title" data-i18n="transparence_titre">Transparence totale <span class="hl">de nos actions</span></h2>
+    <div class="prose">
+      <p class="lead" data-i18n="transparence_p1">La transparence est au cœur de notre engagement. C'est pourquoi nous documentons chacune de nos distributions sur le terrain : toutes les photos et vidéos sont disponibles directement sur notre page Instagram. Vous pouvez ainsi suivre de manière concrète l'utilisation des dons et l'impact de chaque action.</p>
+      <p data-i18n="transparence_p2">Une question sur nos missions ou envie d'échanger avec notre équipe ? Écrivez-nous en message privé, nous serons heureux de vous répondre. Votre confiance est essentielle pour nous, et nous tenons à vous offrir toute la clarté et la proximité que vous méritez.</p>
+    </div>
+    <ul class="proofs">
+      <li class="proof"><h3 data-i18n="preuve1_titre">Distribution du mois</h3><p data-i18n="preuve1_desc">Vos dons sont arrivés : toutes les photos sont publiées dans notre dernier post.</p></li>
+      <li class="proof"><h3 data-i18n="preuve2_titre">Bilan du mois</h3><p data-i18n="preuve2_desc">Paliers atteints, familles nourries, puits construits : on vous dit tout. Rendez-vous le 1er du mois suivant.</p></li>
+      <li class="proof"><h3 data-i18n="preuve3_titre">Une question ?</h3><p data-i18n="preuve3_desc">Écrivez-nous en message privé sur Instagram.</p></li>
+    </ul>
+    <div class="actions">
+      <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg><span data-i18n="btn_insta">Voir nos actions sur Instagram</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+      <a class="btn btn-ghost" href="https://ig.me/m/100sesupport.fr" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" focusable="false"><use href="#icon-message"/></svg><span data-i18n="btn_contact">Nous écrire sur Instagram</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section section-flush t-creme" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <p class="tag" data-i18n="faq_tag">Questions fréquentes</p>
+    <h2 id="faq-title" data-i18n="faq_titre">Vos <span class="hl">questions</span></h2>
+    <div class="faq-list">
+      <details><summary data-i18n="faq1_q">Où va mon don ?</summary><p class="faq-answer" data-i18n="faq1_a">15 € financent un colis alimentaire de 29 kg qui nourrit une famille pendant environ un mois ; 45 € financent un puits avec pompe manuelle. 100 % de votre participation est directement investie sur le terrain au Pakistan.</p></details>
+      <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours avec le même lien, dans la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
+      <details><summary data-i18n="faq3_q">Comment savoir que mon don est bien arrivé ?</summary><p class="faq-answer" data-i18n="faq3_a">Nous documentons chaque distribution : les photos et vidéos sont publiées sur notre page Instagram, et chaque mois nous publions un bilan des paliers atteints, des familles nourries et des puits construits.</p></details>
+      <details><summary data-i18n="faq4_q">Qui distribue l'aide sur place ?</summary><p class="faq-answer" data-i18n="faq4_a">Notre équipe locale au Pakistan prépare et distribue directement les colis, de la main à la main, sans intermédiaire.</p></details>
+      <details><summary data-i18n="faq5_q">Comment vous contacter ?</summary><p class="faq-answer" data-i18n="faq5_a">Écrivez-nous en message privé sur Instagram, nous serons heureux de vous répondre.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DON ===================== -->
+<section class="section don t-ocre" id="don" aria-labelledby="don-title">
+  <div class="wrap">
+    <p class="tag" data-i18n="don_tag">Nous soutenir</p>
+    <h2 id="don-title" data-i18n="footer_titre">Il n'y a pas <span class="hl">de petit don.</span></h2>
+    <p class="don-actions" data-i18n="don_actions">Donner, partager, en parler</p>
+    <p class="lead" data-i18n="footer_desc">100 % de votre participation est directement investie sur le terrain au Pakistan.</p>
+    <p class="don-rappel" data-i18n="don_rappel">15 € = un mois de nourriture pour une famille.</p>
+    <div class="actions">
+      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
+      <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+      <button type="button" class="btn btn-ghost" id="share-btn"><svg aria-hidden="true" focusable="false"><use href="#icon-share"/></svg><span data-i18n="btn_partager">Partager le site</span></button>
+    </div>
+    <p class="note" data-donate-note data-i18n="donate_note">La cagnotte du mois est accessible via le lien en bio de notre Instagram.</p>
+    <p class="share-status" id="share-status" role="status"></p>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== PIED DE PAGE ===================== -->
+<footer class="site-footer t-brun">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg aria-hidden="true" focusable="false"><use href="#logo"/></svg>
+          <p translate="no">100seSupport France</p>
+        </div>
+        <p class="footer-tagline" data-i18n="footer_tagline">Le bien est facile.</p>
+      </div>
+      <nav aria-labelledby="footer-nav-title">
+        <h2 id="footer-nav-title" data-i18n="footer_nav_titre">Navigation</h2>
+        <ul class="footer-links">
+          <li><a href="#histoire" data-i18n="nav_histoire">Notre histoire</a></li>
+          <li><a href="#votre-don" data-i18n="nav_don_aide">Votre don</a></li>
+          <li><a href="#cagnotte" data-i18n="nav_cagnotte">La cagnotte</a></li>
+          <li><a href="#transparence" data-i18n="nav_transparence">Transparence</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 data-i18n="footer_suivre">Nous suivre</h2>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg><span data-i18n="footer_link1">Nous suivre sur Instagram</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
+          <li><a href="https://ig.me/m/100sesupport.fr" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-message"/></svg><span data-i18n="footer_link2">Nous contacter</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
+          <!-- À compléter : lien vers les mentions légales et la politique de confidentialité -->
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom">© <span id="year">2026</span> <span translate="no">100seSupport France</span>. <span data-i18n="footer_copy">Initiative née en 2021 au Pakistan.</span></p>
+  </div>
+</footer>
+
+<!-- Bandeau de don discret, mobile uniquement -->
+<div class="sticky-don" id="sticky-don">
+  <p data-i18n="sticky_text">15 € = 1 mois de nourriture pour une famille</p>
+  <a class="btn btn-sm" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate tabindex="-1"><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============================================================
+     CONFIGURATION : les seules valeurs à modifier chaque mois
+     ============================================================ */
+  var CONFIG = {
+    // À remplacer par le lien officiel de don (cagnotte). Tant qu'il est vide,
+    // les boutons de don renvoient vers le profil Instagram (lien en bio).
+    donateUrl: '',
+    // Nombre de paliers débloqués pour la cagnotte en cours (0 à 4).
+    paliersAtteints: 0,
+    defaultLang: 'fr',
+    urduFontHref: 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap'
+  };
+
+  var LANGS = ['fr', 'en', 'ur'];
+
+  /* ============================================================
+     TRADUCTIONS (le français est lu directement dans la page)
+     ============================================================ */
+  var I18N = {
+    en: {
+      meta_title: '100seSupport France | Solidarity with Pakistan',
+      meta_desc: '100seSupport France supports vulnerable families in Pakistan: food parcels, wells with hand pumps, medical costs and clothing. A fundraiser every month and fully documented distributions.',
+      skip: 'Skip to content',
+      nav_label: 'Main navigation',
+      menu: 'Menu',
+      lang_label: 'Choose language',
+      logo_label: '100seSupport France, back to top',
+      nav_histoire: 'Our story',
+      nav_urgence: 'The emergency',
+      nav_don_aide: 'Your donation',
+      nav_cagnotte: 'Fundraiser',
+      nav_transparence: 'Transparency',
+      nav_faq: 'FAQ',
+      hero_subtitle: 'Achai Asaan Hai',
+      hero_title: 'Doing good <span class="hl">is easy</span>',
+      hero_desc: 'Bringing vital aid to women, orphans and families in need. Every gesture counts, every donation saves lives.',
+      btn_don: 'Donate',
+      btn_histoire: 'Our story',
+      new_tab: '(opens in a new tab)',
+      donate_note: 'This month’s fundraiser is available through the link in our Instagram bio.',
+      hero_fact1: 'Founded in 2021 in Pakistan',
+      hero_fact2: 'French branch since March 2026',
+      alt_hero: 'A member of the 100seSupport team surrounded by smiling children and a mother, in front of a brick wall in Pakistan',
+      badge_origine: 'Our origins',
+      histoire_titre: 'A bridge of solidarity between France <span class="hl">and Pakistan</span>',
+      histoire_p1: 'A charitable initiative founded in 2021 in the heart of <strong>Pakistan</strong>, 100seSupport was born out of urgency: to act as close as possible to vulnerable communities. On the ground, our local team works to support isolated women, protect orphans and feed forgotten families. Vital aid, handed over directly, from hand to hand, with no intermediary.',
+      histoire_p2: 'Faced with the urgency of the situation, the association is growing faster with the creation of <strong>100seSupport France</strong>. Our ambition: to build a strong international chain of solidarity that multiplies our capacity to act, and to give back a future to children and mothers who have lost everything.',
+      mission_titre: 'Direct aid',
+      mission_1: 'Food parcels',
+      mission_2: 'Drinking water',
+      mission_3: 'Medical costs',
+      mission_4: 'Clothing',
+      france_tag: 'And now',
+      france_titre: 'France <span class="hl">steps in</span>',
+      france_desc: 'Since March 2026, a branch in France to raise more support, every month.',
+      alt_histoire: 'A team member surrounded by smiling children under a wooden shelter',
+      citation_label: 'Quote',
+      citation: '“The most beloved deed is to bring joy to a person, to relieve them of distress or to drive away their hunger.”',
+      badge_urgence: 'The emergency',
+      urgence_titre: 'Why it <span class="hl">is urgent</span>',
+      constat_1: 'According to the latest estimates,',
+      constat_chiffre: 'over 55 million',
+      constat_2: 'people in Pakistan live in extreme poverty today. For millions of families, finding food or accessing drinking water remains a daily challenge.',
+      ipc_chiffre: '7.5 million',
+      ipc_titre: 'Pakistanis suffer from acute hunger',
+      ipc_desc: 'More than 1 in 5 people in the areas studied. Floods, drought and high prices: even flour is becoming hard to afford.',
+      ipc_source: 'Source: IPC, Dec. 2025 – March 2026',
+      eau_chiffre: '70%',
+      eau_titre: 'of households drink contaminated water',
+      eau_desc: 'Unsafe water causes diarrhoea and illness, which keep children from growing up healthy.',
+      eau_source: 'Source: UNICEF Pakistan',
+      alt_urgence: 'Five children sitting in front of a mud house, next to a 100seSupport food parcel',
+      aide_tag: 'How your donation helps',
+      aide_titre: 'What your donation <span class="hl">makes possible</span>',
+      aide_intro: 'Each fundraiser tier is a combination of parcels and wells. Here is where the figures come from.',
+      colis_titre: '1 food parcel',
+      colis_desc: '29 kg of food, 1 month for a family. It is prepared and distributed directly by our team in Pakistan.',
+      puits_titre: '1 well with a hand pump',
+      puits_desc: 'Drinking water for the whole family, every day, for families with no water source nearby.',
+      alt_colis: 'Dozens of yellow and white food parcels bearing the 100seSupport logo, ready to be distributed',
+      alt_puits: 'A boy laughs next to a hand pump while another child drinks the water flowing from it',
+      contenu_titre: 'Inside a parcel',
+      unit_kg: 'kg',
+      aliment_farine: 'of flour',
+      aliment_riz: 'of rice',
+      aliment_sucre: 'of sugar',
+      aliment_lentilles: 'of lentils',
+      aliment_pois: 'of chickpeas',
+      aliment_total: 'in total',
+      contenu_note: 'Staple foods that keep well and allow families to cook every day.',
+      cagnotte_tag: 'New this year',
+      cagnotte_titre: 'Our watchword: <span class="hl">regularity</span>',
+      pause_titre: 'Hunger never takes a break',
+      pause_p1: 'A food parcel feeds a family for <strong>about a month</strong>. The following month, the need is still there.',
+      pause_p2: 'So rather than occasional collections, we commit to helping <strong>every month</strong>.',
+      etapes_titre: 'One fundraiser per month',
+      etape1_titre: 'It opens at the start of the month',
+      etape1_desc: 'Always the same link, in our Instagram bio.',
+      etape2_titre: 'It has 4 tiers',
+      etape2_desc: 'Each tier unlocks more aid.',
+      etape3_titre: 'We aim for tier 4',
+      etape3_desc: 'And we show you where every euro goes.',
+      paliers_titre: 'This month’s tiers',
+      palier: 'Tier',
+      palier1_desc: '5 food parcels',
+      palier2_desc: '5 parcels + 1 well',
+      palier3_desc: '10 parcels + 1 well',
+      palier4_desc: '20 parcels + 2 wells',
+      palier_atteint: 'Reached',
+      status_objectif: 'Goal: <strong>tier 4</strong>, i.e. 20 families fed and 2 wells.',
+      status_next: 'Tier {done} unlocked! Next: tier {next} · {amount}',
+      status_done: 'This month’s goal is reached! Thank you, every one of you.',
+      btn_cagnotte: 'Join this month’s fundraiser',
+      alt_cagnotte: 'Five children sitting on a woven bed next to a food parcel',
+      badge_resultats: 'Results',
+      actions_titre: 'What we achieved thanks <span class="hl">to the French branch</span>',
+      stats_france_titre: 'Since March 2026',
+      stat_cagnottes: 'Fundraisers run',
+      stat_recoltes: 'Raised',
+      stats_terrain_titre: 'On the ground',
+      impact_1: 'Families helped',
+      impact_2: 'Wells built',
+      impact_3: 'Field action',
+      tag_alim: 'Food emergency',
+      carte1_titre: 'Essential supply parcels',
+      carte1_desc: 'Thanks to the generosity of our donors in France, more than 60 families received vital food supplies (flour, rice, sugar, lentils) to fight malnutrition.',
+      tag_eau: 'Access to water',
+      carte2_titre: 'Building pumps',
+      carte2_desc: 'Installing and funding 3 hand pumps in isolated areas now allows hundreds of children and adults to drink safely.',
+      galerie_titre: 'Proof from the field',
+      galerie_cap1: 'Food parcel distribution',
+      galerie_cap2: 'A well with a hand pump',
+      galerie_cap3: 'Families supported every month',
+      alt_g1: 'Three seated boys holding a large yellow food parcel',
+      alt_g2: 'Three little girls in colourful dresses washing their hands at a hand pump',
+      alt_g3: 'Five smiling boys sitting on a woven bed around a green food parcel',
+      continuer: 'Shall we keep going? Tiers 2, 3 and 4 each fund new wells.',
+      transp_tag: 'Transparency',
+      transparence_titre: 'Full transparency <span class="hl">on our actions</span>',
+      transparence_p1: 'Transparency is at the heart of our commitment. That is why we document every distribution on the ground: all photos and videos are available directly on our Instagram page. You can follow, in concrete terms, how donations are used and the impact of each action.',
+      transparence_p2: 'A question about our missions, or would you like to talk with our team? Send us a private message, we will be happy to reply. Your trust matters to us, and we want to offer you all the clarity and closeness you deserve.',
+      preuve1_titre: 'This month’s distribution',
+      preuve1_desc: 'Your donations have arrived: all the photos are published in our latest post.',
+      preuve2_titre: 'Monthly report',
+      preuve2_desc: 'Tiers reached, families fed, wells built: we tell you everything. See you on the 1st of the following month.',
+      preuve3_titre: 'A question?',
+      preuve3_desc: 'Send us a private message on Instagram.',
+      btn_insta: 'See our actions on Instagram',
+      btn_contact: 'Message us on Instagram',
+      faq_tag: 'Frequently asked questions',
+      faq_titre: 'Your <span class="hl">questions</span>',
+      faq1_q: 'Where does my donation go?',
+      faq1_a: '€15 funds a 29 kg food parcel that feeds a family for about a month; €45 funds a well with a hand pump. 100% of your contribution is invested directly in the field in Pakistan.',
+      faq2_q: 'How does the monthly fundraiser work?',
+      faq2_a: 'It opens at the start of each month, always with the same link, in our Instagram bio. It has 4 tiers: €75, €120, €200 and €400. Our goal is tier 4, i.e. 20 families fed and 2 wells.',
+      faq3_q: 'How do I know my donation arrived?',
+      faq3_a: 'We document every distribution: photos and videos are published on our Instagram page, and every month we share a report on the tiers reached, the families fed and the wells built.',
+      faq4_q: 'Who distributes the aid locally?',
+      faq4_a: 'Our local team in Pakistan prepares and distributes the parcels directly, from hand to hand, with no intermediary.',
+      faq5_q: 'How can I contact you?',
+      faq5_a: 'Send us a private message on Instagram, we will be happy to reply.',
+      don_tag: 'Support us',
+      footer_titre: 'No donation <span class="hl">is too small.</span>',
+      don_actions: 'Give, share, spread the word',
+      footer_desc: '100% of your contribution is invested directly in the field in Pakistan.',
+      don_rappel: '€15 = one month of food for a family.',
+      btn_partager: 'Share the site',
+      share_copied: 'Link copied to the clipboard.',
+      share_error: 'Copy this page’s address to share it.',
+      share_text: '100seSupport France: direct aid for families in Pakistan, every month.',
+      footer_tagline: 'Doing good is easy.',
+      footer_nav_titre: 'Navigation',
+      footer_suivre: 'Follow us',
+      footer_link1: 'Follow us on Instagram',
+      footer_link2: 'Contact us',
+      footer_copy: 'An initiative founded in 2021 in Pakistan.',
+      sticky_text: '€15 = 1 month of food for a family'
+    },
+    ur: {
+      meta_title: '100seSupport France | پاکستان کے ساتھ یکجہتی',
+      meta_desc: '100seSupport France پاکستان میں ضرورت مند خاندانوں کی مدد کرتا ہے: راشن کے پیکٹ، ہینڈ پمپ والے کنویں، علاج کے اخراجات اور کپڑے۔ ہر مہینے ایک مہم، اور ہر تقسیم کی مکمل تفصیل۔',
+      skip: 'مرکزی مواد پر جائیں',
+      nav_label: 'مرکزی نیویگیشن',
+      menu: 'مینو',
+      lang_label: 'زبان منتخب کریں',
+      logo_label: '100seSupport France، صفحے کے شروع میں جائیں',
+      nav_histoire: 'ہماری کہانی',
+      nav_urgence: 'فوری ضرورت',
+      nav_don_aide: 'آپ کا عطیہ',
+      nav_cagnotte: 'ماہانہ مہم',
+      nav_transparence: 'شفافیت',
+      nav_faq: 'سوالات',
+      hero_subtitle: 'Achai Asaan Hai',
+      hero_title: 'اچھائی <span class="hl">آسان ہے</span>',
+      hero_desc: 'خواتین، یتیم بچوں اور غریب خاندانوں تک زندگی بچانے والی مدد پہنچانا۔ ہر قدم اہم ہے، ہر عطیہ زندگیاں بچاتا ہے۔',
+      btn_don: 'عطیہ کریں',
+      btn_histoire: 'ہماری کہانی',
+      new_tab: '(نئی ٹیب میں کھلتا ہے)',
+      donate_note: 'اس مہینے کی مہم کا لنک ہمارے انسٹاگرام بائیو میں موجود ہے۔',
+      hero_fact1: '2021 میں پاکستان میں آغاز',
+      hero_fact2: 'مارچ 2026 سے فرانس میں شاخ',
+      alt_hero: '100seSupport ٹیم کا ایک رکن پاکستان میں اینٹوں کی دیوار کے سامنے مسکراتے بچوں اور ایک ماں کے ساتھ',
+      badge_origine: 'ہمارا آغاز',
+      histoire_titre: 'فرانس اور پاکستان کے درمیان <span class="hl">یکجہتی کا پل</span>',
+      histoire_p1: '100seSupport ایک خیراتی اقدام ہے جو 2021 میں <strong>پاکستان</strong> میں ایک فوری ضرورت کے تحت شروع ہوا: کمزور طبقوں کے قریب رہ کر کام کرنا۔ ہماری مقامی ٹیم زمینی سطح پر تنہا خواتین کی مدد، یتیم بچوں کی حفاظت اور نظر انداز خاندانوں کو کھانا پہنچانے کے لیے سرگرم ہے۔ زندگی بچانے والی مدد، براہِ راست ہاتھ سے ہاتھ، کسی واسطے کے بغیر۔',
+      histoire_p2: 'حالات کی سنگینی کے پیشِ نظر، تنظیم نے <strong>100seSupport France</strong> قائم کر کے اپنی ترقی کو تیز کیا ہے۔ ہمارا مقصد: بین الاقوامی یکجہتی کی ایک مضبوط زنجیر بنانا تاکہ ہماری کام کرنے کی طاقت کئی گنا بڑھ جائے، اور ان بچوں اور ماؤں کو نیا مستقبل دیا جا سکے جو سب کچھ کھو چکے ہیں۔',
+      mission_titre: 'براہِ راست مدد',
+      mission_1: 'راشن کے پیکٹ',
+      mission_2: 'صاف پانی',
+      mission_3: 'علاج کے اخراجات',
+      mission_4: 'کپڑے',
+      france_tag: 'اور اب',
+      france_titre: 'فرانس <span class="hl">بھی شامل ہے</span>',
+      france_desc: 'مارچ 2026 سے فرانس میں ایک شاخ، تاکہ ہر مہینے زیادہ مدد اکٹھی کی جا سکے۔',
+      alt_histoire: 'ٹیم کا ایک رکن لکڑی کے سائبان تلے مسکراتے بچوں کے ساتھ',
+      citation_label: 'اقتباس',
+      citation: '« سب سے پسندیدہ عمل یہ ہے کہ کسی انسان کو خوشی دی جائے، اس کی پریشانی دور کی جائے یا اس کی بھوک مٹائی جائے۔ »',
+      badge_urgence: 'فوری ضرورت',
+      urgence_titre: 'یہ <span class="hl">فوری کیوں ہے</span>',
+      constat_1: 'تازہ ترین اندازوں کے مطابق،',
+      constat_chiffre: '5 کروڑ 50 لاکھ سے زائد',
+      constat_2: 'افراد آج پاکستان میں انتہائی غربت میں زندگی گزار رہے ہیں۔ لاکھوں خاندانوں کے لیے روزانہ کھانا اور پینے کا صاف پانی حاصل کرنا ایک چیلنج ہے۔',
+      ipc_chiffre: '75 لاکھ',
+      ipc_titre: 'پاکستانی شدید بھوک کا شکار ہیں',
+      ipc_desc: 'جائزہ لیے گئے علاقوں میں ہر 5 میں سے 1 سے زیادہ فرد۔ سیلاب، خشک سالی اور مہنگائی: اب آٹا خریدنا بھی مشکل ہو گیا ہے۔',
+      ipc_source: 'ماخذ: IPC، دسمبر 2025 – مارچ 2026',
+      eau_chiffre: '70 فیصد',
+      eau_titre: 'گھرانے آلودہ پانی پیتے ہیں',
+      eau_desc: 'مضرِ صحت پانی سے اسہال اور بیماریاں پھیلتی ہیں، جو بچوں کی صحیح نشوونما میں رکاوٹ بنتی ہیں۔',
+      eau_source: 'ماخذ: یونیسف پاکستان',
+      alt_urgence: 'مٹی کے گھر کے سامنے بیٹھے پانچ بچے، 100seSupport کے راشن پیکٹ کے ساتھ',
+      aide_tag: 'آپ کا عطیہ کیسے مدد کرتا ہے',
+      aide_titre: 'آپ کے عطیے سے <span class="hl">کیا ممکن ہے</span>',
+      aide_intro: 'مہم کا ہر مرحلہ راشن پیکٹوں اور کنوؤں کا مجموعہ ہے۔ یہ رہا حساب۔',
+      colis_titre: '1 راشن پیکٹ',
+      colis_desc: '29 کلو کھانا، ایک خاندان کے لیے ایک مہینہ۔ اسے پاکستان میں ہماری ٹیم براہِ راست تیار اور تقسیم کرتی ہے۔',
+      puits_titre: 'ہینڈ پمپ والا 1 کنواں',
+      puits_desc: 'پورے خاندان کے لیے روزانہ صاف پانی، ان خاندانوں کے لیے جن کے قریب پانی کا کوئی ذریعہ نہیں۔',
+      alt_colis: '100seSupport کے لوگو والے درجنوں پیلے اور سفید راشن پیکٹ، تقسیم کے لیے تیار',
+      alt_puits: 'ایک لڑکا ہینڈ پمپ کے پاس ہنس رہا ہے جبکہ دوسرا بچہ اس سے نکلنے والا پانی پی رہا ہے',
+      contenu_titre: 'ایک پیکٹ میں کیا ہے',
+      unit_kg: 'کلو',
+      aliment_farine: 'آٹا',
+      aliment_riz: 'چاول',
+      aliment_sucre: 'چینی',
+      aliment_lentilles: 'دال',
+      aliment_pois: 'چنے',
+      aliment_total: 'کل وزن',
+      contenu_note: 'بنیادی غذائی اشیاء، جو دیر تک محفوظ رہتی ہیں اور روزانہ کھانا پکانے کے کام آتی ہیں۔',
+      cagnotte_tag: 'اس سال نیا',
+      cagnotte_titre: 'ہمارا اصول: <span class="hl">باقاعدگی</span>',
+      pause_titre: 'بھوک کبھی نہیں رکتی',
+      pause_p1: 'ایک راشن پیکٹ ایک خاندان کو <strong>تقریباً ایک مہینہ</strong> کھانا دیتا ہے۔ اگلے مہینے ضرورت پھر بھی باقی رہتی ہے۔',
+      pause_p2: 'اس لیے کبھی کبھار کی مہمات کے بجائے، ہم نے <strong>ہر مہینے</strong> مدد کرنے کا عہد کیا ہے۔',
+      etapes_titre: 'ہر مہینے ایک مہم',
+      etape1_titre: 'مہینے کے شروع میں کھلتی ہے',
+      etape1_desc: 'ہمیشہ وہی لنک، انسٹاگرام بائیو میں۔',
+      etape2_titre: 'اس کے 4 مراحل ہیں',
+      etape2_desc: 'ہر مرحلہ مزید مدد ممکن بناتا ہے۔',
+      etape3_titre: 'ہمارا ہدف مرحلہ 4 ہے',
+      etape3_desc: 'اور ہم آپ کو دکھاتے ہیں کہ ہر یورو کہاں جاتا ہے۔',
+      paliers_titre: 'اس مہینے کے مراحل',
+      palier: 'مرحلہ',
+      palier1_desc: '5 راشن پیکٹ',
+      palier2_desc: '5 پیکٹ + 1 کنواں',
+      palier3_desc: '10 پیکٹ + 1 کنواں',
+      palier4_desc: '20 پیکٹ + 2 کنویں',
+      palier_atteint: 'مکمل',
+      status_objectif: 'ہدف: <strong>مرحلہ 4</strong>، یعنی 20 خاندانوں کے لیے کھانا اور 2 کنویں۔',
+      status_next: 'مرحلہ {done} مکمل! اگلا: مرحلہ {next} · {amount}',
+      status_done: 'اس مہینے کا ہدف پورا ہو گیا! آپ سب کا شکریہ۔',
+      btn_cagnotte: 'اس مہینے کی مہم میں حصہ لیں',
+      alt_cagnotte: 'بُنی ہوئی چارپائی پر راشن پیکٹ کے ساتھ بیٹھے پانچ بچے',
+      badge_resultats: 'نتائج',
+      actions_titre: 'فرانس کی شاخ کی بدولت <span class="hl">ہماری کامیابیاں</span>',
+      stats_france_titre: 'مارچ 2026 سے',
+      stat_cagnottes: 'مہمات مکمل',
+      stat_recoltes: 'جمع ہوئے',
+      stats_terrain_titre: 'زمینی سطح پر',
+      impact_1: 'خاندانوں کی مدد',
+      impact_2: 'کنویں تعمیر',
+      impact_3: 'زمینی کام',
+      tag_alim: 'غذائی ہنگامی مدد',
+      carte1_titre: 'بنیادی ضروریات کے پیکٹ',
+      carte1_desc: 'فرانس میں ہمارے عطیہ دہندگان کی سخاوت کی بدولت 60 سے زائد خاندانوں کو غذائی قلت سے لڑنے کے لیے ضروری اشیاء (آٹا، چاول، چینی، دال) ملیں۔',
+      tag_eau: 'پانی تک رسائی',
+      carte2_titre: 'پمپوں کی تعمیر',
+      carte2_desc: 'دور دراز علاقوں میں 3 ہینڈ پمپوں کی تنصیب اور مالی معاونت سے آج سینکڑوں بچے اور بڑے صاف پانی پی رہے ہیں۔',
+      galerie_titre: 'زمین سے ثبوت',
+      galerie_cap1: 'راشن پیکٹوں کی تقسیم',
+      galerie_cap2: 'ہینڈ پمپ والا کنواں',
+      galerie_cap3: 'ہر مہینے مدد پانے والے خاندان',
+      alt_g1: 'تین بیٹھے ہوئے لڑکے ایک بڑا پیلا راشن پیکٹ تھامے ہوئے',
+      alt_g2: 'رنگین لباس میں تین بچیاں ہینڈ پمپ پر ہاتھ دھو رہی ہیں',
+      alt_g3: 'چارپائی پر سبز راشن پیکٹ کے گرد بیٹھے پانچ مسکراتے لڑکے',
+      continuer: 'کیا ہم جاری رکھیں؟ مرحلہ 2، 3 اور 4 میں سے ہر ایک نئے کنویں فراہم کرتا ہے۔',
+      transp_tag: 'شفافیت',
+      transparence_titre: 'ہمارے کاموں میں <span class="hl">مکمل شفافیت</span>',
+      transparence_p1: 'شفافیت ہمارے عزم کا مرکز ہے۔ اسی لیے ہم زمینی سطح پر ہر تقسیم کو محفوظ کرتے ہیں: تمام تصاویر اور ویڈیوز براہِ راست ہمارے انسٹاگرام پیج پر دستیاب ہیں۔ اس طرح آپ عطیات کے استعمال اور ہر قدم کے اثرات کو عملی طور پر دیکھ سکتے ہیں۔',
+      transparence_p2: 'ہمارے کاموں کے بارے میں کوئی سوال ہے یا ہماری ٹیم سے بات کرنا چاہتے ہیں؟ ہمیں پرائیویٹ میسج کریں، ہمیں جواب دے کر خوشی ہو گی۔ آپ کا اعتماد ہمارے لیے بہت اہم ہے، اور ہم آپ کو وہ وضاحت اور قربت دینا چاہتے ہیں جس کے آپ حق دار ہیں۔',
+      preuve1_titre: 'اس مہینے کی تقسیم',
+      preuve1_desc: 'آپ کے عطیات پہنچ گئے: تمام تصاویر ہماری تازہ ترین پوسٹ میں شائع کی جاتی ہیں۔',
+      preuve2_titre: 'مہینے کا خلاصہ',
+      preuve2_desc: 'کون سے مراحل مکمل ہوئے، کتنے خاندانوں کو کھانا ملا، کتنے کنویں بنے: ہم سب کچھ بتاتے ہیں۔ اگلے مہینے کی پہلی تاریخ کو ملاقات ہو گی۔',
+      preuve3_titre: 'کوئی سوال؟',
+      preuve3_desc: 'ہمیں انسٹاگرام پر پرائیویٹ میسج کریں۔',
+      btn_insta: 'ہمارے کام انسٹاگرام پر دیکھیں',
+      btn_contact: 'انسٹاگرام پر ہمیں لکھیں',
+      faq_tag: 'اکثر پوچھے جانے والے سوالات',
+      faq_titre: 'آپ کے <span class="hl">سوالات</span>',
+      faq1_q: 'میرا عطیہ کہاں جاتا ہے؟',
+      faq1_a: '15 یورو سے 29 کلو کا ایک راشن پیکٹ بنتا ہے جو ایک خاندان کو تقریباً ایک مہینہ کھانا دیتا ہے؛ 45 یورو سے ہینڈ پمپ والا ایک کنواں بنتا ہے۔ آپ کی رقم کا 100 فیصد براہِ راست پاکستان میں زمینی کام پر خرچ ہوتا ہے۔',
+      faq2_q: 'ماہانہ مہم کیسے کام کرتی ہے؟',
+      faq2_a: 'یہ ہر مہینے کے شروع میں کھلتی ہے، ہمیشہ اسی لنک کے ساتھ جو ہمارے انسٹاگرام بائیو میں ہے۔ اس کے 4 مراحل ہیں: 75، 120، 200 اور 400 یورو۔ ہمارا ہدف مرحلہ 4 ہے، یعنی 20 خاندانوں کے لیے کھانا اور 2 کنویں۔',
+      faq3_q: 'مجھے کیسے پتا چلے گا کہ میرا عطیہ پہنچ گیا؟',
+      faq3_a: 'ہم ہر تقسیم کو محفوظ کرتے ہیں: تصاویر اور ویڈیوز ہمارے انسٹاگرام پیج پر شائع ہوتی ہیں، اور ہر مہینے ہم مکمل ہونے والے مراحل، کھانا پانے والے خاندانوں اور بننے والے کنوؤں کا خلاصہ شائع کرتے ہیں۔',
+      faq4_q: 'وہاں مدد کون تقسیم کرتا ہے؟',
+      faq4_a: 'پاکستان میں ہماری مقامی ٹیم پیکٹ براہِ راست تیار اور تقسیم کرتی ہے، ہاتھ سے ہاتھ، کسی واسطے کے بغیر۔',
+      faq5_q: 'آپ سے رابطہ کیسے کریں؟',
+      faq5_a: 'ہمیں انسٹاگرام پر پرائیویٹ میسج کریں، ہمیں جواب دے کر خوشی ہو گی۔',
+      don_tag: 'ہماری مدد کریں',
+      footer_titre: 'کوئی عطیہ <span class="hl">چھوٹا نہیں۔</span>',
+      don_actions: 'عطیہ کریں، شیئر کریں، دوسروں کو بتائیں',
+      footer_desc: 'آپ کی رقم کا 100 فیصد براہِ راست پاکستان میں زمینی کام پر خرچ ہوتا ہے۔',
+      don_rappel: '15 یورو = ایک خاندان کے لیے ایک مہینے کا کھانا۔',
+      btn_partager: 'ویب سائٹ شیئر کریں',
+      share_copied: 'لنک کاپی ہو گیا۔',
+      share_error: 'شیئر کرنے کے لیے اس صفحے کا پتا کاپی کریں۔',
+      share_text: '100seSupport France: پاکستان میں خاندانوں کے لیے ہر مہینے براہِ راست مدد۔',
+      footer_tagline: 'اچھائی آسان ہے۔',
+      footer_nav_titre: 'صفحات',
+      footer_suivre: 'ہمیں فالو کریں',
+      footer_link1: 'انسٹاگرام پر ہمیں فالو کریں',
+      footer_link2: 'ہم سے رابطہ کریں',
+      footer_copy: '2021 میں پاکستان میں شروع ہونے والا اقدام۔',
+      sticky_text: '15 یورو = ایک خاندان کے لیے ایک مہینے کا کھانا'
+    }
+  };
+
+  // Textes générés par le script (le français n'est pas présent dans la page)
+  var FR_EXTRA = {
+    palier_atteint: 'Atteint',
+    status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
+    status_done: 'Objectif du mois atteint ! Merci à chacun d’entre vous.',
+    share_copied: 'Lien copié dans le presse-papiers.',
+    share_error: 'Copiez l’adresse de la page pour la partager.',
+    share_text: '100seSupport France : une aide directe aux familles au Pakistan, chaque mois.'
+  };
+
+  var root = document.documentElement;
+  var metaDesc = document.querySelector('meta[name="description"]');
+  var FR = Object.assign({}, FR_EXTRA);
+  var currentLang = 'fr';
+
+  /* Le français est lu une seule fois dans le HTML : il n'est écrit qu'à un endroit */
+  function captureFrench() {
+    FR.meta_title = document.title;
+    FR.meta_desc = metaDesc ? metaDesc.getAttribute('content') : '';
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (!(k in FR)) FR[k] = el.innerHTML.trim();
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-alt');
+      if (!(k in FR)) FR[k] = el.getAttribute('alt');
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-aria');
+      if (!(k in FR)) FR[k] = el.getAttribute('aria-label');
+    });
+  }
+
+  function t(key) {
+    var dict = currentLang === 'fr' ? FR : I18N[currentLang];
+    if (dict && Object.prototype.hasOwnProperty.call(dict, key)) return dict[key];
+    if (Object.prototype.hasOwnProperty.call(FR, key)) return FR[key];
+    if (window.console) console.warn('[i18n] clé manquante :', key);
+    return '';
+  }
+
+  var urduFontLoaded = false;
+  function loadUrduFont() {
+    if (urduFontLoaded) return;
+    urduFontLoaded = true;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = CONFIG.urduFontHref;
+    document.head.appendChild(link);
+  }
+
+  function applyLang(lang) {
+    if (LANGS.indexOf(lang) === -1) lang = CONFIG.defaultLang;
+    currentLang = lang;
+    if (lang === 'ur') loadUrduFont();
+
+    root.lang = lang;
+    root.dir = lang === 'ur' ? 'rtl' : 'ltr';
+    document.title = t('meta_title');
+    if (metaDesc) metaDesc.setAttribute('content', t('meta_desc'));
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n'));
+      if (v) el.innerHTML = v; // chaînes internes et contrôlées uniquement
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n-alt'));
+      if (v) el.setAttribute('alt', v);
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      var v = t(el.getAttribute('data-i18n-aria'));
+      if (v) el.setAttribute('aria-label', v);
+    });
+    document.querySelectorAll('[data-lang]').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang') === lang));
+    });
+
+    renderTiers();
+    try { localStorage.setItem('lang', lang); } catch (e) { /* stockage indisponible */ }
+  }
+
+  /* ---------------- Paliers de la cagnotte ---------------- */
+  function renderTiers() {
+    var done = Math.max(0, Math.min(4, parseInt(CONFIG.paliersAtteints, 10) || 0));
+    var tiers = document.querySelectorAll('.tier');
+    tiers.forEach(function (tier) {
+      var n = parseInt(tier.getAttribute('data-tier'), 10);
+      var reached = n <= done;
+      tier.classList.toggle('is-reached', reached);
+      var sr = tier.querySelector('.tier-sr');
+      if (sr) sr.textContent = reached ? t('palier_atteint') : '';
+    });
+    var status = document.getElementById('tier-status');
+    if (!status) return;
+    if (done === 0) {
+      status.innerHTML = t('status_objectif');
+    } else if (done >= 4) {
+      status.textContent = t('status_done');
+    } else {
+      var next = document.querySelector('.tier[data-tier="' + (done + 1) + '"]');
+      status.textContent = t('status_next')
+        .replace('{done}', done)
+        .replace('{next}', done + 1)
+        .replace('{amount}', next ? next.getAttribute('data-amount') : '');
+    }
+  }
+
+  /* ---------------- Liens de don ---------------- */
+  function setupDonateLinks() {
+    var url = (CONFIG.donateUrl || '').trim();
+    if (!url) return;
+    document.querySelectorAll('[data-donate]').forEach(function (a) { a.href = url; });
+    document.querySelectorAll('[data-donate-note]').forEach(function (n) { n.hidden = true; });
+  }
+
+  /* ---------------- Menu mobile ---------------- */
+  function setupMenu() {
+    var btn = document.querySelector('.menu-btn');
+    var nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+    function close(focusBtn) {
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      if (focusBtn) btn.focus();
+    }
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      nav.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      if (open) { var first = nav.querySelector('a'); if (first) first.focus(); }
+    });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) close(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') close(true);
+    });
+    var mq = window.matchMedia('(min-width: 1280px)');
+    var onChange = function () { if (mq.matches) close(false); };
+    if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
+  }
+
+  /* ---------------- En-tête au défilement ---------------- */
+  function setupHeader() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    var ticking = false;
+    function update() { header.classList.toggle('is-scrolled', window.scrollY > 8); ticking = false; }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  }
+
+  /* ---------------- Bandeau de don mobile ---------------- */
+  function setupStickyBar() {
+    var bar = document.getElementById('sticky-don');
+    var hero = document.querySelector('.hero');
+    var don = document.getElementById('don');
+    if (!bar || !hero || !don || !('IntersectionObserver' in window)) return;
+    var link = bar.querySelector('a');
+    var heroVisible = true, donVisible = false;
+    function update() {
+      var show = !heroVisible && !donVisible;
+      bar.classList.toggle('is-visible', show);
+      if (link) link.tabIndex = show ? 0 : -1;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.target === hero) heroVisible = en.isIntersecting;
+        if (en.target === don) donVisible = en.isIntersecting;
+      });
+      update();
+    }, { threshold: 0 });
+    io.observe(hero);
+    io.observe(don);
+  }
+
+  /* ---------------- Animation des paliers ---------------- */
+  function setupLadderAnimation() {
+    var ladder = document.querySelector('.ladder');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!ladder || reduce || !('IntersectionObserver' in window)) return;
+    root.classList.add('anim-ready');
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) { ladder.classList.add('is-visible'); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(ladder);
+  }
+
+  /* ---------------- Partage ---------------- */
+  function setupShare() {
+    var btn = document.getElementById('share-btn');
+    var status = document.getElementById('share-status');
+    if (!btn) return;
+    function say(msg) { if (status) status.textContent = msg; }
+    btn.addEventListener('click', function () {
+      var url = window.location.href.split('#')[0];
+      if (navigator.share) {
+        navigator.share({ title: document.title, text: t('share_text'), url: url }).catch(function () {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () { say(t('share_copied')); }, function () { say(t('share_error')); });
+      } else {
+        say(t('share_error'));
+      }
+    });
+  }
+
+  /* ---------------- Initialisation ---------------- */
+  function init() {
+    captureFrench();
+    var year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
+
+    var initial = CONFIG.defaultLang;
+    try {
+      var fromUrl = new URLSearchParams(window.location.search).get('lang');
+      var stored = localStorage.getItem('lang');
+      initial = LANGS.indexOf(fromUrl) > -1 ? fromUrl : (LANGS.indexOf(stored) > -1 ? stored : initial);
+    } catch (e) { /* valeurs par défaut */ }
+
+    document.querySelectorAll('[data-lang]').forEach(function (btn) {
+      btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
+    });
+
+    setupDonateLinks();
+    applyLang(initial);
+    setupMenu();
+    setupHeader();
+    setupStickyBar();
+    setupLadderAnimation();
+    setupShare();
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
