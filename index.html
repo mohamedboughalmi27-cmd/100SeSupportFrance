@@ -9,15 +9,14 @@
 <meta property="og:title" content="100seSupport France | Solidarité Pakistan">
 <meta property="og:description" content="Une aide directe aux familles au Pakistan : 15 € = un colis alimentaire pour un mois, 45 € = un puits avec pompe manuelle.">
 <meta property="og:type" content="website">
-<!-- L'image de partage mise à jour avec le bon nom et la bonne extension -->
-<meta property="og:image" content="100seSupport.jpeg">
-<!-- À compléter : <link rel="canonical" href="URL officielle du site"> et og:url -->
+<!-- L'image de partage -->
+<meta property="og:image" content="Photos%20tt%20le%20monde%202.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap">
-<!-- La police ourdoue (Noto Nastaliq Urdu) est chargée uniquement lorsque l'ourdou est choisi (voir le script). -->
-<link rel="preload" as="image" href="100seSupport.jpeg">
+<!-- Préchargement de la première image pour de meilleures performances -->
+<link rel="preload" as="image" href="Photos%20tt%20le%20monde%202.png">
 <script>document.documentElement.classList.add('js');</script>
 
 <style>
@@ -43,7 +42,6 @@
   --radius-btn:6px;
 }
 
-/* Thèmes de section : chaque bloc reprend une des 4 ambiances des stories */
 .t-creme{--bg:var(--creme);--fg:var(--brun);--muted:#5B4A44;--tag-bg:var(--bordeaux);--tag-fg:var(--creme);--hl-bg:var(--bordeaux);--hl-fg:var(--creme);--btn-bg:var(--bordeaux);--btn-fg:var(--creme);--btn-hover:var(--bordeaux-fonce);--focus:var(--bordeaux);--line:rgba(42,30,27,.22)}
 .t-bordeaux{--bg:var(--bordeaux);--fg:var(--creme);--muted:#EADBD3;--tag-bg:var(--ocre);--tag-fg:var(--brun);--hl-bg:var(--creme);--hl-fg:var(--bordeaux);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.35)}
 .t-brun{--bg:var(--brun);--fg:var(--creme);--muted:#D9CDC3;--tag-bg:var(--creme);--tag-fg:var(--brun);--hl-bg:var(--ocre);--hl-fg:var(--brun);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.25)}
@@ -74,7 +72,7 @@ main:focus{outline:none}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 
 /* =========================================================
-   3. Typographie et marqueurs graphiques des visuels
+   3. Typographie
    ========================================================= */
 .display,h1,h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.005em;overflow-wrap:break-word;hyphens:auto}
 h1{font-size:clamp(3.2rem,13vw,6.8rem)}
@@ -432,10 +430,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 <!-- ===================== HERO ===================== -->
 <section class="hero t-bordeaux" aria-labelledby="hero-title">
   <div class="hero-media">
-    <!-- Image : 100seSupport.jpeg -->
-    <img src="100seSupport.jpeg"
-         width="1080" height="580"
-         alt="Un membre de l'équipe de 100seSupport entouré d'enfants et d'une mère souriants, devant un mur de briques au Pakistan"
+    <img src="Photos%20tt%20le%20monde%202.png"
+         alt="Des enfants souriants avec un membre de l'équipe de 100seSupport au Pakistan"
          data-i18n-alt="alt_hero" fetchpriority="high" decoding="async">
   </div>
   <div class="hero-content wrap">
@@ -476,9 +472,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     </div>
     <div>
       <figure class="framed">
-        <!-- Image : Photos tt le monde 2.png -->
-        <img src="Photos tt le monde 2.png"
-             width="1080" height="580"
+        <img src="100seSupport.jpeg"
              alt="Un membre de l'équipe entouré d'enfants souriants sous un abri en bois"
              data-i18n-alt="alt_histoire" loading="lazy" decoding="async">
       </figure>
@@ -503,9 +497,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 <!-- ===================== URGENCE ===================== -->
 <section class="urgence t-brun" id="urgence" aria-labelledby="urgence-title">
   <div class="band-media">
-    <!-- Image : Photo colis.png -->
-    <img src="Photo colis.png"
-         width="1080" height="580"
+    <img src="Photo%20colis.png"
          alt="Cinq enfants assis devant une maison en terre, à côté d'un colis alimentaire de 100seSupport"
          data-i18n-alt="alt_urgence" loading="lazy" decoding="async">
   </div>
@@ -544,9 +536,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <div class="offers">
       <article class="offer">
         <div class="offer-media">
-          <!-- Image : Colis.png -->
           <img src="Colis.png"
-               width="1080" height="580"
                alt="Des dizaines de colis alimentaires jaunes et blancs portant le logo de 100seSupport, prêts à être distribués"
                data-i18n-alt="alt_colis" loading="lazy" decoding="async">
         </div>
@@ -558,9 +548,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       </article>
       <article class="offer">
         <div class="offer-media">
-          <!-- Image : Eau.png -->
           <img src="Eau.png"
-               width="960" height="580"
                alt="Un garçon rit à côté d'une pompe manuelle pendant qu'un autre enfant boit l'eau qui en coule"
                data-i18n-alt="alt_puits" loading="lazy" decoding="async">
         </div>
@@ -611,9 +599,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         </div>
 
         <figure class="framed cagnotte-photo">
-          <!-- Image : Colis + lit.png -->
-          <img src="Colis + lit.png"
-               width="960" height="580"
+          <img src="Colis%20%2B%20lit.png"
                alt="Cinq enfants assis sur un lit tressé à côté d'un colis alimentaire"
                data-i18n-alt="alt_cagnotte" loading="lazy" decoding="async">
         </figure>
@@ -689,18 +675,15 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <h3 class="gallery-title" data-i18n="galerie_titre">Des preuves du terrain</h3>
     <ul class="gallery">
       <li><figure>
-        <!-- Image : Colis.png -->
-        <img src="Colis.png" width="940" height="580" alt="Trois garçons assis tiennent un grand colis alimentaire jaune" data-i18n-alt="alt_g1" loading="lazy" decoding="async">
+        <img src="Colis.png" alt="Trois garçons assis tiennent un grand colis alimentaire jaune" data-i18n-alt="alt_g1" loading="lazy" decoding="async">
         <figcaption data-i18n="galerie_cap1">Distribution de colis alimentaires</figcaption>
       </figure></li>
       <li><figure>
-        <!-- Image : Puit 2.png -->
-        <img src="Puit 2.png" width="960" height="580" alt="Trois fillettes en robes colorées se lavent les mains à une pompe manuelle" data-i18n-alt="alt_g2" loading="lazy" decoding="async">
+        <img src="Puit%202.png" alt="Trois fillettes en robes colorées se lavent les mains à une pompe manuelle" data-i18n-alt="alt_g2" loading="lazy" decoding="async">
         <figcaption data-i18n="galerie_cap2">Un puits avec pompe manuelle</figcaption>
       </figure></li>
       <li><figure>
-        <!-- Image : Photos tt le monde.png -->
-        <img src="Photos tt le monde.png" width="1080" height="580" alt="Cinq garçons souriants assis sur un lit tressé autour d'un colis alimentaire vert" data-i18n-alt="alt_g3" loading="lazy" decoding="async">
+        <img src="Photos%20tt%20le%20monde.png" alt="Cinq garçons souriants assis sur un lit tressé autour d'un colis alimentaire vert" data-i18n-alt="alt_g3" loading="lazy" decoding="async">
         <figcaption data-i18n="galerie_cap3">Des familles soutenues chaque mois</figcaption>
       </figure></li>
     </ul>
