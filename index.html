@@ -9,17 +9,13 @@
 <meta property="og:title" content="100seSupport France | Solidarité Pakistan">
 <meta property="og:description" content="Une aide directe aux familles au Pakistan : 15 € = un colis alimentaire pour un mois, 45 € = un puits avec pompe manuelle.">
 <meta property="og:type" content="website">
-<!-- Image de partage : une adresse complète est nécessaire pour les réseaux sociaux.
-     À remplacer par https://VOTRE-DOMAINE/Photos%20tt%20le%20monde%202.png -->
 <meta property="og:image" content="Photos%20tt%20le%20monde%202.png">
-<!-- À compléter avec l'adresse Vercel ou le nom de domaine : <link rel="canonical" href="https://..."> et <meta property="og:url" content="https://..."> -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap">
-<!-- La police ourdoue (Noto Nastaliq Urdu) est chargée uniquement lorsque l'ourdou est choisi (voir le script). -->
 <link rel="preload" as="image" href="Photos%20tt%20le%20monde%202.png" fetchpriority="high">
 <script>document.documentElement.classList.add('js');</script>
 
@@ -39,7 +35,6 @@
   --font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 
   --wrap:1180px;
-  /* Échelle typographique fluide : chaque taille grandit de façon continue entre 360 et 1440 px */
   --fs-body:clamp(1rem,.96rem + .2vw,1.125rem);
   --fs-lead:clamp(1.1rem,1.03rem + .35vw,1.3rem);
   --fs-tag:clamp(.95rem,.9rem + .25vw,1.1rem);
@@ -50,7 +45,6 @@
   --fs-h1:clamp(2.9rem,1.9rem + 4.6vw,6rem);
   --fs-num:clamp(2.8rem,2rem + 3.6vw,4.75rem);
   --fs-num-sm:clamp(2.3rem,1.8rem + 2.2vw,3.6rem);
-  /* Espacements fluides */
   --sp-s:clamp(.75rem,.62rem + .55vw,1rem);
   --sp-m:clamp(1.25rem,1rem + 1.1vw,2rem);
   --sp-l:clamp(2rem,1.5rem + 2.2vw,3.5rem);
@@ -62,7 +56,6 @@
   --radius-btn:6px;
 }
 
-/* Thèmes de section : chaque bloc reprend une des 4 ambiances des stories */
 .t-creme{--bg:var(--creme);--fg:var(--brun);--muted:#5B4A44;--tag-bg:var(--bordeaux);--tag-fg:var(--creme);--hl-bg:var(--bordeaux);--hl-fg:var(--creme);--btn-bg:var(--bordeaux);--btn-fg:var(--creme);--btn-hover:var(--bordeaux-fonce);--focus:var(--bordeaux);--line:rgba(42,30,27,.22)}
 .t-bordeaux{--bg:var(--bordeaux);--fg:var(--creme);--muted:#EADBD3;--tag-bg:var(--ocre);--tag-fg:var(--brun);--hl-bg:var(--creme);--hl-fg:var(--bordeaux);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.35)}
 .t-brun{--bg:var(--brun);--fg:var(--creme);--muted:#D9CDC3;--tag-bg:var(--creme);--tag-fg:var(--brun);--hl-bg:var(--ocre);--hl-fg:var(--brun);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.25)}
@@ -95,8 +88,6 @@ main:focus{outline:none}
 /* =========================================================
    3. Typographie et marqueurs graphiques des visuels
    ========================================================= */
-/* Titres : pas de césure (les mots restent entiers), lignes équilibrées,
-   interlignage assez haut pour les accents des capitales (É, À, Ê) */
 .display,h1,h2,h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.005em;hyphens:manual;overflow-wrap:break-word;text-wrap:balance}
 h1{font-size:var(--fs-h1);line-height:1.08}
 h2{font-size:var(--fs-h2);line-height:1.1;margin-block-end:var(--sp-m);max-width:20ch}
@@ -107,13 +98,8 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 .prose p+p{margin-block-start:1rem}
 .prose{max-width:62ch}
 
-/* Étiquette rectangulaire (« L'ASSO », « POURQUOI C'EST URGENT ») */
 .tag{display:inline-block;font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-tag);line-height:1.2;padding:.35em .6em .3em;background:var(--tag-bg);color:var(--tag-fg);margin-block-end:var(--sp-s);border-radius:4px;letter-spacing:.02em}
-/* Mot surligné dans un bloc (« ENSEMBLE », « COMPTE ») */
-/* inline-block : le bloc surligné occupe sa propre place dans la ligne
-   et ne recouvre plus les mots de la ligne précédente (Anton a des métriques très hautes) */
 .hl{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.1;padding:.15em .25em .05em;margin-block:.1em;background:var(--hl-bg);color:var(--hl-fg);border-radius:4px}
-/* Gros chiffre encadré (15 €, 70 %) */
 .num-box{display:inline-block;font-family:var(--font-display);line-height:1.05;background:var(--hl-bg);color:var(--hl-fg);padding:.15em .25em .05em;font-size:var(--fs-num);border-radius:6px}
 .num-box-sub{display:block;font-size:.45em;line-height:1;margin-bottom:.1em;opacity:.95;letter-spacing:.02em}
 .source{font-size:.9rem;color:var(--muted);margin-block-start:.75rem}
@@ -156,7 +142,6 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 .menu-btn svg{width:20px;height:20px}
 .header-cta{display:none}
 
-/* Mobile : le menu est un panneau déroulant (seulement si JS actif) */
 .site-nav{order:10;flex-basis:100%}
 .js .site-nav{display:none}
 .js .site-nav.is-open{display:block;padding-block:.5rem 1rem;border-top:1px solid rgba(42,30,27,.12)}
@@ -195,7 +180,6 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
   .hero-media{grid-column:2;grid-row:1;aspect-ratio:auto;height:100%;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
   [dir="rtl"] .hero-media{clip-path:polygon(0 0,86% 0,100% 100%,0 100%)}
 }
-/* Unique moment d'animation de la page : l'entrée du hero */
 @media (prefers-reduced-motion:no-preference){
   .hero-content>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
   .hero-content>:nth-child(2){animation-delay:.08s}
@@ -213,8 +197,37 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 .framed img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .mission{margin-block-start:2.5rem}
 .mission h3{margin-block-end:var(--sp-m)}
-.mission ul{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;padding:0;list-style:none}
-.mission li{font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.2;background:var(--bordeaux);color:var(--creme);padding:.2em .6em .1em;border-radius:4px;letter-spacing:.02em}
+
+/* === MODIFICATION : Grille 2x2 symétrique pour PC === */
+.mission ul {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 500px) {
+  .mission ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+}
+.mission li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: var(--fs-h4);
+  line-height: 1.15;
+  background: var(--bordeaux);
+  color: var(--creme);
+  padding: 0.5em 0.8em 0.35em;
+  border-radius: var(--radius-btn);
+  letter-spacing: 0.02em;
+  height: 100%; /* S'assure que les cartes font toutes la même hauteur si une passe sur 2 lignes */
+}
+
 .france{margin-block-start:2rem;padding:1.75rem;border-inline-start:8px solid var(--ocre);background:var(--creme-clair)}
 .france .tag{--tag-bg:var(--ocre);--tag-fg:var(--brun)}
 .france h3{margin-block-end:var(--sp-s)}
@@ -235,7 +248,8 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 [dir="rtl"] .band-media{clip-path:polygon(0 0,100% 0,100% 100%,0 82%)}
 .band-media img{width:100%;height:100%;object-fit:cover}
 .urgence .wrap{padding-block:1rem var(--section-y)}
-.facts{display:grid;gap:3rem;margin-block-start:1rem}
+.facts-intro { max-width: 65ch; margin-block-end: var(--sp-l); font-weight: 700; color: var(--fg); font-size: 1.1rem; }
+.facts{display:grid;gap:3rem}
 @media (min-width:900px){.facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-l)}}
 .fact h3{margin-block:var(--sp-s) .5rem;font-size:var(--fs-h4)}
 .fact .num-box{font-size:var(--fs-num);display:block;width:max-content;max-width:100%}
@@ -252,7 +266,6 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 [dir="rtl"] .offer-media{clip-path:polygon(0 0,100% 0,100% 100%,0 86%)}
 .offer-media img{width:100%;height:100%;object-fit:cover}
 .offer-body{padding:0 1.5rem 1.75rem;--hl-bg:var(--bordeaux);--hl-fg:var(--creme)}
-/* Effet « étiquette » sur les prix */
 .offer .num-box{transform:translateY(-40%) rotate(-3deg);margin-block-start:0;border:4px solid var(--creme);border-radius:8px;box-shadow:2px 6px 16px rgba(0,0,0,.12)}
 [dir="rtl"] .offer .num-box{transform:translateY(-40%) rotate(3deg)}
 .offer h3{margin-block:0 .5rem}
@@ -268,7 +281,7 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 .contents .note{color:var(--muted);font-size:1.05rem}
 
 /* =========================================================
-   11. Cagnotte mensuelle et paliers (élément signature)
+   11. Cagnotte mensuelle et paliers
    ========================================================= */
 .cagnotte-grid{display:grid;gap:3rem}
 @media (min-width:960px){.cagnotte-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:var(--sp-xl);align-items:start}}
@@ -413,28 +426,22 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 /* =========================================================
    20. Lecture dynamique et harmonisation
    ========================================================= */
-/* Barre de progression de lecture (créée par le script) */
 .progress{position:absolute;inset-inline:0;bottom:-1px;height:3px;pointer-events:none}
 .progress span{display:block;height:100%;background:var(--bordeaux);transform:scaleX(0);transform-origin:left center}
 [dir="rtl"] .progress span{transform-origin:right center}
 
-/* Navigation : section en cours de lecture */
 .site-nav a[aria-current="true"]{text-decoration:underline;text-decoration-color:var(--bordeaux);text-decoration-thickness:3px;text-underline-offset:.45em}
 
-/* Découpes diagonales entre les sections, dans le sens des stories */
 #urgence,#votre-don,#realisations,#don,.site-footer{--slant:clamp(28px,4vw,64px);position:relative;clip-path:polygon(0 var(--slant),100% 0,100% 100%,0 100%);margin-block-start:calc(var(--slant) * -1)}
 [dir="rtl"] :is(#urgence,#votre-don,#realisations,#don,.site-footer){clip-path:polygon(0 0,100% var(--slant),100% 100%,0 100%)}
 #votre-don,#realisations,#don{padding-block-start:calc(var(--section-y) + var(--slant))}
 .site-footer{padding-block-start:calc(4rem + var(--slant))}
 
-/* Harmonisation des blocs de chiffres */
 .fact{padding-block-start:var(--sp-m);border-top:2px solid var(--line)}
 
-/* Ordinateur : la photo et les paliers restent visibles pendant la lecture */
 @media (min-width:900px) and (min-height:700px){#histoire .split>div:last-child{position:sticky;top:calc(var(--header-h) + 1.5rem)}}
 @media (min-width:960px) and (min-height:760px){.ladder-card{position:sticky;top:calc(var(--header-h) + 1.5rem)}}
 
-/* Galerie : carrousel sur téléphone, mosaïque sur ordinateur */
 .gallery figure{overflow:hidden}
 @media (max-width:639px){
   .gallery{display:flex;gap:.75rem;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);scroll-padding-inline:var(--gutter);padding-block-end:.75rem;scrollbar-width:thin;scrollbar-color:var(--ocre) transparent}
@@ -448,7 +455,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   .gallery>li:not(:first-child) img{aspect-ratio:16/10}
 }
 
-/* Animations au défilement (désactivées si l'appareil réduit les animations) */
 .zoom{overflow:hidden}
 @media (prefers-reduced-motion:no-preference){
   .fx .rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 90ms)}
@@ -467,8 +473,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 <body>
 <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
 
-<!-- Logo : pictogramme recréé en SVG à partir des visuels (cercle, cœur, sourire).
-     À remplacer par le fichier officiel du logo si une version vectorielle existe. -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <symbol id="logo" viewBox="0 0 64 64">
     <circle cx="32" cy="32" r="32" fill="var(--logo-bg,#6B1D2D)"/>
@@ -481,7 +485,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   <symbol id="icon-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
-<!-- ===================== EN-TÊTE ===================== -->
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="100seSupport France, retour en haut de page" data-i18n-aria="logo_label">
@@ -506,7 +509,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
         <button type="button" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
         <button type="button" data-lang="ur" lang="ur" aria-pressed="false" aria-label="اردو">اردو</button>
       </div>
-      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
       <a class="btn btn-sm header-cta" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
         <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
@@ -518,7 +520,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 
 <main id="main" tabindex="-1">
 
-<!-- ===================== HERO ===================== -->
 <section class="hero t-bordeaux" aria-labelledby="hero-title">
   <div class="hero-media">
     <img src="Photos%20tt%20le%20monde%202.png"
@@ -526,7 +527,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
          data-i18n-alt="alt_hero" fetchpriority="high" decoding="async">
   </div>
   <div class="hero-content wrap">
-    <p class="tag" translate="no"><span style="text-transform: none;">100seSupport</span> <span style="opacity: 0.5; padding: 0 0.3em;">•</span> <span data-i18n="hero_subtitle">Achai Asaan Hai</span></p>
+    <p class="tag" translate="no" data-i18n="hero_subtitle">Achai Asaan Hai <span style="opacity: 0.6; font-weight: normal; margin-left: 0.5rem; text-transform: none;">— 100seSupport</span></p>
     <h1 id="hero-title" data-i18n="hero_title">Le bien <span class="hl">est facile</span></h1>
     <p class="lead" data-i18n="hero_desc">Apporter une aide vitale aux femmes, aux orphelins et aux familles démunies. Chaque geste compte, chaque don sauve des vies.</p>
     <div class="actions">
@@ -541,7 +542,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== HISTOIRE ===================== -->
 <section class="section t-creme" id="histoire" aria-labelledby="histoire-title">
   <div class="wrap split">
     <div>
@@ -576,7 +576,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== CITATION ===================== -->
 <section class="quote t-bordeaux" aria-label="Citation" data-i18n-aria="citation_label">
   <div class="wrap">
     <blockquote>
@@ -585,7 +584,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== URGENCE ===================== -->
 <section class="urgence t-brun" id="urgence" aria-labelledby="urgence-title">
   <div class="band-media">
     <img src="Photo%20colis.png"
@@ -595,14 +593,11 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   <div class="wrap">
     <p class="tag" data-i18n="badge_urgence">L'urgence</p>
     <h2 id="urgence-title" data-i18n="urgence_titre">Pourquoi <span class="hl">c'est urgent</span></h2>
-    <!-- Cette phrase est sortie des colonnes et sert maintenant d'introduction à la section -->
-    <p class="lead" data-i18n="constat_1" style="font-weight: 700; color: var(--fg); margin-block-end: 1rem;">Selon les estimations les plus récentes,</p>
-    
+    <p class="facts-intro" data-i18n="constat_1">Selon les estimations les plus récentes,</p>
     <div class="facts">
       <article class="fact">
         <p class="num-box" data-i18n="constat_chiffre"><span class="num-box-sub">plus de</span>55 millions</p>
-        <p class="lead" style="margin-block-start: var(--sp-s);" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
-        <!-- À compléter : source et date du chiffre « plus de 55 millions » (non précisées dans le site actuel) -->
+        <p class="lead" style="margin-top:.8rem" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
       </article>
       <article class="fact">
         <p class="num-box" data-i18n="ipc_chiffre">7,5 millions</p>
@@ -620,7 +615,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== COMMENT VOTRE DON AIDE ===================== -->
 <section class="section t-ocre" id="votre-don" aria-labelledby="don-aide-title">
   <div class="wrap">
     <p class="tag" data-i18n="aide_tag">Comment votre don aide</p>
@@ -669,7 +663,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== CAGNOTTE MENSUELLE ===================== -->
 <section class="section t-creme" id="cagnotte" aria-labelledby="cagnotte-title">
   <div class="wrap">
     <p class="tag" data-i18n="cagnotte_tag">Nouveau cette année</p>
@@ -701,7 +694,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 
       <div class="ladder-card">
         <h3 data-i18n="paliers_titre">Les paliers du mois</h3>
-        <!-- Les paliers sont listés du 1 au 4 (ordre de lecture) et affichés en escalier du bas vers le haut. -->
         <ol class="ladder" role="list">
           <li class="tier" data-tier="1" data-amount="75 €">
             <div><p class="tier-title"><span data-i18n="palier">Palier</span> 1 · <span class="ltr">75 €</span></p><p class="tier-desc" data-i18n="palier1_desc">5 colis alimentaires</p></div>
@@ -730,7 +722,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== RÉALISATIONS ===================== -->
 <section class="section t-bordeaux" id="realisations" aria-labelledby="realisations-title">
   <div class="wrap">
     <p class="tag" data-i18n="badge_resultats">Résultats</p>
@@ -786,7 +777,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== TRANSPARENCE ===================== -->
 <section class="section t-creme" id="transparence" aria-labelledby="transparence-title">
   <div class="wrap">
     <p class="tag" data-i18n="transp_tag">Transparence</p>
@@ -809,7 +799,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== FAQ ===================== -->
 <section class="section section-flush t-creme" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <p class="tag" data-i18n="faq_tag">Questions fréquentes</p>
@@ -824,7 +813,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </section>
 
-<!-- ===================== DON ===================== -->
 <section class="section don t-ocre" id="don" aria-labelledby="don-title">
   <div class="wrap">
     <p class="tag" data-i18n="don_tag">Nous soutenir</p>
@@ -833,7 +821,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     <p class="lead" data-i18n="footer_desc">100 % de votre participation est directement investie sur le terrain au Pakistan.</p>
     <p class="don-rappel" data-i18n="don_rappel">15 € = un mois de nourriture pour une famille.</p>
     <div class="actions">
-      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
       <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="btn btn-ghost" id="share-btn"><svg aria-hidden="true" focusable="false"><use href="#icon-share"/></svg><span data-i18n="btn_partager">Partager le site</span></button>
     </div>
@@ -844,7 +831,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 
 </main>
 
-<!-- ===================== PIED DE PAGE ===================== -->
 <footer class="site-footer t-brun">
   <div class="wrap">
     <div class="footer-grid">
@@ -870,7 +856,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
         <ul class="footer-links">
           <li><a href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg><span data-i18n="footer_link1">Nous suivre sur Instagram</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
           <li><a href="https://ig.me/m/100sesupport.fr" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-message"/></svg><span data-i18n="footer_link2">Nous contacter</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
-          <!-- À compléter : lien vers les mentions légales et la politique de confidentialité -->
         </ul>
       </div>
     </div>
@@ -878,7 +863,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   </div>
 </footer>
 
-<!-- Bandeau de don discret, mobile uniquement -->
 <div class="sticky-don" id="sticky-don">
   <p data-i18n="sticky_text">15 € = 1 mois de nourriture pour une famille</p>
   <a class="btn btn-sm" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate tabindex="-1"><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
@@ -887,15 +871,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 <script>
 (function () {
   'use strict';
-
-  /* ============================================================
-     CONFIGURATION : les seules valeurs à modifier chaque mois
-     ============================================================ */
   var CONFIG = {
-    // À remplacer par le lien officiel de don (cagnotte). Tant qu'il est vide,
-    // les boutons de don renvoient vers le profil Instagram (lien en bio).
     donateUrl: '',
-    // Nombre de paliers débloqués pour la cagnotte en cours (0 à 4).
     paliersAtteints: 0,
     defaultLang: 'fr',
     urduFontHref: 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap'
@@ -903,9 +880,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 
   var LANGS = ['fr', 'en', 'ur'];
 
-  /* ============================================================
-     TRADUCTIONS (le français est lu directement dans la page)
-     ============================================================ */
   var I18N = {
     en: {
       meta_title: '100seSupport France | Solidarity with Pakistan',
@@ -921,7 +895,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       nav_cagnotte: 'Fundraiser',
       nav_transparence: 'Transparency',
       nav_faq: 'FAQ',
-      hero_subtitle: 'Achai Asaan Hai',
+      hero_subtitle: 'Achai Asaan Hai <span style="opacity: 0.6; font-weight: normal; margin-left: 0.5rem; text-transform: none;">— 100seSupport</span>',
       hero_title: 'Doing good <span class="hl">is easy</span>',
       hero_desc: 'Bringing vital aid to women, orphans and families in need. Every gesture counts, every donation saves lives.',
       btn_don: 'Donate',
@@ -1080,166 +1054,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       nav_cagnotte: 'ماہانہ مہم',
       nav_transparence: 'شفافیت',
       nav_faq: 'سوالات',
-      hero_subtitle: 'Achai Asaan Hai',
-      hero_title: 'اچھائی <span class="hl">آسان ہے</span>',
-      hero_desc: 'خواتین، یتیم بچوں اور غریب خاندانوں تک زندگی بچانے والی مدد پہنچانا۔ ہر قدم اہم ہے، ہر عطیہ زندگیاں بچاتا ہے۔',
-      btn_don: 'عطیہ کریں',
-      btn_histoire: 'ہماری کہانی',
-      new_tab: '(نئی ٹیب میں کھلتا ہے)',
-      donate_note: 'اس مہینے کی مہم کا لنک ہمارے انسٹاگرام بائیو میں موجود ہے۔',
-      hero_fact1: '2021 میں پاکستان میں آغاز',
-      hero_fact2: 'مارچ 2026 سے فرانس میں شاخ',
-      alt_hero: 'پاکستان میں 100seSupport ٹیم کے ایک رکن کے ساتھ مسکراتے بچے',
-      badge_origine: 'ہمارا آغاز',
-      histoire_titre: 'فرانس اور پاکستان کے درمیان <span class="hl">یکجہتی کا پل</span>',
-      histoire_p1: '100seSupport ایک خیراتی اقدام ہے جو 2021 میں <strong>پاکستان</strong> میں ایک فوری ضرورت کے تحت شروع ہوا: کمزور طبقوں کے قریب رہ کر کام کرنا۔ ہماری مقامی ٹیم زمینی سطح پر تنہا خواتین کی مدد، یتیم بچوں کی حفاظت اور نظر انداز خاندانوں کو کھانا پہنچانے کے لیے سرگرم ہے۔ زندگی بچانے والی مدد، براہِ راست ہاتھ سے ہاتھ، کسی واسطے کے بغیر۔',
-      histoire_p2: 'حالات کی سنگینی کے پیشِ نظر، تنظیم نے <strong>100seSupport France</strong> قائم کر کے اپنی ترقی کو تیز کیا ہے۔ ہمارا مقصد: بین الاقوامی یکجہتی کی ایک مضبوط زنجیر بنانا تاکہ ہماری کام کرنے کی طاقت کئی گنا بڑھ جائے، اور ان بچوں اور ماؤں کو نیا مستقبل دیا جا سکے جو سب کچھ کھو چکے ہیں۔',
-      mission_titre: 'براہِ راست مدد',
-      mission_1: 'راشن کے پیکٹ',
-      mission_2: 'صاف پانی',
-      mission_3: 'علاج کے اخراجات',
-      mission_4: 'کپڑے',
-      france_tag: 'اور اب',
-      france_titre: 'فرانس <span class="hl">بھی شامل ہے</span>',
-      france_desc: 'مارچ 2026 سے فرانس میں ایک شاخ، تاکہ ہر مہینے زیادہ مدد اکٹھی کی جا سکے۔',
-      alt_histoire: 'ٹیم کا ایک رکن لکڑی کے سائبان تلے مسکراتے بچوں کے ساتھ',
-      citation_label: 'اقتباس',
-      citation: '« سب سے پسندیدہ عمل یہ ہے کہ کسی انسان کو خوشی دی جائے، اس کی پریشانی دور کی جائے یا اس کی بھوک مٹائی جائے۔ »',
-      badge_urgence: 'فوری ضرورت',
-      urgence_titre: 'یہ <span class="hl">فوری کیوں ہے</span>',
-      constat_1: 'تازہ ترین اندازوں کے مطابق،',
-      constat_chiffre: '<span class="num-box-sub">سے زیادہ</span>55 ملین',
-      constat_2: 'افراد آج پاکستان میں انتہائی غربت میں زندگی گزار رہے ہیں۔ لاکھوں خاندانوں کے لیے روزانہ کھانا اور پینے کا صاف پانی حاصل کرنا ایک چیلنج ہے۔',
-      ipc_chiffre: '75 لاکھ',
-      ipc_titre: 'پاکستانی شدید بھوک کا شکار ہیں',
-      ipc_desc: 'جائزہ لیے گئے علاقوں میں ہر 5 میں سے 1 سے زیادہ فرد۔ سیلاب، خشک سالی اور مہنگائی: اب آٹا خریدنا بھی مشکل ہو گیا ہے۔',
-      ipc_source: 'ماخذ: IPC، دسمبر 2025 – مارچ 2026',
-      eau_chiffre: '70 فیصد',
-      eau_titre: 'گھرانے آلودہ پانی پیتے ہیں',
-      eau_desc: 'مضرِ صحت پانی سے اسہال اور بیماریاں پھیلتی ہیں، جو بچوں کی صحیح نشوونما میں رکاوٹ بنتی ہیں۔',
-      eau_source: 'ماخذ: یونیسف پاکستان',
-      alt_urgence: 'مٹی کے گھر کے سامنے بیٹھے پانچ بچے، 100seSupport کے راشن پیکٹ کے ساتھ',
-      aide_tag: 'آپ کا عطیہ کیسے مدد کرتا ہے',
-      aide_titre: 'آپ کے عطیے سے <span class="hl">کیا ممکن ہے</span>',
-      aide_intro: 'مہم کا ہر مرحلہ راشن پیکٹوں اور کنوؤں کا مجموعہ ہے۔ یہ رہا حساب۔',
-      colis_titre: '1 راشن پیکٹ',
-      colis_desc: '29 کلو کھانا، ایک خاندان کے لیے ایک مہینہ۔ اسے پاکستان میں ہماری ٹیم براہِ راست تیار اور تقسیم کرتی ہے۔',
-      puits_titre: 'ہینڈ پمپ والا 1 کنواں',
-      puits_desc: 'پورے خاندان کے لیے روزانہ صاف پانی، ان خاندانوں کے لیے جن کے قریب پانی کا کوئی ذریعہ نہیں۔',
-      alt_colis: '100seSupport کے لوگو والے درجنوں پیلے اور سفید راشن پیکٹ، تقسیم کے لیے تیار',
-      alt_puits: 'ایک لڑکا ہینڈ پمپ کے پاس ہنس رہا ہے جبکہ دوسرا بچہ اس سے نکلنے والا پانی پی رہا ہے',
-      contenu_titre: 'ایک پیکٹ میں کیا ہے',
-      unit_kg: 'کلو',
-      aliment_farine: 'آٹا',
-      aliment_riz: 'چاول',
-      aliment_sucre: 'چینی',
-      aliment_lentilles: 'دال',
-      aliment_pois: 'چنے',
-      aliment_total: 'کل وزن',
-      contenu_note: 'بنیادی غذائی اشیاء، جو دیر تک محفوظ رہتی ہیں اور روزانہ کھانا پکانے کے کام آتی ہیں۔',
-      cagnotte_tag: 'اس سال نیا',
-      cagnotte_titre: 'ہمارا اصول: <span class="hl">باقاعدگی</span>',
-      pause_titre: 'بھوک کبھی نہیں رکتی',
-      pause_p1: 'ایک راشن پیکٹ ایک خاندان کو <strong>تقریباً ایک مہینہ</strong> کھانا دیتا ہے۔ اگلے مہینے ضرورت پھر بھی باقی رہتی ہے۔',
-      pause_p2: 'اس لیے کبھی کبھار کی مہمات کے بجائے، ہم نے <strong>ہر مہینے</strong> مدد کرنے کا عہد کیا ہے۔',
-      etapes_titre: 'ہر مہینے ایک مہم',
-      etape1_titre: 'مہینے کے شروع میں کھلتی ہے',
-      etape1_desc: 'ہمیشہ وہی لنک، انسٹاگرام بائیو میں۔',
-      etape2_titre: 'اس کے 4 مراحل ہیں',
-      etape2_desc: 'ہر مرحلہ مزید مدد ممکن بناتا ہے۔',
-      etape3_titre: 'ہمارا ہدف مرحلہ 4 ہے',
-      etape3_desc: 'اور ہم آپ کو دکھاتے ہیں کہ ہر یورو کہاں جاتا ہے۔',
-      paliers_titre: 'اس مہینے کے مراحل',
-      palier: 'مرحلہ',
-      palier1_desc: '5 راشن پیکٹ',
-      palier2_desc: '5 پیکٹ + 1 کنواں',
-      palier3_desc: '10 پیکٹ + 1 کنواں',
-      palier4_desc: '20 پیکٹ + 2 کنویں',
-      palier_atteint: 'مکمل',
-      status_objectif: 'ہدف: <strong>مرحلہ 4</strong>، یعنی 20 خاندانوں کے لیے کھانا اور 2 کنویں۔',
-      status_next: 'مرحلہ {done} مکمل! اگلا: مرحلہ {next} · {amount}',
-      status_done: 'اس مہینے کا ہدف پورا ہو گیا! آپ سب کا شکریہ۔',
-      btn_cagnotte: 'اس مہینے کی مہم میں حصہ لیں',
-      alt_cagnotte: 'بُنی ہوئی چارپائی پر راشن پیکٹ کے ساتھ بیٹھے پانچ بچے',
-      badge_resultats: 'نتائج',
-      actions_titre: 'فرانس کی شاخ کی بدولت <span class="hl">ہماری کامیابیاں</span>',
-      stats_france_titre: 'مارچ 2026 سے',
-      stat_cagnottes: 'مہمات مکمل',
-      stat_recoltes: 'جمع ہوئے',
-      stats_terrain_titre: 'زمینی سطح پر',
-      impact_1: 'خاندانوں کی مدد',
-      impact_2: 'کنویں تعمیر',
-      impact_3: 'زمینی کام',
-      tag_alim: 'غذائی ہنگامی مدد',
-      carte1_titre: 'بنیادی ضروریات کے پیکٹ',
-      carte1_desc: 'فرانس میں ہمارے عطیہ دہندگان کی سخاوت کی بدولت 60 سے زائد خاندانوں کو غذائی قلت سے لڑنے کے لیے ضروری اشیاء (آٹا، چاول، چینی، دال) ملیں۔',
-      tag_eau: 'پانی تک رسائی',
-      carte2_titre: 'پمپوں کی تعمیر',
-      carte2_desc: 'دور دراز علاقوں میں 3 ہینڈ پمپوں کی تنصیب اور مالی معاونت سے آج سینکڑوں بچے اور بڑے صاف پانی پی رہے ہیں۔',
-      galerie_titre: 'زمین سے ثبوت',
-      galerie_cap1: 'راشن پیکٹوں کی تقسیم',
-      galerie_cap2: 'ہینڈ پمپ والا کنواں',
-      galerie_cap3: 'ہر مہینے مدد پانے والے خاندان',
-      alt_g1: 'تین بیٹھے ہوئے لڑکے ایک بڑا پیلا راشن پیکٹ تھامے ہوئے',
-      alt_g2: 'رنگین لباس میں تین بچیاں ہینڈ پمپ پر ہاتھ دھو رہی ہیں',
-      alt_g3: 'چارپائی پر سبز راشن پیکٹ کے گرد بیٹھے پانچ مسکراتے لڑکے',
-      continuer: 'کیا ہم جاری رکھیں؟ مرحلہ 2، 3 اور 4 میں سے ہر ایک نئے کنویں فراہم کرتا ہے۔',
-      transp_tag: 'شفافیت',
-      transparence_titre: 'ہمارے کاموں میں <span class="hl">مکمل شفافیت</span>',
-      transparence_p1: 'شفافیت ہمارے عزم کا مرکز ہے۔ اسی لیے ہم زمینی سطح پر ہر تقسیم کو محفوظ کرتے ہیں: تمام تصاویر اور ویڈیوز براہِ راست ہمارے انسٹاگرام پیج پر دستیاب ہیں۔ اس طرح آپ عطیات کے استعمال اور ہر قدم کے اثرات کو عملی طور پر دیکھ سکتے ہیں۔',
-      transparence_p2: 'ہمارے کاموں کے بارے میں کوئی سوال ہے ou envie d\'échanger avec notre équipe ? Écrivez-nous en message privé, nous serons heureux de vous répondre. Votre confiance est essentielle pour nous, et nous tenons à vous offrir toute la clarté et la proximité que vous méritez.',
-      preuve1_titre: 'This month’s distribution',
-      preuve1_desc: 'Your donations have arrived: all the photos are published in our latest post.',
-      preuve2_titre: 'Monthly report',
-      preuve2_desc: 'Tiers reached, families fed, wells built: we tell you everything. See you on the 1st of the following month.',
-      preuve3_titre: 'A question?',
-      preuve3_desc: 'Send us a private message on Instagram.',
-      btn_insta: 'See our actions on Instagram',
-      btn_contact: 'Message us on Instagram',
-      faq_tag: 'Frequently asked questions',
-      faq_titre: 'Your <span class="hl">questions</span>',
-      faq1_q: 'Where does my donation go?',
-      faq1_a: '€15 funds a 29 kg food parcel that feeds a family for about a month; €45 funds a well with a hand pump. 100% of your contribution is invested directly in the field in Pakistan.',
-      faq2_q: 'How does the monthly fundraiser work?',
-      faq2_a: 'It opens at the start of each month, always with the same link, in our Instagram bio. It has 4 tiers: €75, €120, €200 and €400. Our goal is tier 4, i.e. 20 families fed and 2 wells.',
-      faq3_q: 'How do I know my donation arrived?',
-      faq3_a: 'We document every distribution: photos and videos are published on our Instagram page, and every month we share a report on the tiers reached, the families fed and the wells built.',
-      faq4_q: 'Who distributes the aid locally?',
-      faq4_a: 'Our local team in Pakistan prepares and distributes the parcels directly, from hand to hand, with no intermediary.',
-      faq5_q: 'How can I contact you?',
-      faq5_a: 'Send us a private message on Instagram, we will be happy to reply.',
-      don_tag: 'Support us',
-      footer_titre: 'No donation <span class="hl">is too small.</span>',
-      don_actions: 'Give, share, spread the word',
-      footer_desc: '100% of your contribution is invested directly in the field in Pakistan.',
-      don_rappel: '€15 = one month of food for a family.',
-      btn_partager: 'Share the site',
-      share_copied: 'Link copied to the clipboard.',
-      share_error: 'Copy this page’s address to share it.',
-      share_text: '100seSupport France: direct aid for families in Pakistan, every month.',
-      footer_tagline: 'Doing good is easy.',
-      footer_nav_titre: 'Navigation',
-      footer_suivre: 'Follow us',
-      footer_link1: 'Follow us on Instagram',
-      footer_link2: 'Contact us',
-      footer_copy: 'An initiative founded in 2021 in Pakistan.',
-      sticky_text: '€15 = 1 month of food for a family'
-    },
-    ur: {
-      meta_title: '100seSupport France | پاکستان کے ساتھ یکجہتی',
-      meta_desc: '100seSupport France پاکستان میں ضرورت مند خاندانوں کی مدد کرتا ہے: راشن کے پیکٹ، ہینڈ پمپ والے کنویں، علاج کے اخراجات اور کپڑے۔ ہر مہینے ایک مہم، اور ہر تقسیم کی مکمل تفصیل۔',
-      skip: 'مرکزی مواد پر جائیں',
-      nav_label: 'مرکزی نیویگیشن',
-      menu: 'مینو',
-      lang_label: 'زبان منتخب کریں',
-      logo_label: '100seSupport France، صفحے کے شروع میں جائیں',
-      nav_histoire: 'ہماری کہانی',
-      nav_urgence: 'فوری ضرورت',
-      nav_don_aide: 'آپ کا عطیہ',
-      nav_cagnotte: 'ماہانہ مہم',
-      nav_transparence: 'شفافیت',
-      nav_faq: 'سوالات',
-      hero_subtitle: 'Achai Asaan Hai',
+      hero_subtitle: 'Achai Asaan Hai <span style="opacity: 0.6; font-weight: normal; margin-left: 0.5rem; text-transform: none;">— 100seSupport</span>',
       hero_title: 'اچھائی <span class="hl">آسان ہے</span>',
       hero_desc: 'خواتین، یتیم بچوں اور غریب خاندانوں تک زندگی بچانے والی مدد پہنچانا۔ ہر قدم اہم ہے، ہر عطیہ زندگیاں بچاتا ہے۔',
       btn_don: 'عطیہ کریں',
@@ -1386,7 +1201,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     }
   };
 
-  // Textes générés par le script (le français n'est pas présent dans la page)
   var FR_EXTRA = {
     palier_atteint: 'Atteint',
     status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
@@ -1401,7 +1215,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   var FR = Object.assign({}, FR_EXTRA);
   var currentLang = 'fr';
 
-  /* Le français est lu une seule fois dans le HTML : il n'est écrit qu'à un endroit */
   function captureFrench() {
     FR.meta_title = document.title;
     FR.meta_desc = metaDesc ? metaDesc.getAttribute('content') : '';
@@ -1449,7 +1262,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var v = t(el.getAttribute('data-i18n'));
-      if (v) el.innerHTML = v; // chaînes internes et contrôlées uniquement
+      if (v) el.innerHTML = v;
     });
     document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
       var v = t(el.getAttribute('data-i18n-alt'));
@@ -1464,10 +1277,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     });
 
     renderTiers();
-    try { localStorage.setItem('lang', lang); } catch (e) { /* stockage indisponible */ }
+    try { localStorage.setItem('lang', lang); } catch (e) { }
   }
 
-  /* ---------------- Paliers de la cagnotte ---------------- */
   function renderTiers() {
     var done = Math.max(0, Math.min(4, parseInt(CONFIG.paliersAtteints, 10) || 0));
     var tiers = document.querySelectorAll('.tier');
@@ -1493,7 +1305,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     }
   }
 
-  /* ---------------- Liens de don ---------------- */
   function setupDonateLinks() {
     var url = (CONFIG.donateUrl || '').trim();
     if (!url) return;
@@ -1501,7 +1312,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     document.querySelectorAll('[data-donate-note]').forEach(function (n) { n.hidden = true; });
   }
 
-  /* ---------------- Menu mobile ---------------- */
   function setupMenu() {
     var btn = document.querySelector('.menu-btn');
     var nav = document.getElementById('site-nav');
@@ -1526,7 +1336,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
   }
 
-  /* ---------------- En-tête au défilement ---------------- */
   function setupHeader() {
     var header = document.querySelector('.site-header');
     if (!header) return;
@@ -1538,7 +1347,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     update();
   }
 
-  /* ---------------- Bandeau de don mobile ---------------- */
   function setupStickyBar() {
     var bar = document.getElementById('sticky-don');
     var hero = document.querySelector('.hero');
@@ -1562,7 +1370,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     io.observe(don);
   }
 
-  /* ---------------- Animation des paliers ---------------- */
   function setupLadderAnimation() {
     var ladder = document.querySelector('.ladder');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1574,7 +1381,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     io.observe(ladder);
   }
 
-  /* ---------------- Partage ---------------- */
   function setupShare() {
     var btn = document.getElementById('share-btn');
     var status = document.getElementById('share-status');
@@ -1592,7 +1398,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     });
   }
 
-  /* ---------------- Initialisation ---------------- */
   function init() {
     captureFrench();
     var year = document.getElementById('year');
@@ -1603,7 +1408,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       var fromUrl = new URLSearchParams(window.location.search).get('lang');
       var stored = localStorage.getItem('lang');
       initial = LANGS.indexOf(fromUrl) > -1 ? fromUrl : (LANGS.indexOf(stored) > -1 ? stored : initial);
-    } catch (e) { /* valeurs par défaut */ }
+    } catch (e) { }
 
     document.querySelectorAll('[data-lang]').forEach(function (btn) {
       btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
@@ -1622,17 +1427,12 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 })();
 </script>
 <script>
-/* ============================================================
-   Lecture dynamique : progression, section en cours, apparitions,
-   zoom des photos, compteurs, galerie au clavier
-   ============================================================ */
 (function () {
   'use strict';
   var root = document.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasIO = 'IntersectionObserver' in window;
 
-  /* 1. Barre de progression de lecture */
   var header = document.querySelector('.site-header');
   if (header) {
     var bar = document.createElement('div');
@@ -1655,7 +1455,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     update();
   }
 
-  /* 2. Navigation : indique la section en cours */
   var links = [].slice.call(document.querySelectorAll('.site-nav a[href^="#"]'));
   if (hasIO && links.length) {
     var map = {};
@@ -1673,7 +1472,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     Object.keys(map).forEach(function (id) { spy.observe(document.getElementById(id)); });
   }
 
-  /* 3. Galerie : focusable au clavier seulement quand elle défile (carrousel mobile) */
   var gal = document.querySelector('.gallery');
   var galTitle = document.querySelector('.gallery-title');
   if (gal) {
@@ -1689,13 +1487,12 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     checkGal();
   }
 
-  if (!hasIO || reduce) return; // pas d'animation : tout reste visible
+  if (!hasIO || reduce) return;
 
-  /* 4. Apparitions progressives au défilement */
   root.classList.add('fx');
   var targets = [
     '.section .wrap > .tag', '.section .wrap > h2', '.section .wrap > .lead',
-    '.urgence .wrap > .tag', '.urgence .wrap > h2', '.urgence .wrap > .lead',
+    '.urgence .wrap > .tag', '.urgence .wrap > h2',
     '#histoire .split > div > .tag', '#histoire .split > div > h2',
     '#histoire .prose', '#histoire .mission', '#histoire .framed', '#histoire .france',
     '.quote blockquote', '.fact', '.offer', '.tile', '.contents > h3', '.contents > .note',
@@ -1704,8 +1501,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     '#transparence .prose', '.proof', '#transparence .actions', '.faq-list',
     '.don .wrap > :not(.tag):not(h2):not(.lead)', '.footer-grid > *'
   ].join(',');
-  /* Vérification au défilement : tout bloc atteint OU déjà dépassé s'affiche,
-     même après un défilement très rapide ou un saut via le menu */
   var pending = [];
   var reveal = function () {
     var limit = window.innerHeight * 0.92, vw = window.innerWidth;
@@ -1726,14 +1521,13 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 
   var els = [].slice.call(document.querySelectorAll(targets));
   els.forEach(function (el) {
-    var i = 0, sib = el.previousElementSibling; // décalage en cascade entre frères (max 5)
+    var i = 0, sib = el.previousElementSibling;
     while (sib) { if (els.indexOf(sib) > -1) i++; sib = sib.previousElementSibling; }
     el.style.setProperty('--i', Math.min(i, 5));
     el.classList.add('rv');
     pending.push(el);
   });
 
-  /* 5. Léger zoom arrière des photos à leur apparition */
   document.querySelectorAll('.band-media, .offer-media, .framed').forEach(function (el) {
     el.classList.add('zoom');
     pending.push(el);
@@ -1744,30 +1538,20 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   if (gal) gal.addEventListener('scroll', onScroll, { passive: true });
   window.requestAnimationFrame(reveal);
 
-  /* 6. Compteurs animés (le vrai chiffre reste lu par les lecteurs d'écran) */
-  document.querySelectorAll('.stat dd, .fact .num-box').forEach(function (dd) {
+  document.querySelectorAll('.stat dd').forEach(function (dd) {
     var txt = dd.textContent.trim();
-    var subBox = dd.querySelector('.num-box-sub');
-    var prefixHTML = subBox ? subBox.outerHTML : '';
-    // On extrait les chiffres du texte (en ignorant le texte additionnel via regex)
-    var justText = subBox ? txt.replace(subBox.textContent, '').trim() : txt;
-    
-    var m = justText.match(/^(\D*)(\d+)(.*)$/);
+    var m = txt.match(/^(\D*)(\d+)(.*)$/);
     if (!m) return;
-    
     var target = parseInt(m[2], 10);
-    // Vider le conteneur mais garder le span caché
-    dd.innerHTML = '';
+    dd.textContent = '';
     var vis = document.createElement('span');
     vis.setAttribute('aria-hidden', 'true');
-    vis.innerHTML = prefixHTML + m[1] + '0' + m[3];
+    vis.textContent = m[1] + '0' + m[3];
     var sr = document.createElement('span');
     sr.className = 'visually-hidden';
     sr.textContent = txt;
-    
     dd.appendChild(vis);
     dd.appendChild(sr);
-    
     var cio = new IntersectionObserver(function (entries) {
       if (!entries[0].isIntersecting) return;
       cio.disconnect();
@@ -1775,7 +1559,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       var step = function (ts) {
         if (!t0) t0 = ts;
         var p = Math.min(1, (ts - t0) / dur);
-        vis.innerHTML = prefixHTML + m[1] + Math.round(target * (1 - Math.pow(1 - p, 3))) + m[3];
+        vis.textContent = m[1] + Math.round(target * (1 - Math.pow(1 - p, 3))) + m[3];
         if (p < 1) window.requestAnimationFrame(step);
       };
       window.requestAnimationFrame(step);
