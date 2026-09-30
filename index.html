@@ -9,14 +9,18 @@
 <meta property="og:title" content="100seSupport France | Solidarité Pakistan">
 <meta property="og:description" content="Une aide directe aux familles au Pakistan : 15 € = un colis alimentaire pour un mois, 45 € = un puits avec pompe manuelle.">
 <meta property="og:type" content="website">
-<!-- L'image de partage -->
+<!-- Image de partage : une adresse complète est nécessaire pour les réseaux sociaux.
+     À remplacer par https://VOTRE-DOMAINE/Photos%20tt%20le%20monde%202.png -->
 <meta property="og:image" content="Photos%20tt%20le%20monde%202.png">
+<!-- À compléter avec l'adresse Vercel ou le nom de domaine : <link rel="canonical" href="https://..."> et <meta property="og:url" content="https://..."> -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap">
-<!-- Préchargement de la première image pour de meilleures performances -->
-<link rel="preload" as="image" href="Photos%20tt%20le%20monde%202.png">
+<!-- La police ourdoue (Noto Nastaliq Urdu) est chargée uniquement lorsque l'ourdou est choisi (voir le script). -->
+<link rel="preload" as="image" href="Photos%20tt%20le%20monde%202.png" fetchpriority="high">
 <script>document.documentElement.classList.add('js');</script>
 
 <style>
@@ -35,13 +39,30 @@
   --font-body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 
   --wrap:1180px;
-  --gutter:clamp(1.25rem,5vw,2.5rem);
-  --section-y:clamp(4rem,10vw,7.5rem);
+  /* Échelle typographique fluide : chaque taille grandit de façon continue entre 360 et 1440 px */
+  --fs-body:clamp(1rem,.96rem + .2vw,1.125rem);
+  --fs-lead:clamp(1.1rem,1.03rem + .35vw,1.3rem);
+  --fs-tag:clamp(.95rem,.9rem + .25vw,1.1rem);
+  --fs-label:clamp(1.05rem,.98rem + .35vw,1.3rem);
+  --fs-h4:clamp(1.3rem,1.12rem + .8vw,1.8rem);
+  --fs-h3:clamp(1.65rem,1.35rem + 1.35vw,2.5rem);
+  --fs-h2:clamp(2.1rem,1.5rem + 2.7vw,3.75rem);
+  --fs-h1:clamp(2.9rem,1.9rem + 4.6vw,6rem);
+  --fs-num:clamp(2.8rem,2rem + 3.6vw,4.75rem);
+  --fs-num-sm:clamp(2.3rem,1.8rem + 2.2vw,3.6rem);
+  /* Espacements fluides */
+  --sp-s:clamp(.75rem,.62rem + .55vw,1rem);
+  --sp-m:clamp(1.25rem,1rem + 1.1vw,2rem);
+  --sp-l:clamp(2rem,1.5rem + 2.2vw,3.5rem);
+  --sp-xl:clamp(3rem,2.2rem + 3.6vw,5rem);
+  --gutter:clamp(1.25rem,.8rem + 2vw,2.5rem);
+  --section-y:clamp(4rem,2.8rem + 5.3vw,7.5rem);
   --header-h:64px;
   --radius-card:18px;
   --radius-btn:6px;
 }
 
+/* Thèmes de section : chaque bloc reprend une des 4 ambiances des stories */
 .t-creme{--bg:var(--creme);--fg:var(--brun);--muted:#5B4A44;--tag-bg:var(--bordeaux);--tag-fg:var(--creme);--hl-bg:var(--bordeaux);--hl-fg:var(--creme);--btn-bg:var(--bordeaux);--btn-fg:var(--creme);--btn-hover:var(--bordeaux-fonce);--focus:var(--bordeaux);--line:rgba(42,30,27,.22)}
 .t-bordeaux{--bg:var(--bordeaux);--fg:var(--creme);--muted:#EADBD3;--tag-bg:var(--ocre);--tag-fg:var(--brun);--hl-bg:var(--creme);--hl-fg:var(--bordeaux);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.35)}
 .t-brun{--bg:var(--brun);--fg:var(--creme);--muted:#D9CDC3;--tag-bg:var(--creme);--tag-fg:var(--brun);--hl-bg:var(--ocre);--hl-fg:var(--brun);--btn-bg:var(--ocre);--btn-fg:var(--brun);--btn-hover:#E6B659;--focus:var(--ocre);--line:rgba(241,233,223,.25)}
@@ -54,7 +75,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--header-h) + 1rem)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{margin:0;font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;background:var(--creme);color:var(--brun);overflow-x:clip}
+body{margin:0;font-family:var(--font-body);font-size:var(--fs-body);line-height:1.6;background:var(--creme);color:var(--brun);overflow-x:clip}
 img{max-width:100%;height:auto;display:block}
 h1,h2,h3,p,ul,ol,figure,blockquote,dl,dd{margin:0}
 ul[role="list"],ol[role="list"]{list-style:none;padding:0}
@@ -72,23 +93,29 @@ main:focus{outline:none}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 
 /* =========================================================
-   3. Typographie (Améliorée)
+   3. Typographie et marqueurs graphiques des visuels
    ========================================================= */
-/* hyphens: none pour empêcher les coupures disgracieuses (ex: SOLIDA-RITÉ) */
-.display,h1,h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.005em;overflow-wrap:break-word;hyphens:none}
-h1{font-size:clamp(3.2rem,13vw,6.8rem)}
-h2{font-size:clamp(2.4rem,9vw,4.4rem);margin-block-end:1.5rem;max-width:18ch}
-h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(1.55rem,5vw,2.1rem);line-height:1.08}
-.lead{font-size:clamp(1.12rem,2.6vw,1.3rem);line-height:1.55;max-width:60ch}
+/* Titres : pas de césure (les mots restent entiers), lignes équilibrées,
+   interlignage assez haut pour les accents des capitales (É, À, Ê) */
+.display,h1,h2,h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.005em;hyphens:manual;overflow-wrap:break-word;text-wrap:balance}
+h1{font-size:var(--fs-h1);line-height:1.08}
+h2{font-size:var(--fs-h2);line-height:1.1;margin-block-end:var(--sp-m);max-width:20ch}
+h3{font-size:var(--fs-h3);line-height:1.12}
+p,li,dd,summary,figcaption{text-wrap:pretty}
+.lead{font-size:var(--fs-lead);line-height:1.55;max-width:60ch}
 .muted{color:var(--muted)}
 .prose p+p{margin-block-start:1rem}
 .prose{max-width:62ch}
 
-/* Étiquettes et encadrés adoucis */
-.tag{display:inline-block;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1rem,3.2vw,1.2rem);line-height:1.2;padding:.35em .6em .3em;background:var(--tag-bg);color:var(--tag-fg);margin-block-end:1rem;border-radius:4px;letter-spacing:0.02em}
-.hl{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.08;padding:.15em .25em .05em;margin-block:.08em;background:var(--hl-bg);color:var(--hl-fg);border-radius:4px}
-.num-box{display:inline-block;font-family:var(--font-display);line-height:1.05;background:var(--hl-bg);color:var(--hl-fg);padding:.15em .25em .05em;font-size:clamp(3.4rem,15vw,6rem);border-radius:6px}
-.num-box-sub{display:block;font-size:0.45em;line-height:1;margin-bottom:0.1em;opacity:0.95;letter-spacing:0.02em}
+/* Étiquette rectangulaire (« L'ASSO », « POURQUOI C'EST URGENT ») */
+.tag{display:inline-block;font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-tag);line-height:1.2;padding:.35em .6em .3em;background:var(--tag-bg);color:var(--tag-fg);margin-block-end:var(--sp-s);border-radius:4px;letter-spacing:.02em}
+/* Mot surligné dans un bloc (« ENSEMBLE », « COMPTE ») */
+/* inline-block : le bloc surligné occupe sa propre place dans la ligne
+   et ne recouvre plus les mots de la ligne précédente (Anton a des métriques très hautes) */
+.hl{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.1;padding:.15em .25em .05em;margin-block:.1em;background:var(--hl-bg);color:var(--hl-fg);border-radius:4px}
+/* Gros chiffre encadré (15 €, 70 %) */
+.num-box{display:inline-block;font-family:var(--font-display);line-height:1.05;background:var(--hl-bg);color:var(--hl-fg);padding:.15em .25em .05em;font-size:var(--fs-num);border-radius:6px}
+.num-box-sub{display:block;font-size:.45em;line-height:1;margin-bottom:.1em;opacity:.95;letter-spacing:.02em}
 .source{font-size:.9rem;color:var(--muted);margin-block-start:.75rem}
 
 /* =========================================================
@@ -101,7 +128,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .btn-ghost:hover{background:var(--fg);color:var(--bg)}
 .btn-sm{min-height:44px;font-size:1rem;padding:.5rem 1rem}
 .btn svg{width:1.2em;height:1.2em;flex:none}
-.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-block-start:2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-block-start:var(--sp-l)}
 .note{font-size:.95rem;color:var(--muted);margin-block-start:.9rem;max-width:52ch}
 
 /* =========================================================
@@ -129,6 +156,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .menu-btn svg{width:20px;height:20px}
 .header-cta{display:none}
 
+/* Mobile : le menu est un panneau déroulant (seulement si JS actif) */
 .site-nav{order:10;flex-basis:100%}
 .js .site-nav{display:none}
 .js .site-nav.is-open{display:block;padding-block:.5rem 1rem;border-top:1px solid rgba(42,30,27,.12)}
@@ -167,6 +195,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
   .hero-media{grid-column:2;grid-row:1;aspect-ratio:auto;height:100%;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%)}
   [dir="rtl"] .hero-media{clip-path:polygon(0 0,86% 0,100% 100%,0 100%)}
 }
+/* Unique moment d'animation de la page : l'entrée du hero */
 @media (prefers-reduced-motion:no-preference){
   .hero-content>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
   .hero-content>:nth-child(2){animation-delay:.08s}
@@ -176,28 +205,28 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 }
 
 /* =========================================================
-   7. Histoire (Améliorée)
+   7. Histoire
    ========================================================= */
-.split{display:grid;gap:2.5rem;align-items:start}
-@media (min-width:900px){.split{grid-template-columns:1.1fr .9fr;gap:4rem}}
+.split{display:grid;gap:var(--sp-l);align-items:start}
+@media (min-width:900px){.split{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--sp-xl)}}
 .framed{border:6px solid var(--bordeaux);background:var(--bordeaux)}
 .framed img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .mission{margin-block-start:2.5rem}
-.mission h3{margin-block-end:1.2rem}
-.mission ul{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;padding:0;list-style:none} /* gap augmenté */
-.mission li{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.4rem,5vw,1.9rem);line-height:1.15;background:var(--bordeaux);color:var(--creme);padding:.2em .6em .1em;border-radius:4px;letter-spacing:0.02em} /* padding et border-radius ajoutés */
+.mission h3{margin-block-end:var(--sp-m)}
+.mission ul{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;padding:0;list-style:none}
+.mission li{font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.2;background:var(--bordeaux);color:var(--creme);padding:.2em .6em .1em;border-radius:4px;letter-spacing:.02em}
 .france{margin-block-start:2rem;padding:1.75rem;border-inline-start:8px solid var(--ocre);background:var(--creme-clair)}
 .france .tag{--tag-bg:var(--ocre);--tag-fg:var(--brun)}
-.france h3{font-size:clamp(1.9rem,6vw,2.6rem);margin-block-end:.75rem}
+.france h3{margin-block-end:var(--sp-s)}
 .france .hl{--hl-bg:var(--bordeaux);--hl-fg:var(--creme)}
 
 /* =========================================================
-   8. Citation (Améliorée)
+   8. Citation
    ========================================================= */
-.quote{padding-block:clamp(3.5rem,9vw,6rem)}
-.quote blockquote{position:relative;max-width:38ch;margin-inline:auto;text-align:center} /* max-width réduit */
-.quote blockquote::before{content:"\201C";display:block;font-family:var(--font-display);font-size:5rem;line-height:.8;color:var(--ocre);margin-bottom:0.5rem} /* marge ajoutée */
-.quote p{font-size:clamp(1.35rem,4vw,2rem);line-height:1.6;font-weight:500;letter-spacing:0.01em} /* interligne augmenté */
+.quote{padding-block:var(--sp-xl)}
+.quote blockquote{position:relative;max-width:38ch;margin-inline:auto;text-align:center}
+.quote blockquote::before{content:"\201C";display:block;font-family:var(--font-display);font-size:5rem;line-height:.8;color:var(--ocre);margin-bottom:.5rem}
+.quote p{font-size:clamp(1.3rem,1.05rem + 1.1vw,2rem);line-height:1.6;font-weight:500;letter-spacing:.01em}
 
 /* =========================================================
    9. Urgence
@@ -207,62 +236,63 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .band-media img{width:100%;height:100%;object-fit:cover}
 .urgence .wrap{padding-block:1rem var(--section-y)}
 .facts{display:grid;gap:3rem;margin-block-start:1rem}
-@media (min-width:900px){.facts{grid-template-columns:repeat(3,1fr);gap:2.5rem}}
-.fact h3{margin-block:.9rem .6rem;font-size:clamp(1.5rem,4.5vw,1.9rem)}
-.fact .num-box{font-size:clamp(3.2rem,12vw,5.2rem);display:block;width:max-content;max-width:100%} /* Forcer le bloc à épouser le texte */
+@media (min-width:900px){.facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-l)}}
+.fact h3{margin-block:var(--sp-s) .5rem;font-size:var(--fs-h4)}
+.fact .num-box{font-size:var(--fs-num);display:block;width:max-content;max-width:100%}
 .fact p:not(.num-box):not(.fact-intro){color:var(--muted)}
 .fact-intro{font-weight:700;color:var(--fg);margin-block-end:.6rem}
 
 /* =========================================================
-   10. Comment votre don aide (Amélioré)
+   10. Comment votre don aide
    ========================================================= */
 .offers{display:grid;gap:2rem;margin-block-start:2.5rem}
-@media (min-width:860px){.offers{grid-template-columns:1fr 1fr}}
+@media (min-width:860px){.offers{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .offer{background:var(--creme);color:var(--brun);display:flex;flex-direction:column}
 .offer-media{aspect-ratio:16/10;clip-path:polygon(0 0,100% 0,100% 86%,0 100%);overflow:hidden;position:relative}
 [dir="rtl"] .offer-media{clip-path:polygon(0 0,100% 0,100% 100%,0 86%)}
 .offer-media img{width:100%;height:100%;object-fit:cover}
 .offer-body{padding:0 1.5rem 1.75rem;--hl-bg:var(--bordeaux);--hl-fg:var(--creme)}
-/* Effet "étiquette" sur les prix */
-.offer .num-box{transform:translateY(-40%) rotate(-3deg);margin-block-start:0;font-size:clamp(3.4rem,12vw,5rem);border:4px solid var(--creme);border-radius:8px;box-shadow:2px 6px 16px rgba(0,0,0,0.12)}
-.offer h3{margin-block:0 .5rem} /* margin-top retiré pour compenser l'étiquette */
+/* Effet « étiquette » sur les prix */
+.offer .num-box{transform:translateY(-40%) rotate(-3deg);margin-block-start:0;border:4px solid var(--creme);border-radius:8px;box-shadow:2px 6px 16px rgba(0,0,0,.12)}
+[dir="rtl"] .offer .num-box{transform:translateY(-40%) rotate(3deg)}
+.offer h3{margin-block:0 .5rem}
 .offer p:not(.num-box){color:#5B4A44}
 .contents{margin-block-start:4rem}
-.contents h3{font-size:clamp(2.2rem,8vw,3.4rem);margin-block-end:1.25rem}
+.contents h3{margin-block-end:var(--sp-m)}
 .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;padding:0;list-style:none}
 @media (min-width:760px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}}
 .tile{background:var(--bordeaux);color:var(--creme);border-radius:var(--radius-card);padding:1rem 1.1rem 1.1rem;display:flex;flex-direction:column;justify-content:flex-end;min-height:120px}
-.tile-num{font-family:var(--font-display);font-size:clamp(2.4rem,9vw,3.4rem);line-height:1}
-.tile-label{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.05rem,3.6vw,1.35rem);line-height:1.15;margin-block-start:.25rem}
+.tile-num{font-family:var(--font-display);font-size:var(--fs-num-sm);line-height:1.05}
+.tile-label{font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-label);line-height:1.2;margin-block-start:.25rem}
 .tile-total{background:transparent;color:var(--brun);border:3px solid var(--brun)}
 .contents .note{color:var(--muted);font-size:1.05rem}
 
 /* =========================================================
-   11. Cagnotte mensuelle et paliers
+   11. Cagnotte mensuelle et paliers (élément signature)
    ========================================================= */
 .cagnotte-grid{display:grid;gap:3rem}
-@media (min-width:960px){.cagnotte-grid{grid-template-columns:.95fr 1.05fr;gap:4.5rem;align-items:start}}
+@media (min-width:960px){.cagnotte-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:var(--sp-xl);align-items:start}}
 .pause h3{margin-block-end:1rem}
 .steps-block{margin-block-start:2.5rem}
-.steps-block h3{font-size:clamp(2rem,7vw,2.8rem);margin-block-end:1rem}
+.steps-block h3{margin-block-end:var(--sp-m)}
 .steps{display:grid;gap:1.25rem;padding:0;margin:0;list-style:none}
-.step{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem;align-items:start}
 .step-n{font-family:var(--font-display);font-size:2.6rem;line-height:1;background:var(--ocre);color:var(--brun);min-width:3.2rem;text-align:center;padding:.12em .2em .05em;border-radius:4px}
-.step-title{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.3rem,4.5vw,1.6rem);line-height:1.1}
+.step-title{font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.15}
 .step p:not(.step-title){color:var(--muted);margin-block-start:.2rem}
-.ladder-card{background:var(--creme-clair);padding:clamp(1.25rem,4vw,2rem);border-radius:var(--radius-card)}
-.ladder-card h3{font-size:clamp(1.9rem,6vw,2.6rem);margin-block-end:1.25rem}
+.ladder-card{background:var(--creme-clair);padding:var(--sp-m);border-radius:var(--radius-card)}
+.ladder-card h3{margin-block-end:var(--sp-m)}
 .ladder{display:flex;flex-direction:column-reverse;gap:.7rem;padding:0;margin:0;list-style:none}
 .tier{--w:100%;width:var(--w);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1.1rem;border:2px solid #7A5F58;border-radius:14px;background:transparent;color:var(--brun);transform-origin:left center;transition:background-color .3s ease,color .3s ease,border-color .3s ease}
 [dir="rtl"] .tier{transform-origin:right center}
 .tier[data-tier="1"]{--w:72%}.tier[data-tier="2"]{--w:80%}.tier[data-tier="3"]{--w:89%}
 @media (max-width:420px){.tier[data-tier="1"]{--w:84%}.tier[data-tier="2"]{--w:89%}.tier[data-tier="3"]{--w:94%}}
-.tier-title{font-family:var(--font-display);font-size:clamp(1.45rem,5vw,1.9rem);line-height:1.05;text-transform:uppercase}
+.tier-title{font-family:var(--font-display);font-size:var(--fs-h4);line-height:1.12;text-transform:uppercase}
 .tier-desc{font-weight:700;font-size:.98rem}
 .tier-check{width:28px;height:28px;flex:none;opacity:0}
 .tier.is-reached{background:var(--bordeaux);border-color:var(--bordeaux);color:var(--creme)}
 .tier.is-reached .tier-check{opacity:1}
-.tier-status{margin-block-start:1.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.35rem,4.5vw,1.75rem);line-height:1.15}
+.tier-status{margin-block-start:1.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.2;text-wrap:balance}
 .tier-status strong{font-weight:400;color:var(--bordeaux)}
 .ladder-card .actions{margin-block-start:1.5rem}
 .ladder-card .note{color:#5B4A44}
@@ -276,36 +306,35 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .cagnotte-photo{margin-block-start:3rem}
 
 /* =========================================================
-   12. Réalisations (Améliorée)
+   12. Réalisations
    ========================================================= */
 .stat-groups{display:grid;gap:2.5rem;margin-block-start:2rem}
-@media (min-width:900px){.stat-groups{grid-template-columns:.8fr 1.2fr;gap:3rem}}
+@media (min-width:900px){.stat-groups{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--sp-l)}}
 .stat-group h3{font-size:1.3rem;color:var(--ocre);margin-block-end:1rem;padding-block-end:.6rem;border-bottom:2px solid var(--line)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:1.5rem;margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(130px,100%),1fr));gap:1.5rem;margin:0}
 .stat{display:flex;flex-direction:column-reverse;justify-content:flex-end}
 .stat dt{font-family:var(--font-display);text-transform:uppercase;font-size:1.15rem;line-height:1.15;color:var(--muted)}
-.stat dd{font-family:var(--font-display);font-size:clamp(3rem,11vw,4.4rem);line-height:1}
+.stat dd{font-family:var(--font-display);font-size:var(--fs-num-sm);line-height:1.02;white-space:nowrap}
 .cards{display:grid;gap:1.5rem;margin-block-start:3.5rem}
-@media (min-width:860px){.cards{grid-template-columns:1fr 1fr}}
+@media (min-width:860px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .card{background:var(--creme);color:var(--brun);border-radius:var(--radius-card);padding:1.75rem;--tag-bg:var(--bordeaux);--tag-fg:var(--creme)}
 .card h3{margin-block-end:.6rem}
 .card p:not(.tag){color:#5B4A44}
-.gallery-title{margin-block:4rem 1.25rem;font-size:clamp(1.9rem,6vw,2.6rem)}
+.gallery-title{margin-block:var(--sp-xl) var(--sp-m)}
 .gallery{display:grid;gap:1rem;grid-template-columns:1fr;padding:0;list-style:none}
-@media (min-width:640px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:640px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .gallery figure{border:6px solid var(--creme);background:var(--creme)}
 .gallery img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .gallery figcaption{color:var(--brun);font-weight:700;font-size:.95rem;padding:.6rem .4rem .35rem}
-/* Interligne et lisibilité augmentés pour "ON CONTINUE" */
-.continue{margin-block-start:2.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.55rem,5vw,2.2rem);line-height:1.25;max-width:36ch;letter-spacing:0.01em;opacity:0.95}
+.continue{margin-block-start:2.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.25;max-width:36ch;letter-spacing:.01em;text-wrap:balance}
 
 /* =========================================================
    13. Transparence
    ========================================================= */
 .proofs{display:grid;gap:1rem;margin-block-start:2.5rem;padding:0;list-style:none}
-@media (min-width:860px){.proofs{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:860px){.proofs{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .proof{border-top:6px solid var(--bordeaux);background:var(--creme-clair);padding:1.4rem 1.4rem 1.6rem}
-.proof h3{font-size:clamp(1.4rem,4.5vw,1.7rem);margin-block-end:.5rem}
+.proof h3{font-size:var(--fs-h4);margin-block-end:.5rem}
 .proof p{color:var(--muted)}
 
 /* =========================================================
@@ -324,8 +353,8 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
    15. Appel au don final
    ========================================================= */
 .don{text-align:start}
-.don h2{max-width:14ch}
-.don-actions{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.5rem,5.5vw,2.2rem);line-height:1.1;margin-block-end:1.25rem}
+.don h2{max-width:16ch}
+.don-actions{font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.2;margin-block-end:var(--sp-m)}
 .don .lead{color:var(--brun)}
 .don-rappel{margin-block-start:1rem;font-weight:700}
 .share-status{min-height:1.6em;margin-block-start:.75rem;font-weight:700}
@@ -335,7 +364,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
    ========================================================= */
 .site-footer{padding-block:4rem 2rem}
 .footer-grid{display:grid;gap:2.5rem}
-@media (min-width:860px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr}}
+@media (min-width:860px){.footer-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr)}}
 .footer-brand{display:flex;align-items:center;gap:.75rem;--logo-bg:#F1E9DF;--logo-fg:#6B1D2D}
 .footer-brand svg{width:52px;height:52px}
 .footer-brand p{font-family:var(--font-display);font-size:1.5rem;line-height:1}
@@ -358,20 +387,21 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 @media (max-width:1279px){.site-footer{padding-block-end:6rem}}
 
 /* =========================================================
-   18. Ourdou (RTL) : police Nastaliq, pas de capitales
+   18. Ourdou (RTL) : police Nastaliq, pas de capitales,
+       interlignage plus généreux
    ========================================================= */
 html[lang="ur"]{--font-display:"Noto Nastaliq Urdu","Noto Naskh Arabic","Jameel Noori Nastaleeq",serif;--font-body:"Noto Nastaliq Urdu","Noto Naskh Arabic",Tahoma,serif}
 html[lang="ur"] body{font-size:1.05rem;line-height:2.1}
 html[lang="ur"] :is(h1,h2,h3,.display,.tag,.btn,.mission li,.tile-label,.step-title,.tier-title,.tier-status,.continue,.don-actions,.stat dt,.brand-name){text-transform:none;letter-spacing:0}
 html[lang="ur"] :is(h1,h2,h3,.display){font-weight:700;line-height:1.85}
-html[lang="ur"] h1{font-size:clamp(2.2rem,9vw,4.4rem)}
-html[lang="ur"] h2{font-size:clamp(1.8rem,6.5vw,3rem)}
-html[lang="ur"] h3,html[lang="ur"] .step-title,html[lang="ur"] .tier-title{font-size:clamp(1.2rem,4vw,1.55rem);line-height:1.9}
+html[lang="ur"] h1{font-size:calc(var(--fs-h1) * .7)}
+html[lang="ur"] h2{font-size:calc(var(--fs-h2) * .78)}
+html[lang="ur"] h3,html[lang="ur"] .step-title,html[lang="ur"] .tier-title{font-size:calc(var(--fs-h4) * .85);line-height:1.9}
 html[lang="ur"] .tag,html[lang="ur"] .btn{font-size:1rem;line-height:1.9;font-weight:700}
 html[lang="ur"] .mission li,html[lang="ur"] .tile-label,html[lang="ur"] .continue,html[lang="ur"] .don-actions,html[lang="ur"] .tier-status,html[lang="ur"] .stat dt{font-size:1.15rem;line-height:1.9;font-weight:700}
 html[lang="ur"] .hl{padding:0 .3em;line-height:1.75}
 html[lang="ur"] .brand-name,html[lang="ur"] .footer-brand p,html[lang="ur"] .num-box,html[lang="ur"] .tile-num,html[lang="ur"] .stat dd{font-family:"Anton","Impact",sans-serif}
-html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2.2rem,8vw,3.2rem);line-height:1.7;font-weight:700}
+html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(var(--fs-num) * .7);line-height:1.7;font-weight:700}
 .ltr{direction:ltr;unicode-bidi:isolate}
 
 /* =========================================================
@@ -379,12 +409,66 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
    ========================================================= */
 @media (forced-colors:active){.tier.is-reached{border:4px solid CanvasText}.tag,.hl,.num-box{border:1px solid CanvasText}}
 @media print{.site-header,.sticky-don,.hero-media,.band-media{display:none}}
+
+/* =========================================================
+   20. Lecture dynamique et harmonisation
+   ========================================================= */
+/* Barre de progression de lecture (créée par le script) */
+.progress{position:absolute;inset-inline:0;bottom:-1px;height:3px;pointer-events:none}
+.progress span{display:block;height:100%;background:var(--bordeaux);transform:scaleX(0);transform-origin:left center}
+[dir="rtl"] .progress span{transform-origin:right center}
+
+/* Navigation : section en cours de lecture */
+.site-nav a[aria-current="true"]{text-decoration:underline;text-decoration-color:var(--bordeaux);text-decoration-thickness:3px;text-underline-offset:.45em}
+
+/* Découpes diagonales entre les sections, dans le sens des stories */
+#urgence,#votre-don,#realisations,#don,.site-footer{--slant:clamp(28px,4vw,64px);position:relative;clip-path:polygon(0 var(--slant),100% 0,100% 100%,0 100%);margin-block-start:calc(var(--slant) * -1)}
+[dir="rtl"] :is(#urgence,#votre-don,#realisations,#don,.site-footer){clip-path:polygon(0 0,100% var(--slant),100% 100%,0 100%)}
+#votre-don,#realisations,#don{padding-block-start:calc(var(--section-y) + var(--slant))}
+.site-footer{padding-block-start:calc(4rem + var(--slant))}
+
+/* Harmonisation des blocs de chiffres */
+.fact{padding-block-start:var(--sp-m);border-top:2px solid var(--line)}
+
+/* Ordinateur : la photo et les paliers restent visibles pendant la lecture */
+@media (min-width:900px) and (min-height:700px){#histoire .split>div:last-child{position:sticky;top:calc(var(--header-h) + 1.5rem)}}
+@media (min-width:960px) and (min-height:760px){.ladder-card{position:sticky;top:calc(var(--header-h) + 1.5rem)}}
+
+/* Galerie : carrousel sur téléphone, mosaïque sur ordinateur */
+.gallery figure{overflow:hidden}
+@media (max-width:639px){
+  .gallery{display:flex;gap:.75rem;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);scroll-padding-inline:var(--gutter);padding-block-end:.75rem;scrollbar-width:thin;scrollbar-color:var(--ocre) transparent}
+  .gallery>li{flex:0 0 82%;scroll-snap-align:start}
+}
+@media (min-width:900px){
+  .gallery{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr)}
+  .gallery>li:first-child{grid-row:span 2}
+  .gallery>li:first-child figure{height:100%;display:flex;flex-direction:column}
+  .gallery>li:first-child img{flex:1 1 0;min-height:0;height:100%;aspect-ratio:auto}
+  .gallery>li:not(:first-child) img{aspect-ratio:16/10}
+}
+
+/* Animations au défilement (désactivées si l'appareil réduit les animations) */
+.zoom{overflow:hidden}
+@media (prefers-reduced-motion:no-preference){
+  .fx .rv{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 90ms)}
+  .fx .rv.in{opacity:1;transform:none}
+  .fx .zoom img{transform:scale(1.08);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+  .fx .zoom.in img{transform:none}
+  .gallery img{transition:transform .6s ease}
+  .gallery figure:hover img{transform:scale(1.04)}
+  .hero-media img{animation:heroZoom 1.8s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes heroZoom{from{transform:scale(1.08)}to{transform:none}}
+}
+@media print{.fx .rv{opacity:1!important;transform:none!important}}
 </style>
 </head>
 
 <body>
 <a class="skip-link" href="#main" data-i18n="skip">Aller au contenu</a>
 
+<!-- Logo : pictogramme recréé en SVG à partir des visuels (cercle, cœur, sourire).
+     À remplacer par le fichier officiel du logo si une version vectorielle existe. -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <symbol id="logo" viewBox="0 0 64 64">
     <circle cx="32" cy="32" r="32" fill="var(--logo-bg,#6B1D2D)"/>
@@ -422,6 +506,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         <button type="button" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
         <button type="button" data-lang="ur" lang="ur" aria-pressed="false" aria-label="اردو">اردو</button>
       </div>
+      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
       <a class="btn btn-sm header-cta" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
         <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
@@ -463,8 +548,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       <p class="tag" data-i18n="badge_origine">Notre origine</p>
       <h2 id="histoire-title" data-i18n="histoire_titre">Un pont de solidarité entre la France <span class="hl">et le Pakistan</span></h2>
       <div class="prose">
-        <p data-i18n="histoire_p1">Initiative caritative créée en 2021 au cœur du <strong>Pakistan</strong>, 100seSupport est née d'une urgence : agir au plus près des populations vulnérables. Sur le terrain, notre équipe locale se mobilise pour soutenir les femmes isolées, protéger les orphelins et nourrir les familles oubliées. Une aide vitale, transmise directement de la main à la main, sans intermédiaire.</p>
-        <p data-i18n="histoire_p2">Face à l'urgence de la situation, l'association accélère son développement avec la création de <strong>100seSupport France</strong>. Notre ambition : bâtir une puissante chaîne de solidarité internationale pour décupler notre force d'action, et redonner un avenir aux enfants et aux mères qui ont tout perdu.</p>
+        <p data-i18n="histoire_p1">Initiative caritative créée en 2021 au cœur du <strong>Pakistan</strong>, 100seSupport est née d'une urgence : agir au plus près des populations vulnérables. Sur le terrain, notre équipe locale se mobilise pour soutenir les femmes isolées, protéger les orphelins et nourrir les familles oubliées. Une aide vitale, transmise directement de la main à la main, sans intermédiaire.</p>
+        <p data-i18n="histoire_p2">Face à l'urgence de la situation, l'association accélère son développement avec la création de <strong>100seSupport France</strong>. Notre ambition : bâtir une puissante chaîne de solidarité internationale pour décupler notre force d'action, et redonner un avenir aux enfants et aux mères qui ont tout perdu.</p>
       </div>
       <div class="mission">
         <h3 data-i18n="mission_titre">Une aide directe</h3>
@@ -495,7 +580,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 <section class="quote t-bordeaux" aria-label="Citation" data-i18n-aria="citation_label">
   <div class="wrap">
     <blockquote>
-      <p data-i18n="citation">« L'œuvre la plus aimée est d'apporter de la joie à une personne, de la soulager d'une détresse ou de chasser sa faim. »</p>
+      <p data-i18n="citation">« L'œuvre la plus aimée est d'apporter de la joie à une personne, de la soulager d'une détresse ou de chasser sa faim. »</p>
     </blockquote>
   </div>
 </section>
@@ -513,21 +598,21 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <div class="facts">
       <article class="fact">
         <p class="fact-intro" data-i18n="constat_1">Selon les estimations les plus récentes,</p>
-        <!-- On sépare le "plus de" pour mettre en avant le chiffre -->
         <p class="num-box" data-i18n="constat_chiffre"><span class="num-box-sub">plus de</span>55 millions</p>
         <p class="lead" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
+        <!-- À compléter : source et date du chiffre « plus de 55 millions » (non précisées dans le site actuel) -->
       </article>
       <article class="fact">
         <p class="num-box" data-i18n="ipc_chiffre">7,5 millions</p>
         <h3 data-i18n="ipc_titre">de Pakistanais souffrent de faim aiguë</h3>
-        <p data-i18n="ipc_desc">Plus d'1 personne sur 5 dans les régions étudiées. Inondations, sécheresse et prix élevés : même la farine devient difficile à acheter.</p>
-        <p class="source" data-i18n="ipc_source">Source : IPC, déc. 2025 – mars 2026</p>
+        <p data-i18n="ipc_desc">Plus d'1 personne sur 5 dans les régions étudiées. Inondations, sécheresse et prix élevés : même la farine devient difficile à acheter.</p>
+        <p class="source" data-i18n="ipc_source">Source : IPC, déc. 2025 – mars 2026</p>
       </article>
       <article class="fact">
         <p class="num-box" data-i18n="eau_chiffre">70 %</p>
         <h3 data-i18n="eau_titre">des foyers boivent une eau contaminée</h3>
         <p data-i18n="eau_desc">L'eau insalubre provoque diarrhées et maladies, qui empêchent les enfants de bien grandir.</p>
-        <p class="source" data-i18n="eau_source">Source : UNICEF Pakistan</p>
+        <p class="source" data-i18n="eau_source">Source : UNICEF Pakistan</p>
       </article>
     </div>
   </div>
@@ -586,7 +671,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 <section class="section t-creme" id="cagnotte" aria-labelledby="cagnotte-title">
   <div class="wrap">
     <p class="tag" data-i18n="cagnotte_tag">Nouveau cette année</p>
-    <h2 id="cagnotte-title" data-i18n="cagnotte_titre">Notre mot d'ordre : <span class="hl">la régularité</span></h2>
+    <h2 id="cagnotte-title" data-i18n="cagnotte_titre">Notre mot d'ordre : <span class="hl">la régularité</span></h2>
 
     <div class="cagnotte-grid">
       <div>
@@ -614,6 +699,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 
       <div class="ladder-card">
         <h3 data-i18n="paliers_titre">Les paliers du mois</h3>
+        <!-- Les paliers sont listés du 1 au 4 (ordre de lecture) et affichés en escalier du bas vers le haut. -->
         <ol class="ladder" role="list">
           <li class="tier" data-tier="1" data-amount="75 €">
             <div><p class="tier-title"><span data-i18n="palier">Palier</span> 1 · <span class="ltr">75 €</span></p><p class="tier-desc" data-i18n="palier1_desc">5 colis alimentaires</p></div>
@@ -632,7 +718,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
             <svg class="tier-check" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg><span class="visually-hidden tier-sr"></span>
           </li>
         </ol>
-        <p class="tier-status" id="tier-status" aria-live="polite" data-i18n="status_objectif">Objectif : le <strong>palier 4</strong>, soit 20 familles nourries et 2 puits.</p>
+        <p class="tier-status" id="tier-status" aria-live="polite" data-i18n="status_objectif">Objectif : le <strong>palier 4</strong>, soit 20 familles nourries et 2 puits.</p>
         <div class="actions">
           <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_cagnotte">Participer à la cagnotte du mois</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
         </div>
@@ -694,7 +780,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         <figcaption data-i18n="galerie_cap3">Des familles soutenues chaque mois</figcaption>
       </figure></li>
     </ul>
-    <p class="continue" data-i18n="continuer">On continue ? Les paliers 2, 3 et 4 financent chacun de nouveaux puits.</p>
+    <p class="continue" data-i18n="continuer">On continue ? Les paliers 2, 3 et 4 financent chacun de nouveaux puits.</p>
   </div>
 </section>
 
@@ -704,13 +790,13 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <p class="tag" data-i18n="transp_tag">Transparence</p>
     <h2 id="transparence-title" data-i18n="transparence_titre">Transparence totale <span class="hl">de nos actions</span></h2>
     <div class="prose">
-      <p class="lead" data-i18n="transparence_p1">La transparence est au cœur de notre engagement. C'est pourquoi nous documentons chacune de nos distributions sur le terrain : toutes les photos et vidéos sont disponibles directement sur notre page Instagram. Vous pouvez ainsi suivre de manière concrète l'utilisation des dons et l'impact de chaque action.</p>
-      <p data-i18n="transparence_p2">Une question sur nos missions ou envie d'échanger avec notre équipe ? Écrivez-nous en message privé, nous serons heureux de vous répondre. Votre confiance est essentielle pour nous, et nous tenons à vous offrir toute la clarté et la proximité que vous méritez.</p>
+      <p class="lead" data-i18n="transparence_p1">La transparence est au cœur de notre engagement. C'est pourquoi nous documentons chacune de nos distributions sur le terrain : toutes les photos et vidéos sont disponibles directement sur notre page Instagram. Vous pouvez ainsi suivre de manière concrète l'utilisation des dons et l'impact de chaque action.</p>
+      <p data-i18n="transparence_p2">Une question sur nos missions ou envie d'échanger avec notre équipe ? Écrivez-nous en message privé, nous serons heureux de vous répondre. Votre confiance est essentielle pour nous, et nous tenons à vous offrir toute la clarté et la proximité que vous méritez.</p>
     </div>
     <ul class="proofs">
-      <li class="proof"><h3 data-i18n="preuve1_titre">Distribution du mois</h3><p data-i18n="preuve1_desc">Vos dons sont arrivés : toutes les photos sont publiées dans notre dernier post.</p></li>
-      <li class="proof"><h3 data-i18n="preuve2_titre">Bilan du mois</h3><p data-i18n="preuve2_desc">Paliers atteints, familles nourries, puits construits : on vous dit tout. Rendez-vous le 1er du mois suivant.</p></li>
-      <li class="proof"><h3 data-i18n="preuve3_titre">Une question ?</h3><p data-i18n="preuve3_desc">Écrivez-nous en message privé sur Instagram.</p></li>
+      <li class="proof"><h3 data-i18n="preuve1_titre">Distribution du mois</h3><p data-i18n="preuve1_desc">Vos dons sont arrivés : toutes les photos sont publiées dans notre dernier post.</p></li>
+      <li class="proof"><h3 data-i18n="preuve2_titre">Bilan du mois</h3><p data-i18n="preuve2_desc">Paliers atteints, familles nourries, puits construits : on vous dit tout. Rendez-vous le 1er du mois suivant.</p></li>
+      <li class="proof"><h3 data-i18n="preuve3_titre">Une question ?</h3><p data-i18n="preuve3_desc">Écrivez-nous en message privé sur Instagram.</p></li>
     </ul>
     <div class="actions">
       <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer">
@@ -727,11 +813,11 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <p class="tag" data-i18n="faq_tag">Questions fréquentes</p>
     <h2 id="faq-title" data-i18n="faq_titre">Vos <span class="hl">questions</span></h2>
     <div class="faq-list">
-      <details><summary data-i18n="faq1_q">Où va mon don ?</summary><p class="faq-answer" data-i18n="faq1_a">15 € financent un colis alimentaire de 29 kg qui nourrit une famille pendant environ un mois ; 45 € financent un puits avec pompe manuelle. 100 % de votre participation est directement investie sur le terrain au Pakistan.</p></details>
-      <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours avec le même lien, dans la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
-      <details><summary data-i18n="faq3_q">Comment savoir que mon don est bien arrivé ?</summary><p class="faq-answer" data-i18n="faq3_a">Nous documentons chaque distribution : les photos et vidéos sont publiées sur notre page Instagram, et chaque mois nous publions un bilan des paliers atteints, des familles nourries et des puits construits.</p></details>
-      <details><summary data-i18n="faq4_q">Qui distribue l'aide sur place ?</summary><p class="faq-answer" data-i18n="faq4_a">Notre équipe locale au Pakistan prépare et distribue directement les colis, de la main à la main, sans intermédiaire.</p></details>
-      <details><summary data-i18n="faq5_q">Comment vous contacter ?</summary><p class="faq-answer" data-i18n="faq5_a">Écrivez-nous en message privé sur Instagram, nous serons heureux de vous répondre.</p></details>
+      <details><summary data-i18n="faq1_q">Où va mon don ?</summary><p class="faq-answer" data-i18n="faq1_a">15 € financent un colis alimentaire de 29 kg qui nourrit une famille pendant environ un mois ; 45 € financent un puits avec pompe manuelle. 100 % de votre participation est directement investie sur le terrain au Pakistan.</p></details>
+      <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours avec le même lien, dans la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
+      <details><summary data-i18n="faq3_q">Comment savoir que mon don est bien arrivé ?</summary><p class="faq-answer" data-i18n="faq3_a">Nous documentons chaque distribution : les photos et vidéos sont publiées sur notre page Instagram, et chaque mois nous publions un bilan des paliers atteints, des familles nourries et des puits construits.</p></details>
+      <details><summary data-i18n="faq4_q">Qui distribue l'aide sur place ?</summary><p class="faq-answer" data-i18n="faq4_a">Notre équipe locale au Pakistan prépare et distribue directement les colis, de la main à la main, sans intermédiaire.</p></details>
+      <details><summary data-i18n="faq5_q">Comment vous contacter ?</summary><p class="faq-answer" data-i18n="faq5_a">Écrivez-nous en message privé sur Instagram, nous serons heureux de vous répondre.</p></details>
     </div>
   </div>
 </section>
@@ -745,6 +831,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <p class="lead" data-i18n="footer_desc">100 % de votre participation est directement investie sur le terrain au Pakistan.</p>
     <p class="don-rappel" data-i18n="don_rappel">15 € = un mois de nourriture pour une famille.</p>
     <div class="actions">
+      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
       <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="btn btn-ghost" id="share-btn"><svg aria-hidden="true" focusable="false"><use href="#icon-share"/></svg><span data-i18n="btn_partager">Partager le site</span></button>
     </div>
@@ -781,9 +868,10 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
         <ul class="footer-links">
           <li><a href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg><span data-i18n="footer_link1">Nous suivre sur Instagram</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
           <li><a href="https://ig.me/m/100sesupport.fr" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false"><use href="#icon-message"/></svg><span data-i18n="footer_link2">Nous contacter</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a></li>
+          <!-- À compléter : lien vers les mentions légales et la politique de confidentialité -->
         </ul>
       </div>
-      </div>
+    </div>
     <p class="footer-bottom">© <span id="year">2026</span> <span translate="no">100seSupport France</span>. <span data-i18n="footer_copy">Initiative née en 2021 au Pakistan.</span></p>
   </div>
 </footer>
@@ -798,8 +886,14 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 (function () {
   'use strict';
 
+  /* ============================================================
+     CONFIGURATION : les seules valeurs à modifier chaque mois
+     ============================================================ */
   var CONFIG = {
+    // À remplacer par le lien officiel de don (cagnotte). Tant qu'il est vide,
+    // les boutons de don renvoient vers le profil Instagram (lien en bio).
     donateUrl: '',
+    // Nombre de paliers débloqués pour la cagnotte en cours (0 à 4).
     paliersAtteints: 0,
     defaultLang: 'fr',
     urduFontHref: 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap'
@@ -807,6 +901,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 
   var LANGS = ['fr', 'en', 'ur'];
 
+  /* ============================================================
+     TRADUCTIONS (le français est lu directement dans la page)
+     ============================================================ */
   var I18N = {
     en: {
       meta_title: '100seSupport France | Solidarity with Pakistan',
@@ -831,7 +928,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       donate_note: 'This month’s fundraiser is available through the link in our Instagram bio.',
       hero_fact1: 'Founded in 2021 in Pakistan',
       hero_fact2: 'French branch since March 2026',
-      alt_hero: 'A member of the 100seSupport team surrounded by smiling children and a mother, in front of a brick wall in Pakistan',
+      alt_hero: 'Smiling children with a member of the 100seSupport team in Pakistan',
       badge_origine: 'Our origins',
       histoire_titre: 'A bridge of solidarity between France <span class="hl">and Pakistan</span>',
       histoire_p1: 'A charitable initiative founded in 2021 in the heart of <strong>Pakistan</strong>, 100seSupport was born out of urgency: to act as close as possible to vulnerable communities. On the ground, our local team works to support isolated women, protect orphans and feed forgotten families. Vital aid, handed over directly, from hand to hand, with no intermediary.',
@@ -990,7 +1087,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       donate_note: 'اس مہینے کی مہم کا لنک ہمارے انسٹاگرام بائیو میں موجود ہے۔',
       hero_fact1: '2021 میں پاکستان میں آغاز',
       hero_fact2: 'مارچ 2026 سے فرانس میں شاخ',
-      alt_hero: '100seSupport ٹیم کا ایک رکن پاکستان میں اینٹوں کی دیوار کے سامنے مسکراتے بچوں اور ایک ماں کے ساتھ',
+      alt_hero: 'پاکستان میں 100seSupport ٹیم کے ایک رکن کے ساتھ مسکراتے بچے',
       badge_origine: 'ہمارا آغاز',
       histoire_titre: 'فرانس اور پاکستان کے درمیان <span class="hl">یکجہتی کا پل</span>',
       histoire_p1: '100seSupport ایک خیراتی اقدام ہے جو 2021 میں <strong>پاکستان</strong> میں ایک فوری ضرورت کے تحت شروع ہوا: کمزور طبقوں کے قریب رہ کر کام کرنا۔ ہماری مقامی ٹیم زمینی سطح پر تنہا خواتین کی مدد، یتیم بچوں کی حفاظت اور نظر انداز خاندانوں کو کھانا پہنچانے کے لیے سرگرم ہے۔ زندگی بچانے والی مدد، براہِ راست ہاتھ سے ہاتھ، کسی واسطے کے بغیر۔',
@@ -1128,13 +1225,14 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     }
   };
 
+  // Textes générés par le script (le français n'est pas présent dans la page)
   var FR_EXTRA = {
     palier_atteint: 'Atteint',
-    status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
-    status_done: 'Objectif du mois atteint ! Merci à chacun d’entre vous.',
+    status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
+    status_done: 'Objectif du mois atteint ! Merci à chacun d’entre vous.',
     share_copied: 'Lien copié dans le presse-papiers.',
     share_error: 'Copiez l’adresse de la page pour la partager.',
-    share_text: '100seSupport France : une aide directe aux familles au Pakistan, chaque mois.'
+    share_text: '100seSupport France : une aide directe aux familles au Pakistan, chaque mois.'
   };
 
   var root = document.documentElement;
@@ -1142,6 +1240,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
   var FR = Object.assign({}, FR_EXTRA);
   var currentLang = 'fr';
 
+  /* Le français est lu une seule fois dans le HTML : il n'est écrit qu'à un endroit */
   function captureFrench() {
     FR.meta_title = document.title;
     FR.meta_desc = metaDesc ? metaDesc.getAttribute('content') : '';
@@ -1189,7 +1288,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
 
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var v = t(el.getAttribute('data-i18n'));
-      if (v) el.innerHTML = v;
+      if (v) el.innerHTML = v; // chaînes internes et contrôlées uniquement
     });
     document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
       var v = t(el.getAttribute('data-i18n-alt'));
@@ -1204,9 +1303,10 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     });
 
     renderTiers();
-    try { localStorage.setItem('lang', lang); } catch (e) { }
+    try { localStorage.setItem('lang', lang); } catch (e) { /* stockage indisponible */ }
   }
 
+  /* ---------------- Paliers de la cagnotte ---------------- */
   function renderTiers() {
     var done = Math.max(0, Math.min(4, parseInt(CONFIG.paliersAtteints, 10) || 0));
     var tiers = document.querySelectorAll('.tier');
@@ -1232,6 +1332,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     }
   }
 
+  /* ---------------- Liens de don ---------------- */
   function setupDonateLinks() {
     var url = (CONFIG.donateUrl || '').trim();
     if (!url) return;
@@ -1239,6 +1340,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     document.querySelectorAll('[data-donate-note]').forEach(function (n) { n.hidden = true; });
   }
 
+  /* ---------------- Menu mobile ---------------- */
   function setupMenu() {
     var btn = document.querySelector('.menu-btn');
     var nav = document.getElementById('site-nav');
@@ -1263,6 +1365,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
   }
 
+  /* ---------------- En-tête au défilement ---------------- */
   function setupHeader() {
     var header = document.querySelector('.site-header');
     if (!header) return;
@@ -1274,6 +1377,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     update();
   }
 
+  /* ---------------- Bandeau de don mobile ---------------- */
   function setupStickyBar() {
     var bar = document.getElementById('sticky-don');
     var hero = document.querySelector('.hero');
@@ -1297,6 +1401,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     io.observe(don);
   }
 
+  /* ---------------- Animation des paliers ---------------- */
   function setupLadderAnimation() {
     var ladder = document.querySelector('.ladder');
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1308,6 +1413,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     io.observe(ladder);
   }
 
+  /* ---------------- Partage ---------------- */
   function setupShare() {
     var btn = document.getElementById('share-btn');
     var status = document.getElementById('share-status');
@@ -1325,6 +1431,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     });
   }
 
+  /* ---------------- Initialisation ---------------- */
   function init() {
     captureFrench();
     var year = document.getElementById('year');
@@ -1335,7 +1442,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       var fromUrl = new URLSearchParams(window.location.search).get('lang');
       var stored = localStorage.getItem('lang');
       initial = LANGS.indexOf(fromUrl) > -1 ? fromUrl : (LANGS.indexOf(stored) > -1 ? stored : initial);
-    } catch (e) { }
+    } catch (e) { /* valeurs par défaut */ }
 
     document.querySelectorAll('[data-lang]').forEach(function (btn) {
       btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
@@ -1351,6 +1458,160 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
   }
 
   init();
+})();
+</script>
+<script>
+/* ============================================================
+   Lecture dynamique : progression, section en cours, apparitions,
+   zoom des photos, compteurs, galerie au clavier
+   ============================================================ */
+(function () {
+  'use strict';
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
+
+  /* 1. Barre de progression de lecture */
+  var header = document.querySelector('.site-header');
+  if (header) {
+    var bar = document.createElement('div');
+    bar.className = 'progress';
+    bar.setAttribute('aria-hidden', 'true');
+    var fill = document.createElement('span');
+    bar.appendChild(fill);
+    header.appendChild(bar);
+    var ticking = false;
+    var update = function () {
+      var max = root.scrollHeight - window.innerHeight;
+      var r = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      fill.style.transform = 'scaleX(' + r + ')';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
+  /* 2. Navigation : indique la section en cours */
+  var links = [].slice.call(document.querySelectorAll('.site-nav a[href^="#"]'));
+  if (hasIO && links.length) {
+    var map = {};
+    links.forEach(function (a) {
+      var s = document.getElementById(a.getAttribute('href').slice(1));
+      if (s) map[s.id] = a;
+    });
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        if (map[e.target.id]) map[e.target.id].setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) { spy.observe(document.getElementById(id)); });
+  }
+
+  /* 3. Galerie : focusable au clavier seulement quand elle défile (carrousel mobile) */
+  var gal = document.querySelector('.gallery');
+  var galTitle = document.querySelector('.gallery-title');
+  if (gal) {
+    if (galTitle) {
+      galTitle.id = galTitle.id || 'galerie-title';
+      gal.setAttribute('aria-labelledby', galTitle.id);
+    }
+    var checkGal = function () {
+      if (gal.scrollWidth > gal.clientWidth + 2) gal.tabIndex = 0;
+      else gal.removeAttribute('tabindex');
+    };
+    window.addEventListener('resize', checkGal);
+    checkGal();
+  }
+
+  if (!hasIO || reduce) return; // pas d'animation : tout reste visible
+
+  /* 4. Apparitions progressives au défilement */
+  root.classList.add('fx');
+  var targets = [
+    '.section .wrap > .tag', '.section .wrap > h2', '.section .wrap > .lead',
+    '.urgence .wrap > .tag', '.urgence .wrap > h2',
+    '#histoire .split > div > .tag', '#histoire .split > div > h2',
+    '#histoire .prose', '#histoire .mission', '#histoire .framed', '#histoire .france',
+    '.quote blockquote', '.fact', '.offer', '.tile', '.contents > h3', '.contents > .note',
+    '.pause', '.step', '.cagnotte-photo', '.ladder-card',
+    '.stat-group', '.card', '.gallery-title', '.gallery > li', '.continue',
+    '#transparence .prose', '.proof', '#transparence .actions', '.faq-list',
+    '.don .wrap > :not(.tag):not(h2):not(.lead)', '.footer-grid > *'
+  ].join(',');
+  /* Vérification au défilement : tout bloc atteint OU déjà dépassé s'affiche,
+     même après un défilement très rapide ou un saut via le menu */
+  var pending = [];
+  var reveal = function () {
+    var limit = window.innerHeight * 0.92, vw = window.innerWidth;
+    pending = pending.filter(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < limit && r.left < vw && r.right > 0) { el.classList.add('in'); return false; }
+      return true;
+    });
+    if (!pending.length) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+  };
+  var queued = false;
+  var onScroll = function () {
+    if (!queued) { queued = true; window.requestAnimationFrame(function () { queued = false; reveal(); }); }
+  };
+
+  var els = [].slice.call(document.querySelectorAll(targets));
+  els.forEach(function (el) {
+    var i = 0, sib = el.previousElementSibling; // décalage en cascade entre frères (max 5)
+    while (sib) { if (els.indexOf(sib) > -1) i++; sib = sib.previousElementSibling; }
+    el.style.setProperty('--i', Math.min(i, 5));
+    el.classList.add('rv');
+    pending.push(el);
+  });
+
+  /* 5. Léger zoom arrière des photos à leur apparition */
+  document.querySelectorAll('.band-media, .offer-media, .framed').forEach(function (el) {
+    el.classList.add('zoom');
+    pending.push(el);
+  });
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  if (gal) gal.addEventListener('scroll', onScroll, { passive: true });
+  window.requestAnimationFrame(reveal);
+
+  /* 6. Compteurs animés (le vrai chiffre reste lu par les lecteurs d'écran) */
+  document.querySelectorAll('.stat dd').forEach(function (dd) {
+    var txt = dd.textContent.trim();
+    var m = txt.match(/^(\D*)(\d+)(.*)$/);
+    if (!m) return;
+    var target = parseInt(m[2], 10);
+    dd.textContent = '';
+    var vis = document.createElement('span');
+    vis.setAttribute('aria-hidden', 'true');
+    vis.textContent = m[1] + '0' + m[3];
+    var sr = document.createElement('span');
+    sr.className = 'visually-hidden';
+    sr.textContent = txt;
+    dd.appendChild(vis);
+    dd.appendChild(sr);
+    var cio = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      cio.disconnect();
+      var t0 = null, dur = 1400;
+      var step = function (ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur);
+        vis.textContent = m[1] + Math.round(target * (1 - Math.pow(1 - p, 3))) + m[3];
+        if (p < 1) window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    }, { threshold: 0.6 });
+    cio.observe(dd);
+  });
 })();
 </script>
 </body>
