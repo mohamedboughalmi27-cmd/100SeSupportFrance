@@ -239,8 +239,7 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 @media (min-width:900px){.facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-l)}}
 .fact h3{margin-block:var(--sp-s) .5rem;font-size:var(--fs-h4)}
 .fact .num-box{font-size:var(--fs-num);display:block;width:max-content;max-width:100%}
-.fact p:not(.num-box):not(.fact-intro){color:var(--muted)}
-.fact-intro{font-weight:700;color:var(--fg);margin-block-end:.6rem}
+.fact p:not(.num-box){color:var(--muted)}
 
 /* =========================================================
    10. Comment votre don aide
@@ -548,8 +547,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       <p class="tag" data-i18n="badge_origine">Notre origine</p>
       <h2 id="histoire-title" data-i18n="histoire_titre">Un pont de solidarité entre la France <span class="hl">et le Pakistan</span></h2>
       <div class="prose">
-        <p data-i18n="histoire_p1">Initiative caritative créée en 2021 au cœur du <strong>Pakistan</strong>, 100seSupport est née d'une urgence : agir au plus près des populations vulnérables. Sur le terrain, notre équipe locale se mobilise pour soutenir les femmes isolées, protéger les orphelins et nourrir les familles oubliées. Une aide vitale, transmise directement de la main à la main, sans intermédiaire.</p>
-        <p data-i18n="histoire_p2">Face à l'urgence de la situation, l'association accélère son développement avec la création de <strong>100seSupport France</strong>. Notre ambition : bâtir une puissante chaîne de solidarité internationale pour décupler notre force d'action, et redonner un avenir aux enfants et aux mères qui ont tout perdu.</p>
+        <p data-i18n="histoire_p1">Initiative caritative créée en 2021 au cœur du <strong>Pakistan</strong>, 100seSupport est née d'une urgence : agir au plus près des populations vulnérables. Sur le terrain, notre équipe locale se mobilise pour soutenir les femmes isolées, protéger les orphelins et nourrir les familles oubliées. Une aide vitale, transmise directement de la main à la main, sans intermédiaire.</p>
+        <p data-i18n="histoire_p2">Face à l'urgence de la situation, l'association accélère son développement avec la création de <strong>100seSupport France</strong>. Notre ambition : bâtir une puissante chaîne de solidarité internationale pour décupler notre force d'action, et redonner un avenir aux enfants et aux mères qui ont tout perdu.</p>
       </div>
       <div class="mission">
         <h3 data-i18n="mission_titre">Une aide directe</h3>
@@ -580,7 +579,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 <section class="quote t-bordeaux" aria-label="Citation" data-i18n-aria="citation_label">
   <div class="wrap">
     <blockquote>
-      <p data-i18n="citation">« L'œuvre la plus aimée est d'apporter de la joie à une personne, de la soulager d'une détresse ou de chasser sa faim. »</p>
+      <p data-i18n="citation">« L'œuvre la plus aimée est d'apporter de la joie à une personne, de la soulager d'une détresse ou de chasser sa faim. »</p>
     </blockquote>
   </div>
 </section>
@@ -595,24 +594,26 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   <div class="wrap">
     <p class="tag" data-i18n="badge_urgence">L'urgence</p>
     <h2 id="urgence-title" data-i18n="urgence_titre">Pourquoi <span class="hl">c'est urgent</span></h2>
+    <!-- Cette phrase est sortie des colonnes et sert maintenant d'introduction à la section -->
+    <p class="lead" data-i18n="constat_1" style="font-weight: 700; color: var(--fg); margin-block-end: 1rem;">Selon les estimations les plus récentes,</p>
+    
     <div class="facts">
       <article class="fact">
-        <p class="fact-intro" data-i18n="constat_1">Selon les estimations les plus récentes,</p>
         <p class="num-box" data-i18n="constat_chiffre"><span class="num-box-sub">plus de</span>55 millions</p>
-        <p class="lead" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
+        <p class="lead" style="margin-block-start: var(--sp-s);" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
         <!-- À compléter : source et date du chiffre « plus de 55 millions » (non précisées dans le site actuel) -->
       </article>
       <article class="fact">
         <p class="num-box" data-i18n="ipc_chiffre">7,5 millions</p>
         <h3 data-i18n="ipc_titre">de Pakistanais souffrent de faim aiguë</h3>
-        <p data-i18n="ipc_desc">Plus d'1 personne sur 5 dans les régions étudiées. Inondations, sécheresse et prix élevés : même la farine devient difficile à acheter.</p>
-        <p class="source" data-i18n="ipc_source">Source : IPC, déc. 2025 – mars 2026</p>
+        <p data-i18n="ipc_desc">Plus d'1 personne sur 5 dans les régions étudiées. Inondations, sécheresse et prix élevés : même la farine devient difficile à acheter.</p>
+        <p class="source" data-i18n="ipc_source">Source : IPC, déc. 2025 – mars 2026</p>
       </article>
       <article class="fact">
         <p class="num-box" data-i18n="eau_chiffre">70 %</p>
         <h3 data-i18n="eau_titre">des foyers boivent une eau contaminée</h3>
         <p data-i18n="eau_desc">L'eau insalubre provoque diarrhées et maladies, qui empêchent les enfants de bien grandir.</p>
-        <p class="source" data-i18n="eau_source">Source : UNICEF Pakistan</p>
+        <p class="source" data-i18n="eau_source">Source : UNICEF Pakistan</p>
       </article>
     </div>
   </div>
@@ -671,7 +672,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 <section class="section t-creme" id="cagnotte" aria-labelledby="cagnotte-title">
   <div class="wrap">
     <p class="tag" data-i18n="cagnotte_tag">Nouveau cette année</p>
-    <h2 id="cagnotte-title" data-i18n="cagnotte_titre">Notre mot d'ordre : <span class="hl">la régularité</span></h2>
+    <h2 id="cagnotte-title" data-i18n="cagnotte_titre">Notre mot d'ordre : <span class="hl">la régularité</span></h2>
 
     <div class="cagnotte-grid">
       <div>
@@ -718,7 +719,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
             <svg class="tier-check" aria-hidden="true" focusable="false"><use href="#icon-check"/></svg><span class="visually-hidden tier-sr"></span>
           </li>
         </ol>
-        <p class="tier-status" id="tier-status" aria-live="polite" data-i18n="status_objectif">Objectif : le <strong>palier 4</strong>, soit 20 familles nourries et 2 puits.</p>
+        <p class="tier-status" id="tier-status" aria-live="polite" data-i18n="status_objectif">Objectif : le <strong>palier 4</strong>, soit 20 familles nourries et 2 puits.</p>
         <div class="actions">
           <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_cagnotte">Participer à la cagnotte du mois</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
         </div>
@@ -780,7 +781,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
         <figcaption data-i18n="galerie_cap3">Des familles soutenues chaque mois</figcaption>
       </figure></li>
     </ul>
-    <p class="continue" data-i18n="continuer">On continue ? Les paliers 2, 3 et 4 financent chacun de nouveaux puits.</p>
+    <p class="continue" data-i18n="continuer">On continue ? Les paliers 2, 3 et 4 financent chacun de nouveaux puits.</p>
   </div>
 </section>
 
@@ -790,13 +791,13 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     <p class="tag" data-i18n="transp_tag">Transparence</p>
     <h2 id="transparence-title" data-i18n="transparence_titre">Transparence totale <span class="hl">de nos actions</span></h2>
     <div class="prose">
-      <p class="lead" data-i18n="transparence_p1">La transparence est au cœur de notre engagement. C'est pourquoi nous documentons chacune de nos distributions sur le terrain : toutes les photos et vidéos sont disponibles directement sur notre page Instagram. Vous pouvez ainsi suivre de manière concrète l'utilisation des dons et l'impact de chaque action.</p>
-      <p data-i18n="transparence_p2">Une question sur nos missions ou envie d'échanger avec notre équipe ? Écrivez-nous en message privé, nous serons heureux de vous répondre. Votre confiance est essentielle pour nous, et nous tenons à vous offrir toute la clarté et la proximité que vous méritez.</p>
+      <p class="lead" data-i18n="transparence_p1">La transparence est au cœur de notre engagement. C'est pourquoi nous documentons chacune de nos distributions sur le terrain : toutes les photos et vidéos sont disponibles directement sur notre page Instagram. Vous pouvez ainsi suivre de manière concrète l'utilisation des dons et l'impact de chaque action.</p>
+      <p data-i18n="transparence_p2">Une question sur nos missions ou envie d'échanger avec notre équipe ? Écrivez-nous en message privé, nous serons heureux de vous répondre. Votre confiance est essentielle pour nous, et nous tenons à vous offrir toute la clarté et la proximité que vous méritez.</p>
     </div>
     <ul class="proofs">
-      <li class="proof"><h3 data-i18n="preuve1_titre">Distribution du mois</h3><p data-i18n="preuve1_desc">Vos dons sont arrivés : toutes les photos sont publiées dans notre dernier post.</p></li>
-      <li class="proof"><h3 data-i18n="preuve2_titre">Bilan du mois</h3><p data-i18n="preuve2_desc">Paliers atteints, familles nourries, puits construits : on vous dit tout. Rendez-vous le 1er du mois suivant.</p></li>
-      <li class="proof"><h3 data-i18n="preuve3_titre">Une question ?</h3><p data-i18n="preuve3_desc">Écrivez-nous en message privé sur Instagram.</p></li>
+      <li class="proof"><h3 data-i18n="preuve1_titre">Distribution du mois</h3><p data-i18n="preuve1_desc">Vos dons sont arrivés : toutes les photos sont publiées dans notre dernier post.</p></li>
+      <li class="proof"><h3 data-i18n="preuve2_titre">Bilan du mois</h3><p data-i18n="preuve2_desc">Paliers atteints, familles nourries, puits construits : on vous dit tout. Rendez-vous le 1er du mois suivant.</p></li>
+      <li class="proof"><h3 data-i18n="preuve3_titre">Une question ?</h3><p data-i18n="preuve3_desc">Écrivez-nous en message privé sur Instagram.</p></li>
     </ul>
     <div class="actions">
       <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer">
@@ -813,11 +814,11 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     <p class="tag" data-i18n="faq_tag">Questions fréquentes</p>
     <h2 id="faq-title" data-i18n="faq_titre">Vos <span class="hl">questions</span></h2>
     <div class="faq-list">
-      <details><summary data-i18n="faq1_q">Où va mon don ?</summary><p class="faq-answer" data-i18n="faq1_a">15 € financent un colis alimentaire de 29 kg qui nourrit une famille pendant environ un mois ; 45 € financent un puits avec pompe manuelle. 100 % de votre participation est directement investie sur le terrain au Pakistan.</p></details>
-      <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours avec le même lien, dans la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
-      <details><summary data-i18n="faq3_q">Comment savoir que mon don est bien arrivé ?</summary><p class="faq-answer" data-i18n="faq3_a">Nous documentons chaque distribution : les photos et vidéos sont publiées sur notre page Instagram, et chaque mois nous publions un bilan des paliers atteints, des familles nourries et des puits construits.</p></details>
-      <details><summary data-i18n="faq4_q">Qui distribue l'aide sur place ?</summary><p class="faq-answer" data-i18n="faq4_a">Notre équipe locale au Pakistan prépare et distribue directement les colis, de la main à la main, sans intermédiaire.</p></details>
-      <details><summary data-i18n="faq5_q">Comment vous contacter ?</summary><p class="faq-answer" data-i18n="faq5_a">Écrivez-nous en message privé sur Instagram, nous serons heureux de vous répondre.</p></details>
+      <details><summary data-i18n="faq1_q">Où va mon don ?</summary><p class="faq-answer" data-i18n="faq1_a">15 € financent un colis alimentaire de 29 kg qui nourrit une famille pendant environ un mois ; 45 € financent un puits avec pompe manuelle. 100 % de votre participation est directement investie sur le terrain au Pakistan.</p></details>
+      <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours avec le même lien, dans la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
+      <details><summary data-i18n="faq3_q">Comment savoir que mon don est bien arrivé ?</summary><p class="faq-answer" data-i18n="faq3_a">Nous documentons chaque distribution : les photos et vidéos sont publiées sur notre page Instagram, et chaque mois nous publions un bilan des paliers atteints, des familles nourries et des puits construits.</p></details>
+      <details><summary data-i18n="faq4_q">Qui distribue l'aide sur place ?</summary><p class="faq-answer" data-i18n="faq4_a">Notre équipe locale au Pakistan prépare et distribue directement les colis, de la main à la main, sans intermédiaire.</p></details>
+      <details><summary data-i18n="faq5_q">Comment vous contacter ?</summary><p class="faq-answer" data-i18n="faq5_a">Écrivez-nous en message privé sur Instagram, nous serons heureux de vous répondre.</p></details>
     </div>
   </div>
 </section>
@@ -1228,11 +1229,11 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   // Textes générés par le script (le français n'est pas présent dans la page)
   var FR_EXTRA = {
     palier_atteint: 'Atteint',
-    status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
-    status_done: 'Objectif du mois atteint ! Merci à chacun d’entre vous.',
+    status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
+    status_done: 'Objectif du mois atteint ! Merci à chacun d’entre vous.',
     share_copied: 'Lien copié dans le presse-papiers.',
     share_error: 'Copiez l’adresse de la page pour la partager.',
-    share_text: '100seSupport France : une aide directe aux familles au Pakistan, chaque mois.'
+    share_text: '100seSupport France : une aide directe aux familles au Pakistan, chaque mois.'
   };
 
   var root = document.documentElement;
@@ -1534,7 +1535,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   root.classList.add('fx');
   var targets = [
     '.section .wrap > .tag', '.section .wrap > h2', '.section .wrap > .lead',
-    '.urgence .wrap > .tag', '.urgence .wrap > h2',
+    '.urgence .wrap > .tag', '.urgence .wrap > h2', '.urgence .wrap > .lead',
     '#histoire .split > div > .tag', '#histoire .split > div > h2',
     '#histoire .prose', '#histoire .mission', '#histoire .framed', '#histoire .france',
     '.quote blockquote', '.fact', '.offer', '.tile', '.contents > h3', '.contents > .note',
@@ -1584,20 +1585,29 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   window.requestAnimationFrame(reveal);
 
   /* 6. Compteurs animés (le vrai chiffre reste lu par les lecteurs d'écran) */
-  document.querySelectorAll('.stat dd').forEach(function (dd) {
+  document.querySelectorAll('.stat dd, .fact .num-box').forEach(function (dd) {
     var txt = dd.textContent.trim();
-    var m = txt.match(/^(\D*)(\d+)(.*)$/);
+    var subBox = dd.querySelector('.num-box-sub');
+    var prefixHTML = subBox ? subBox.outerHTML : '';
+    // On extrait les chiffres du texte (en ignorant le texte additionnel via regex)
+    var justText = subBox ? txt.replace(subBox.textContent, '').trim() : txt;
+    
+    var m = justText.match(/^(\D*)(\d+)(.*)$/);
     if (!m) return;
+    
     var target = parseInt(m[2], 10);
-    dd.textContent = '';
+    // Vider le conteneur mais garder le span caché
+    dd.innerHTML = '';
     var vis = document.createElement('span');
     vis.setAttribute('aria-hidden', 'true');
-    vis.textContent = m[1] + '0' + m[3];
+    vis.innerHTML = prefixHTML + m[1] + '0' + m[3];
     var sr = document.createElement('span');
     sr.className = 'visually-hidden';
     sr.textContent = txt;
+    
     dd.appendChild(vis);
     dd.appendChild(sr);
+    
     var cio = new IntersectionObserver(function (entries) {
       if (!entries[0].isIntersecting) return;
       cio.disconnect();
@@ -1605,7 +1615,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       var step = function (ts) {
         if (!t0) t0 = ts;
         var p = Math.min(1, (ts - t0) / dur);
-        vis.textContent = m[1] + Math.round(target * (1 - Math.pow(1 - p, 3))) + m[3];
+        vis.innerHTML = prefixHTML + m[1] + Math.round(target * (1 - Math.pow(1 - p, 3))) + m[3];
         if (p < 1) window.requestAnimationFrame(step);
       };
       window.requestAnimationFrame(step);
