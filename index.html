@@ -72,9 +72,10 @@ main:focus{outline:none}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 
 /* =========================================================
-   3. Typographie
+   3. Typographie (Améliorée)
    ========================================================= */
-.display,h1,h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.005em;overflow-wrap:break-word;hyphens:auto}
+/* hyphens: none pour empêcher les coupures disgracieuses (ex: SOLIDA-RITÉ) */
+.display,h1,h2{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.005em;overflow-wrap:break-word;hyphens:none}
 h1{font-size:clamp(3.2rem,13vw,6.8rem)}
 h2{font-size:clamp(2.4rem,9vw,4.4rem);margin-block-end:1.5rem;max-width:18ch}
 h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font-size:clamp(1.55rem,5vw,2.1rem);line-height:1.08}
@@ -82,9 +83,12 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .muted{color:var(--muted)}
 .prose p+p{margin-block-start:1rem}
 .prose{max-width:62ch}
-.tag{display:inline-block;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1rem,3.2vw,1.2rem);line-height:1.2;padding:.35em .6em .3em;background:var(--tag-bg);color:var(--tag-fg);margin-block-end:1rem}
-.hl{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.08;padding:.06em .16em .02em;margin-block:.08em;background:var(--hl-bg);color:var(--hl-fg)}
-.num-box{display:inline-block;font-family:var(--font-display);line-height:1;background:var(--hl-bg);color:var(--hl-fg);padding:.12em .22em .06em;font-size:clamp(3.4rem,15vw,6rem)}
+
+/* Étiquettes et encadrés adoucis */
+.tag{display:inline-block;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1rem,3.2vw,1.2rem);line-height:1.2;padding:.35em .6em .3em;background:var(--tag-bg);color:var(--tag-fg);margin-block-end:1rem;border-radius:4px;letter-spacing:0.02em}
+.hl{display:inline-block;max-width:100%;vertical-align:baseline;line-height:1.08;padding:.15em .25em .05em;margin-block:.08em;background:var(--hl-bg);color:var(--hl-fg);border-radius:4px}
+.num-box{display:inline-block;font-family:var(--font-display);line-height:1.05;background:var(--hl-bg);color:var(--hl-fg);padding:.15em .25em .05em;font-size:clamp(3.4rem,15vw,6rem);border-radius:6px}
+.num-box-sub{display:block;font-size:0.45em;line-height:1;margin-bottom:0.1em;opacity:0.95;letter-spacing:0.02em}
 .source{font-size:.9rem;color:var(--muted);margin-block-start:.75rem}
 
 /* =========================================================
@@ -172,28 +176,28 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 }
 
 /* =========================================================
-   7. Histoire
+   7. Histoire (Améliorée)
    ========================================================= */
 .split{display:grid;gap:2.5rem;align-items:start}
 @media (min-width:900px){.split{grid-template-columns:1.1fr .9fr;gap:4rem}}
 .framed{border:6px solid var(--bordeaux);background:var(--bordeaux)}
 .framed img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .mission{margin-block-start:2.5rem}
-.mission h3{margin-block-end:.9rem}
-.mission ul{display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;padding:0;list-style:none}
-.mission li{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.4rem,5vw,1.9rem);line-height:1.15;background:var(--bordeaux);color:var(--creme);padding:.12em .45em .08em}
+.mission h3{margin-block-end:1.2rem}
+.mission ul{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem;padding:0;list-style:none} /* gap augmenté */
+.mission li{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.4rem,5vw,1.9rem);line-height:1.15;background:var(--bordeaux);color:var(--creme);padding:.2em .6em .1em;border-radius:4px;letter-spacing:0.02em} /* padding et border-radius ajoutés */
 .france{margin-block-start:2rem;padding:1.75rem;border-inline-start:8px solid var(--ocre);background:var(--creme-clair)}
 .france .tag{--tag-bg:var(--ocre);--tag-fg:var(--brun)}
 .france h3{font-size:clamp(1.9rem,6vw,2.6rem);margin-block-end:.75rem}
 .france .hl{--hl-bg:var(--bordeaux);--hl-fg:var(--creme)}
 
 /* =========================================================
-   8. Citation
+   8. Citation (Améliorée)
    ========================================================= */
 .quote{padding-block:clamp(3.5rem,9vw,6rem)}
-.quote blockquote{position:relative;max-width:42ch;margin-inline:auto;text-align:center}
-.quote blockquote::before{content:"\201C";display:block;font-family:var(--font-display);font-size:5rem;line-height:.8;color:var(--ocre)}
-.quote p{font-size:clamp(1.35rem,4vw,2rem);line-height:1.4;font-weight:500}
+.quote blockquote{position:relative;max-width:38ch;margin-inline:auto;text-align:center} /* max-width réduit */
+.quote blockquote::before{content:"\201C";display:block;font-family:var(--font-display);font-size:5rem;line-height:.8;color:var(--ocre);margin-bottom:0.5rem} /* marge ajoutée */
+.quote p{font-size:clamp(1.35rem,4vw,2rem);line-height:1.6;font-weight:500;letter-spacing:0.01em} /* interligne augmenté */
 
 /* =========================================================
    9. Urgence
@@ -205,22 +209,23 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .facts{display:grid;gap:3rem;margin-block-start:1rem}
 @media (min-width:900px){.facts{grid-template-columns:repeat(3,1fr);gap:2.5rem}}
 .fact h3{margin-block:.9rem .6rem;font-size:clamp(1.5rem,4.5vw,1.9rem)}
-.fact .num-box{font-size:clamp(3rem,12vw,4.6rem)}
+.fact .num-box{font-size:clamp(3.2rem,12vw,5.2rem);display:block;width:max-content;max-width:100%} /* Forcer le bloc à épouser le texte */
 .fact p:not(.num-box):not(.fact-intro){color:var(--muted)}
 .fact-intro{font-weight:700;color:var(--fg);margin-block-end:.6rem}
 
 /* =========================================================
-   10. Comment votre don aide
+   10. Comment votre don aide (Amélioré)
    ========================================================= */
 .offers{display:grid;gap:2rem;margin-block-start:2.5rem}
 @media (min-width:860px){.offers{grid-template-columns:1fr 1fr}}
 .offer{background:var(--creme);color:var(--brun);display:flex;flex-direction:column}
-.offer-media{aspect-ratio:16/10;clip-path:polygon(0 0,100% 0,100% 86%,0 100%);overflow:hidden}
+.offer-media{aspect-ratio:16/10;clip-path:polygon(0 0,100% 0,100% 86%,0 100%);overflow:hidden;position:relative}
 [dir="rtl"] .offer-media{clip-path:polygon(0 0,100% 0,100% 100%,0 86%)}
 .offer-media img{width:100%;height:100%;object-fit:cover}
 .offer-body{padding:0 1.5rem 1.75rem;--hl-bg:var(--bordeaux);--hl-fg:var(--creme)}
-.offer .num-box{margin-block-start:-.2em;font-size:clamp(3.2rem,12vw,4.8rem)}
-.offer h3{margin-block:.9rem .5rem}
+/* Effet "étiquette" sur les prix */
+.offer .num-box{transform:translateY(-40%) rotate(-3deg);margin-block-start:0;font-size:clamp(3.4rem,12vw,5rem);border:4px solid var(--creme);border-radius:8px;box-shadow:2px 6px 16px rgba(0,0,0,0.12)}
+.offer h3{margin-block:0 .5rem} /* margin-top retiré pour compenser l'étiquette */
 .offer p:not(.num-box){color:#5B4A44}
 .contents{margin-block-start:4rem}
 .contents h3{font-size:clamp(2.2rem,8vw,3.4rem);margin-block-end:1.25rem}
@@ -242,7 +247,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .steps-block h3{font-size:clamp(2rem,7vw,2.8rem);margin-block-end:1rem}
 .steps{display:grid;gap:1.25rem;padding:0;margin:0;list-style:none}
 .step{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
-.step-n{font-family:var(--font-display);font-size:2.6rem;line-height:1;background:var(--ocre);color:var(--brun);min-width:3.2rem;text-align:center;padding:.12em .2em .05em}
+.step-n{font-family:var(--font-display);font-size:2.6rem;line-height:1;background:var(--ocre);color:var(--brun);min-width:3.2rem;text-align:center;padding:.12em .2em .05em;border-radius:4px}
 .step-title{font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.3rem,4.5vw,1.6rem);line-height:1.1}
 .step p:not(.step-title){color:var(--muted);margin-block-start:.2rem}
 .ladder-card{background:var(--creme-clair);padding:clamp(1.25rem,4vw,2rem);border-radius:var(--radius-card)}
@@ -271,7 +276,7 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .cagnotte-photo{margin-block-start:3rem}
 
 /* =========================================================
-   12. Réalisations
+   12. Réalisations (Améliorée)
    ========================================================= */
 .stat-groups{display:grid;gap:2.5rem;margin-block-start:2rem}
 @media (min-width:900px){.stat-groups{grid-template-columns:.8fr 1.2fr;gap:3rem}}
@@ -291,7 +296,8 @@ h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;font
 .gallery figure{border:6px solid var(--creme);background:var(--creme)}
 .gallery img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .gallery figcaption{color:var(--brun);font-weight:700;font-size:.95rem;padding:.6rem .4rem .35rem}
-.continue{margin-block-start:2.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.5rem,5vw,2.1rem);line-height:1.15;max-width:32ch}
+/* Interligne et lisibilité augmentés pour "ON CONTINUE" */
+.continue{margin-block-start:2.5rem;font-family:var(--font-display);text-transform:uppercase;font-size:clamp(1.55rem,5vw,2.2rem);line-height:1.25;max-width:36ch;letter-spacing:0.01em;opacity:0.95}
 
 /* =========================================================
    13. Transparence
@@ -507,7 +513,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
     <div class="facts">
       <article class="fact">
         <p class="fact-intro" data-i18n="constat_1">Selon les estimations les plus récentes,</p>
-        <p class="num-box" data-i18n="constat_chiffre">plus de 55 millions</p>
+        <!-- On sépare le "plus de" pour mettre en avant le chiffre -->
+        <p class="num-box" data-i18n="constat_chiffre"><span class="num-box-sub">plus de</span>55 millions</p>
         <p class="lead" data-i18n="constat_2">de personnes au Pakistan vivent aujourd'hui dans l'extrême pauvreté. Pour des millions de familles, trouver de quoi se nourrir ou accéder à l'eau potable reste chaque jour un défi.</p>
       </article>
       <article class="fact">
@@ -843,7 +850,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       badge_urgence: 'The emergency',
       urgence_titre: 'Why it <span class="hl">is urgent</span>',
       constat_1: 'According to the latest estimates,',
-      constat_chiffre: 'over 55 million',
+      constat_chiffre: '<span class="num-box-sub">over</span>55 million',
       constat_2: 'people in Pakistan live in extreme poverty today. For millions of families, finding food or accessing drinking water remains a daily challenge.',
       ipc_chiffre: '7.5 million',
       ipc_titre: 'Pakistanis suffer from acute hunger',
@@ -1002,7 +1009,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:clamp(2
       badge_urgence: 'فوری ضرورت',
       urgence_titre: 'یہ <span class="hl">فوری کیوں ہے</span>',
       constat_1: 'تازہ ترین اندازوں کے مطابق،',
-      constat_chiffre: '5 کروڑ 50 لاکھ سے زائد',
+      constat_chiffre: '<span class="num-box-sub">سے زیادہ</span>55 ملین',
       constat_2: 'افراد آج پاکستان میں انتہائی غربت میں زندگی گزار رہے ہیں۔ لاکھوں خاندانوں کے لیے روزانہ کھانا اور پینے کا صاف پانی حاصل کرنا ایک چیلنج ہے۔',
       ipc_chiffre: '75 لاکھ',
       ipc_titre: 'پاکستانی شدید بھوک کا شکار ہیں',
