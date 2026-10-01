@@ -362,6 +362,18 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 .don-actions{font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.2;margin-block-end:var(--sp-m)}
 .don .lead{color:var(--brun)}
 .don-rappel{margin-block-start:1rem;font-weight:700}
+/* Simulateur d'impact */
+.sim{margin:var(--sp-l) 0 0;padding:var(--sp-m);border:0;border-radius:var(--radius-card);background:var(--creme);color:var(--brun);max-width:640px;--focus:var(--bordeaux)}
+.sim-title{float:left;width:100%;padding:0;margin-block-end:var(--sp-s);font-family:var(--font-display);text-transform:uppercase;font-size:var(--fs-h4);line-height:1.15}
+.sim-chips{clear:both;display:flex;flex-wrap:wrap;gap:.5rem}
+.sim-chips label{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:4.6rem;padding:.4rem 1rem;border:2px solid var(--brun);border-radius:var(--radius-btn);font-family:var(--font-display);font-size:1.3rem;line-height:1;cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+.sim-chips label:hover{background:rgba(42,30,27,.08)}
+.sim-chips input:checked+label{background:var(--bordeaux);border-color:var(--bordeaux);color:var(--creme)}
+.sim-chips input:focus-visible+label{outline:3px solid var(--bordeaux);outline-offset:3px}
+.sim-out{margin-block-start:var(--sp-m);font-size:var(--fs-lead);line-height:1.5;min-height:3em}
+.sim-out strong{color:var(--bordeaux)}
+.sim-cta{margin-block-start:var(--sp-s);--btn-bg:var(--bordeaux);--btn-fg:var(--creme);--btn-hover:var(--bordeaux-fonce)}
+.sim-note{margin-block-start:.6rem;font-size:.9rem;color:#5B4A44}
 .share-status{min-height:1.6em;margin-block-start:.75rem;font-weight:700}
 
 /* =========================================================
@@ -397,7 +409,7 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
    ========================================================= */
 html[lang="ur"]{--font-display:"Noto Nastaliq Urdu","Noto Naskh Arabic","Jameel Noori Nastaleeq",serif;--font-body:"Noto Nastaliq Urdu","Noto Naskh Arabic",Tahoma,serif}
 html[lang="ur"] body{font-size:1.05rem;line-height:2.1}
-html[lang="ur"] :is(h1,h2,h3,.display,.tag,.btn,.mission li,.tile-label,.step-title,.tier-title,.tier-status,.continue,.don-actions,.stat dt,.brand-name){text-transform:none;letter-spacing:0}
+html[lang="ur"] :is(h1,h2,h3,.display,.sim-title,.tag,.btn,.mission li,.tile-label,.step-title,.tier-title,.tier-status,.continue,.don-actions,.stat dt,.brand-name){text-transform:none;letter-spacing:0}
 html[lang="ur"] :is(h1,h2,h3,.display){font-weight:700;line-height:1.85}
 html[lang="ur"] h1{font-size:calc(var(--fs-h1) * .7)}
 html[lang="ur"] h2{font-size:calc(var(--fs-h2) * .78)}
@@ -475,15 +487,15 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 /* Boutons : légère élévation, reflet lumineux sur les boutons de don */
 .btn{transition:background-color .2s ease,color .2s ease,translate .25s var(--ease-out),box-shadow .25s ease}
 .btn:active{transform:none;translate:0 1px}
-.btn[data-donate]{position:relative;overflow:hidden;isolation:isolate}
-.btn[data-donate]::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%);translate:-120% 0;pointer-events:none}
-[dir="rtl"] .btn[data-donate]::after{translate:120% 0;background:linear-gradient(250deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%)}
+.btn:is([data-donate],.sim-cta){position:relative;overflow:hidden;isolation:isolate}
+.btn:is([data-donate],.sim-cta)::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%);translate:-120% 0;pointer-events:none}
+[dir="rtl"] .btn:is([data-donate],.sim-cta)::after{translate:120% 0;background:linear-gradient(250deg,transparent 30%,rgba(255,255,255,.38) 50%,transparent 70%)}
 
 /* Cartes : légère élévation au survol (souris uniquement) */
 @media (hover:hover){
   .btn:hover{translate:0 -2px;box-shadow:0 12px 22px -12px rgba(0,0,0,.55)}
-  .btn[data-donate]:hover::after{translate:120% 0;transition:translate .8s var(--ease-out)}
-  [dir="rtl"] .btn[data-donate]:hover::after{translate:-120% 0}
+  .btn:is([data-donate],.sim-cta):hover::after{translate:120% 0;transition:translate .8s var(--ease-out)}
+  [dir="rtl"] .btn:is([data-donate],.sim-cta):hover::after{translate:-120% 0}
   .card,.proof,.offer{transition:translate .3s var(--ease-out),box-shadow .3s ease}
   .card:hover,.proof:hover,.offer:hover{translate:0 -4px;box-shadow:0 18px 30px -18px rgba(42,30,27,.45)}
 }
@@ -542,6 +554,10 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
   .fx .quote blockquote.in .w{opacity:1;translate:0 0}
   .fx .quote blockquote.rv::before{opacity:0;scale:.3;transition:opacity .4s ease,scale .7s var(--ease-spring)}
   .fx .quote blockquote.in::before{opacity:1;scale:1}
+
+  /* Simulateur : la réponse glisse, le montant choisi rebondit */
+  .sim-out.flash{animation:fadeDown .4s var(--ease-out)}
+  .sim-chips input:checked+label{animation:nudge .45s var(--ease-spring)}
 
   /* Bandeau de don mobile : petit signe à son arrivée */
   .sticky-don.is-visible .btn{animation:nudge .7s var(--ease-spring) .35s 1}
@@ -618,8 +634,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
         <button type="button" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
         <button type="button" data-lang="ur" lang="ur" aria-pressed="false" aria-label="اردو">اردو</button>
       </div>
-      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
-      <a class="btn btn-sm header-cta" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+      <a class="btn btn-sm header-cta" href="https://www.gofundme.com/f/100-se-support" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
         <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
         <span data-i18n="menu">Menu</span>
@@ -642,10 +657,9 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     <h1 id="hero-title" data-i18n="hero_title">Le bien <span class="hl">est facile</span></h1>
     <p class="lead" data-i18n="hero_desc">Apporter une aide vitale aux femmes, aux orphelins et aux familles démunies. Chaque geste compte, chaque don sauve des vies.</p>
     <div class="actions">
-      <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+      <a class="btn" href="https://www.gofundme.com/f/100-se-support" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <a class="btn btn-ghost" href="#histoire" data-i18n="btn_histoire">Notre histoire</a>
     </div>
-    <p class="note" data-donate-note data-i18n="donate_note">La cagnotte du mois est accessible via le lien en bio de notre Instagram.</p>
     <ul class="hero-facts">
       <li data-i18n="hero_fact1">Née en 2021 au Pakistan</li>
       <li data-i18n="hero_fact2">Antenne France depuis mars 2026</li>
@@ -796,7 +810,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
         <div class="steps-block">
           <h3 data-i18n="etapes_titre">Une cagnotte par mois</h3>
           <ol class="steps" role="list">
-            <li class="step"><span class="step-n" aria-hidden="true">1</span><div><p class="step-title" data-i18n="etape1_titre">Elle s'ouvre en début de mois</p><p data-i18n="etape1_desc">Toujours le même lien, en bio Instagram.</p></div></li>
+            <li class="step"><span class="step-n" aria-hidden="true">1</span><div><p class="step-title" data-i18n="etape1_titre">Elle s'ouvre en début de mois</p><p data-i18n="etape1_desc">Toujours la même page GoFundMe, accessible depuis ce site.</p></div></li>
             <li class="step"><span class="step-n" aria-hidden="true">2</span><div><p class="step-title" data-i18n="etape2_titre">Elle a 4 paliers</p><p data-i18n="etape2_desc">Chaque palier débloque plus d'aide.</p></div></li>
             <li class="step"><span class="step-n" aria-hidden="true">3</span><div><p class="step-title" data-i18n="etape3_titre">On vise le palier 4</p><p data-i18n="etape3_desc">Et on vous montre où va chaque euro.</p></div></li>
           </ol>
@@ -832,9 +846,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
         </ol>
         <p class="tier-status" id="tier-status" aria-live="polite" data-i18n="status_objectif">Objectif : le <strong>palier 4</strong>, soit 20 familles nourries et 2 puits.</p>
         <div class="actions">
-          <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_cagnotte">Participer à la cagnotte du mois</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+          <a class="btn" href="https://www.gofundme.com/f/100-se-support" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_cagnotte">Participer à la cagnotte du mois</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
         </div>
-        <p class="note" data-donate-note data-i18n="donate_note">La cagnotte du mois est accessible via le lien en bio de notre Instagram.</p>
       </div>
     </div>
   </div>
@@ -926,7 +939,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     <h2 id="faq-title" data-i18n="faq_titre">Vos <span class="hl">questions</span></h2>
     <div class="faq-list">
       <details><summary data-i18n="faq1_q">Où va mon don ?</summary><p class="faq-answer" data-i18n="faq1_a">15 € financent un colis alimentaire de 29 kg qui nourrit une famille pendant environ un mois ; 45 € financent un puits avec pompe manuelle. 100 % de votre participation est directement investie sur le terrain au Pakistan.</p></details>
-      <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours avec le même lien, dans la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
+      <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours sur la même page GoFundMe, accessible depuis ce site et la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
       <details><summary data-i18n="faq3_q">Comment savoir que mon don est bien arrivé ?</summary><p class="faq-answer" data-i18n="faq3_a">Nous documentons chaque distribution : les photos et vidéos sont publiées sur notre page Instagram, et chaque mois nous publions un bilan des paliers atteints, des familles nourries et des puits construits.</p></details>
       <details><summary data-i18n="faq4_q">Qui distribue l'aide sur place ?</summary><p class="faq-answer" data-i18n="faq4_a">Notre équipe locale au Pakistan prépare et distribue directement les colis, de la main à la main, sans intermédiaire.</p></details>
       <details><summary data-i18n="faq5_q">Comment vous contacter ?</summary><p class="faq-answer" data-i18n="faq5_a">Écrivez-nous en message privé sur Instagram, nous serons heureux de vous répondre.</p></details>
@@ -941,13 +954,22 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     <h2 id="don-title" data-i18n="footer_titre">Il n'y a pas <span class="hl">de petit don.</span></h2>
     <p class="don-actions" data-i18n="don_actions">Donner, partager, en parler</p>
     <p class="lead" data-i18n="footer_desc">100 % de votre participation est directement investie sur le terrain au Pakistan.</p>
-    <p class="don-rappel" data-i18n="don_rappel">15 € = un mois de nourriture pour une famille.</p>
+    <fieldset class="sim">
+      <legend class="sim-title" data-i18n="sim_titre">Simulez l'impact de votre don</legend>
+      <div class="sim-chips">
+        <input class="visually-hidden" type="radio" name="sim" id="sim-15" value="15" checked><label for="sim-15" class="ltr">15&nbsp;€</label>
+        <input class="visually-hidden" type="radio" name="sim" id="sim-30" value="30"><label for="sim-30" class="ltr">30&nbsp;€</label>
+        <input class="visually-hidden" type="radio" name="sim" id="sim-45" value="45"><label for="sim-45" class="ltr">45&nbsp;€</label>
+        <input class="visually-hidden" type="radio" name="sim" id="sim-75" value="75"><label for="sim-75" class="ltr">75&nbsp;€</label>
+        <input class="visually-hidden" type="radio" name="sim" id="sim-120" value="120"><label for="sim-120" class="ltr">120&nbsp;€</label>
+      </div>
+      <p class="sim-out" id="sim-out" aria-live="polite"><strong>1 colis alimentaire</strong>&nbsp;: une famille nourrie pendant un mois.</p>
+      <a class="btn sim-cta" id="sim-cta" href="https://www.gofundme.com/f/100-se-support/donate?amt=15" target="_blank" rel="noopener noreferrer"><span id="sim-cta-label">Donner 15&nbsp;€ sur GoFundMe</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+      <p class="sim-note" data-i18n="sim_note">Le montant reste modifiable sur GoFundMe.</p>
+    </fieldset>
     <div class="actions">
-      <!-- À remplacer par le lien officiel de don (voir CONFIG.donateUrl dans le script) -->
-      <a class="btn" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
       <button type="button" class="btn btn-ghost" id="share-btn"><svg aria-hidden="true" focusable="false"><use href="#icon-share"/></svg><span data-i18n="btn_partager">Partager le site</span></button>
     </div>
-    <p class="note" data-donate-note data-i18n="donate_note">La cagnotte du mois est accessible via le lien en bio de notre Instagram.</p>
     <p class="share-status" id="share-status" role="status"></p>
   </div>
 </section>
@@ -991,7 +1013,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 <!-- Bandeau de don discret, mobile uniquement -->
 <div class="sticky-don" id="sticky-don">
   <p data-i18n="sticky_text">15 € = 1 mois de nourriture pour une famille</p>
-  <a class="btn btn-sm" href="https://www.instagram.com/100sesupport.fr/" target="_blank" rel="noopener noreferrer" data-donate tabindex="-1"><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
+  <a class="btn btn-sm" href="https://www.gofundme.com/f/100-se-support" target="_blank" rel="noopener noreferrer" data-donate tabindex="-1"><span data-i18n="btn_don">Faire un don</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
 </div>
 
 <script>
@@ -1002,9 +1024,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
      CONFIGURATION : les seules valeurs à modifier chaque mois
      ============================================================ */
   var CONFIG = {
-    // À remplacer par le lien officiel de don (cagnotte). Tant qu'il est vide,
-    // les boutons de don renvoient vers le profil Instagram (lien en bio).
-    donateUrl: '',
+    // Lien officiel de la cagnotte GoFundMe : modifiez-le ici, tous les boutons de don suivent.
+    donateUrl: 'https://www.gofundme.com/f/100-se-support',
     // Nombre de paliers débloqués pour la cagnotte en cours (0 à 4).
     paliersAtteints: 0,
     defaultLang: 'fr',
@@ -1037,7 +1058,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       btn_don: 'Donate',
       btn_histoire: 'Our story',
       new_tab: '(opens in a new tab)',
-      donate_note: 'This month’s fundraiser is available through the link in our Instagram bio.',
       hero_fact1: 'Founded in 2021 in Pakistan',
       hero_fact2: 'French branch since March 2026',
       alt_hero: 'Smiling children with a member of the 100seSupport team in Pakistan',
@@ -1095,7 +1115,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       pause_p2: 'So rather than occasional collections, we commit to helping <strong>every month</strong>.',
       etapes_titre: 'One fundraiser per month',
       etape1_titre: 'It opens at the start of the month',
-      etape1_desc: 'Always the same link, in our Instagram bio.',
+      etape1_desc: 'Always the same GoFundMe page, linked from this site.',
       etape2_titre: 'It has 4 tiers',
       etape2_desc: 'Each tier unlocks more aid.',
       etape3_titre: 'We aim for tier 4',
@@ -1152,7 +1172,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       faq1_q: 'Where does my donation go?',
       faq1_a: '€15 funds a 29 kg food parcel that feeds a family for about a month; €45 funds a well with a hand pump. 100% of your contribution is invested directly in the field in Pakistan.',
       faq2_q: 'How does the monthly fundraiser work?',
-      faq2_a: 'It opens at the start of each month, always with the same link, in our Instagram bio. It has 4 tiers: €75, €120, €200 and €400. Our goal is tier 4, i.e. 20 families fed and 2 wells.',
+      faq2_a: 'It opens at the start of each month, always on the same GoFundMe page, linked from this site and our Instagram bio. It has 4 tiers: €75, €120, €200 and €400. Our goal is tier 4, i.e. 20 families fed and 2 wells.',
       faq3_q: 'How do I know my donation arrived?',
       faq3_a: 'We document every distribution: photos and videos are published on our Instagram page, and every month we share a report on the tiers reached, the families fed and the wells built.',
       faq4_q: 'Who distributes the aid locally?',
@@ -1163,8 +1183,16 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       footer_titre: 'No donation <span class="hl">is too small.</span>',
       don_actions: 'Give, share, spread the word',
       footer_desc: '100% of your contribution is invested directly in the field in Pakistan.',
-      don_rappel: '€15 = one month of food for a family.',
       btn_partager: 'Share the site',
+      sim_titre: 'See what your donation does',
+      sim_15: '<strong>1 food parcel</strong>: one family fed for a month.',
+      sim_30: '<strong>2 food parcels</strong>: two families fed for a month.',
+      sim_45: '<strong>1 well with a hand pump</strong>: drinking water for a whole family, every day.',
+      sim_75: '<strong>5 food parcels</strong>: tier 1 of this month’s fundraiser.',
+      sim_120: '<strong>5 parcels + 1 well</strong>: tier 2 of this month’s fundraiser.',
+      sim_note: 'You can still change the amount on GoFundMe.',
+      btn_sim: 'Give {amount} on GoFundMe',
+      amount_fmt: '€{n}',
       share_copied: 'Link copied to the clipboard.',
       share_error: 'Copy this page’s address to share it.',
       share_text: '100seSupport France: direct aid for families in Pakistan, every month.',
@@ -1196,7 +1224,6 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       btn_don: 'عطیہ کریں',
       btn_histoire: 'ہماری کہانی',
       new_tab: '(نئی ٹیب میں کھلتا ہے)',
-      donate_note: 'اس مہینے کی مہم کا لنک ہمارے انسٹاگرام بائیو میں موجود ہے۔',
       hero_fact1: '2021 میں پاکستان میں آغاز',
       hero_fact2: 'مارچ 2026 سے فرانس میں شاخ',
       alt_hero: 'پاکستان میں 100seSupport ٹیم کے ایک رکن کے ساتھ مسکراتے بچے',
@@ -1254,7 +1281,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       pause_p2: 'اس لیے کبھی کبھار کی مہمات کے بجائے، ہم نے <strong>ہر مہینے</strong> مدد کرنے کا عہد کیا ہے۔',
       etapes_titre: 'ہر مہینے ایک مہم',
       etape1_titre: 'مہینے کے شروع میں کھلتی ہے',
-      etape1_desc: 'ہمیشہ وہی لنک، انسٹاگرام بائیو میں۔',
+      etape1_desc: 'ہمیشہ وہی GoFundMe صفحہ، اس ویب سائٹ سے دستیاب۔',
       etape2_titre: 'اس کے 4 مراحل ہیں',
       etape2_desc: 'ہر مرحلہ مزید مدد ممکن بناتا ہے۔',
       etape3_titre: 'ہمارا ہدف مرحلہ 4 ہے',
@@ -1311,7 +1338,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       faq1_q: 'میرا عطیہ کہاں جاتا ہے؟',
       faq1_a: '15 یورو سے 29 کلو کا ایک راشن پیکٹ بنتا ہے جو ایک خاندان کو تقریباً ایک مہینہ کھانا دیتا ہے؛ 45 یورو سے ہینڈ پمپ والا ایک کنواں بنتا ہے۔ آپ کی رقم کا 100 فیصد براہِ راست پاکستان میں زمینی کام پر خرچ ہوتا ہے۔',
       faq2_q: 'ماہانہ مہم کیسے کام کرتی ہے؟',
-      faq2_a: 'یہ ہر مہینے کے شروع میں کھلتی ہے، ہمیشہ اسی لنک کے ساتھ جو ہمارے انسٹاگرام بائیو میں ہے۔ اس کے 4 مراحل ہیں: 75، 120، 200 اور 400 یورو۔ ہمارا ہدف مرحلہ 4 ہے، یعنی 20 خاندانوں کے لیے کھانا اور 2 کنویں۔',
+      faq2_a: 'یہ ہر مہینے کے شروع میں کھلتی ہے، ہمیشہ اسی GoFundMe صفحے پر، جو اس ویب سائٹ اور ہمارے انسٹاگرام بائیو سے دستیاب ہے۔ اس کے 4 مراحل ہیں: 75، 120، 200 اور 400 یورو۔ ہمارا ہدف مرحلہ 4 ہے، یعنی 20 خاندانوں کے لیے کھانا اور 2 کنویں۔',
       faq3_q: 'مجھے کیسے پتا چلے گا کہ میرا عطیہ پہنچ گیا؟',
       faq3_a: 'ہم ہر تقسیم کو محفوظ کرتے ہیں: تصاویر اور ویڈیوز ہمارے انسٹاگرام پیج پر شائع ہوتی ہیں، اور ہر مہینے ہم مکمل ہونے والے مراحل، کھانا پانے والے خاندانوں اور بننے والے کنوؤں کا خلاصہ شائع کرتے ہیں۔',
       faq4_q: 'وہاں مدد کون تقسیم کرتا ہے؟',
@@ -1322,8 +1349,16 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       footer_titre: 'کوئی عطیہ <span class="hl">چھوٹا نہیں۔</span>',
       don_actions: 'عطیہ کریں، شیئر کریں، دوسروں کو بتائیں',
       footer_desc: 'آپ کی رقم کا 100 فیصد براہِ راست پاکستان میں زمینی کام پر خرچ ہوتا ہے۔',
-      don_rappel: '15 یورو = ایک خاندان کے لیے ایک مہینے کا کھانا۔',
       btn_partager: 'ویب سائٹ شیئر کریں',
+      sim_titre: 'دیکھیں آپ کا عطیہ کیا کرتا ہے',
+      sim_15: '<strong>1 راشن پیکٹ</strong>: ایک خاندان کے لیے ایک مہینے کا کھانا۔',
+      sim_30: '<strong>2 راشن پیکٹ</strong>: دو خاندانوں کے لیے ایک مہینے کا کھانا۔',
+      sim_45: '<strong>ہینڈ پمپ والا 1 کنواں</strong>: پورے خاندان کے لیے روزانہ صاف پانی۔',
+      sim_75: '<strong>5 راشن پیکٹ</strong>: اس مہینے کی مہم کا پہلا مرحلہ۔',
+      sim_120: '<strong>5 پیکٹ + 1 کنواں</strong>: اس مہینے کی مہم کا دوسرا مرحلہ۔',
+      sim_note: 'رقم GoFundMe پر تبدیل کی جا سکتی ہے۔',
+      btn_sim: 'GoFundMe پر {amount} عطیہ کریں',
+      amount_fmt: '{n} یورو',
       share_copied: 'لنک کاپی ہو گیا۔',
       share_error: 'شیئر کرنے کے لیے اس صفحے کا پتا کاپی کریں۔',
       share_text: '100seSupport France: پاکستان میں خاندانوں کے لیے ہر مہینے براہِ راست مدد۔',
@@ -1339,6 +1374,13 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
 
   // Textes générés par le script (le français n'est pas présent dans la page)
   var FR_EXTRA = {
+    sim_15: '<strong>1 colis alimentaire</strong> : une famille nourrie pendant un mois.',
+    sim_30: '<strong>2 colis alimentaires</strong> : deux familles nourries pendant un mois.',
+    sim_45: '<strong>1 puits avec pompe manuelle</strong> : de l’eau potable pour toute une famille, tous les jours.',
+    sim_75: '<strong>5 colis alimentaires</strong> : le palier 1 de la cagnotte du mois.',
+    sim_120: '<strong>5 colis + 1 puits</strong> : le palier 2 de la cagnotte du mois.',
+    btn_sim: 'Donner {amount} sur GoFundMe',
+    amount_fmt: '{n} €',
     palier_atteint: 'Atteint',
     status_next: 'Palier {done} débloqué ! Prochain : palier {next} · {amount}',
     status_done: 'Objectif du mois atteint ! Merci à chacun d’entre vous.',
@@ -1415,6 +1457,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     });
 
     renderTiers();
+    renderSim(false);
     try { localStorage.setItem('lang', lang); } catch (e) { /* stockage indisponible */ }
   }
 
@@ -1442,6 +1485,24 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
         .replace('{next}', done + 1)
         .replace('{amount}', next ? next.getAttribute('data-amount') : '');
     }
+  }
+
+  /* ---------------- Simulateur d'impact ---------------- */
+  function renderSim(animate) {
+    var out = document.getElementById('sim-out');
+    var checked = document.querySelector('.sim input:checked');
+    if (!out || !checked) return;
+    out.innerHTML = t('sim_' + checked.value);
+    var cta = document.getElementById('sim-cta');
+    var label = document.getElementById('sim-cta-label');
+    if (cta && CONFIG.donateUrl) cta.href = CONFIG.donateUrl.replace(/\/$/, '') + '/donate?amt=' + checked.value;
+    if (label) label.textContent = t('btn_sim').replace('{amount}', t('amount_fmt').replace('{n}', checked.value));
+    if (animate) { out.classList.remove('flash'); void out.offsetWidth; out.classList.add('flash'); }
+  }
+  function setupSim() {
+    document.querySelectorAll('.sim input').forEach(function (input) {
+      input.addEventListener('change', function () { renderSim(true); });
+    });
   }
 
   /* ---------------- Liens de don ---------------- */
@@ -1575,6 +1636,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     setupStickyBar();
     setupLadderAnimation();
     setupShare();
+    setupSim();
   }
 
   init();
