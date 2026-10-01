@@ -262,6 +262,8 @@ p,li,dd,summary,figcaption{text-wrap:pretty}
 [dir="rtl"] .offer .num-box{transform:translateY(-40%) rotate(3deg)}
 .offer h3{margin-block:0 .5rem}
 .offer p:not(.num-box){color:#5B4A44}
+/* Note de transparence sur l'utilisation de l'argent des puits */
+.fallback-note{margin-block-start:.9rem;padding-inline-start:.75rem;border-inline-start:3px solid var(--ocre);font-size:.92rem;line-height:1.5;color:#5B4A44}
 .contents{margin-block-start:4rem}
 .contents h3{margin-block-end:var(--sp-m)}
 .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;padding:0;list-style:none}
@@ -774,6 +776,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
           <p class="num-box ltr">45 €</p>
           <h3 data-i18n="puits_titre">1 puits avec pompe manuelle</h3>
           <p data-i18n="puits_desc">De l'eau potable pour toute la famille, tous les jours, pour les familles qui n'ont pas de point d'eau à proximité.</p>
+          <p class="fallback-note" data-i18n="puits_note">Si nous ne trouvons pas de famille ayant besoin d’un puits, l’argent prévu est utilisé pour nourrir des familles avec des colis alimentaires.</p>
         </div>
       </article>
     </div>
@@ -845,6 +848,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
           </li>
         </ol>
         <p class="tier-status" id="tier-status" aria-live="polite" data-i18n="status_objectif">Objectif : le <strong>palier 4</strong>, soit 20 familles nourries et 2 puits.</p>
+        <p class="fallback-note" data-i18n="puits_note">Si nous ne trouvons pas de famille ayant besoin d’un puits, l’argent prévu est utilisé pour nourrir des familles avec des colis alimentaires.</p>
         <div class="actions">
           <a class="btn" href="https://www.gofundme.com/f/100-se-support" target="_blank" rel="noopener noreferrer" data-donate><span data-i18n="btn_cagnotte">Participer à la cagnotte du mois</span><span class="visually-hidden" data-i18n="new_tab">(s'ouvre dans un nouvel onglet)</span></a>
         </div>
@@ -939,6 +943,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
     <h2 id="faq-title" data-i18n="faq_titre">Vos <span class="hl">questions</span></h2>
     <div class="faq-list">
       <details><summary data-i18n="faq1_q">Où va mon don ?</summary><p class="faq-answer" data-i18n="faq1_a">15 € financent un colis alimentaire de 29 kg qui nourrit une famille pendant environ un mois ; 45 € financent un puits avec pompe manuelle. 100 % de votre participation est directement investie sur le terrain au Pakistan.</p></details>
+      <details><summary data-i18n="faq6_q">Et si aucune famille n’a besoin d’un puits ?</summary><p class="faq-answer" data-i18n="faq6_a">Si nous ne trouvons pas de famille ayant besoin d’un puits, l’argent prévu est utilisé pour nourrir des familles avec des colis alimentaires.</p></details>
       <details><summary data-i18n="faq2_q">Comment fonctionne la cagnotte du mois ?</summary><p class="faq-answer" data-i18n="faq2_a">Elle s'ouvre en début de mois, toujours sur la même page GoFundMe, accessible depuis ce site et la bio de notre Instagram. Elle compte 4 paliers : 75 €, 120 €, 200 € et 400 €. Notre objectif est le palier 4, soit 20 familles nourries et 2 puits.</p></details>
       <details><summary data-i18n="faq3_q">Comment savoir que mon don est bien arrivé ?</summary><p class="faq-answer" data-i18n="faq3_a">Nous documentons chaque distribution : les photos et vidéos sont publiées sur notre page Instagram, et chaque mois nous publions un bilan des paliers atteints, des familles nourries et des puits construits.</p></details>
       <details><summary data-i18n="faq4_q">Qui distribue l'aide sur place ?</summary><p class="faq-answer" data-i18n="faq4_a">Notre équipe locale au Pakistan prépare et distribue directement les colis, de la main à la main, sans intermédiaire.</p></details>
@@ -1097,6 +1102,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       colis_desc: '29 kg of food, 1 month for a family. It is prepared and distributed directly by our team in Pakistan.',
       puits_titre: '1 well with a hand pump',
       puits_desc: 'Drinking water for the whole family, every day, for families with no water source nearby.',
+      puits_note: 'If we can’t find a family in need of a well, the money set aside is used to feed families with food parcels.',
       alt_colis: 'Dozens of yellow and white food parcels bearing the 100seSupport logo, ready to be distributed',
       alt_puits: 'A boy laughs next to a hand pump while another child drinks the water flowing from it',
       contenu_titre: 'Inside a parcel',
@@ -1171,6 +1177,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       faq_titre: 'Your <span class="hl">questions</span>',
       faq1_q: 'Where does my donation go?',
       faq1_a: '€15 funds a 29 kg food parcel that feeds a family for about a month; €45 funds a well with a hand pump. 100% of your contribution is invested directly in the field in Pakistan.',
+      faq6_q: 'What if no family needs a well?',
+      faq6_a: 'If we can’t find a family in need of a well, the money set aside is used to feed families with food parcels.',
       faq2_q: 'How does the monthly fundraiser work?',
       faq2_a: 'It opens at the start of each month, always on the same GoFundMe page, linked from this site and our Instagram bio. It has 4 tiers: €75, €120, €200 and €400. Our goal is tier 4, i.e. 20 families fed and 2 wells.',
       faq3_q: 'How do I know my donation arrived?',
@@ -1263,6 +1271,7 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       colis_desc: '29 کلو کھانا، ایک خاندان کے لیے ایک مہینہ۔ اسے پاکستان میں ہماری ٹیم براہِ راست تیار اور تقسیم کرتی ہے۔',
       puits_titre: 'ہینڈ پمپ والا 1 کنواں',
       puits_desc: 'پورے خاندان کے لیے روزانہ صاف پانی، ان خاندانوں کے لیے جن کے قریب پانی کا کوئی ذریعہ نہیں۔',
+      puits_note: 'اگر ہمیں کنویں کی ضرورت والا کوئی خاندان نہ ملے، تو اس کے لیے رکھی گئی رقم راشن پیکٹوں کے ذریعے خاندانوں کو کھانا فراہم کرنے پر خرچ کی جاتی ہے۔',
       alt_colis: '100seSupport کے لوگو والے درجنوں پیلے اور سفید راشن پیکٹ، تقسیم کے لیے تیار',
       alt_puits: 'ایک لڑکا ہینڈ پمپ کے پاس ہنس رہا ہے جبکہ دوسرا بچہ اس سے نکلنے والا پانی پی رہا ہے',
       contenu_titre: 'ایک پیکٹ میں کیا ہے',
@@ -1337,6 +1346,8 @@ html[lang="ur"] .fact .num-box{font-family:var(--font-display);font-size:calc(va
       faq_titre: 'آپ کے <span class="hl">سوالات</span>',
       faq1_q: 'میرا عطیہ کہاں جاتا ہے؟',
       faq1_a: '15 یورو سے 29 کلو کا ایک راشن پیکٹ بنتا ہے جو ایک خاندان کو تقریباً ایک مہینہ کھانا دیتا ہے؛ 45 یورو سے ہینڈ پمپ والا ایک کنواں بنتا ہے۔ آپ کی رقم کا 100 فیصد براہِ راست پاکستان میں زمینی کام پر خرچ ہوتا ہے۔',
+      faq6_q: 'اگر کسی خاندان کو کنویں کی ضرورت نہ ہو تو؟',
+      faq6_a: 'اگر ہمیں کنویں کی ضرورت والا کوئی خاندان نہ ملے، تو اس کے لیے رکھی گئی رقم راشن پیکٹوں کے ذریعے خاندانوں کو کھانا فراہم کرنے پر خرچ کی جاتی ہے۔',
       faq2_q: 'ماہانہ مہم کیسے کام کرتی ہے؟',
       faq2_a: 'یہ ہر مہینے کے شروع میں کھلتی ہے، ہمیشہ اسی GoFundMe صفحے پر، جو اس ویب سائٹ اور ہمارے انسٹاگرام بائیو سے دستیاب ہے۔ اس کے 4 مراحل ہیں: 75، 120، 200 اور 400 یورو۔ ہمارا ہدف مرحلہ 4 ہے، یعنی 20 خاندانوں کے لیے کھانا اور 2 کنویں۔',
       faq3_q: 'مجھے کیسے پتا چلے گا کہ میرا عطیہ پہنچ گیا؟',
